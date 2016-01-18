@@ -5,9 +5,9 @@ taxonomy:
         - docs
 ---
 
-Flint is an Adaptive IT Process Automation & Orchestration Platform for IT infrastructure and applications. It empowers teams to leverage existing scripting (Ruby or Groovy) skills to develop powerful workflows and processes which can be published as microservices.
+##### Flint is an Adaptive IT Process Automation & Orchestration Platform for IT infrastructure and applications. It empowers teams to leverage existing scripting (Ruby or Groovy) skills to develop powerful workflows and processes which can be published as microservices.
 
-The raw power of scripting and error handling that Flint provides allows better designing of workflows and its grid architecture makes them extremely scalable.
+> The raw power of scripting and error handling allows better designing of workflows and its grid architecture makes them extremely scalable.
 
 Flint helps in automation of routine IT tasks & activities which saves time and cost thus allowing the team to focus on strategic initiatives and innovation.
 

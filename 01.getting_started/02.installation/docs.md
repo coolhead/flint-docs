@@ -97,3 +97,31 @@ To install flint on remore server you need to perform some additional configurat
 * Make sure you have configured DNS or **hosts** file to point configured hostname to server's IP address
   * Unix/Linux: `vi /etc/hosts`
   * Windows: `notepad %SystemRoot%\System32\drivers\etc\hosts`
+
+## Flint Folder Structure
+
+```
+flint-x.x.x.x
+├── config                 # all configuration files are stored here
+│   ├── application.cfg    # main configuration file
+│   ├── cluster.xml        # used to configure flint grid
+├── base-mods              # used to store base modules (do not change this folder)
+├── connectors             # used to store connector jars (add/replace new and updated connectors here)
+├── db                     # used to store internal info (do not change this folder)
+├── flintbox               # used to store flintbox: these are cloned from remote git repo
+│   ├── example            # a flintbox cloned from remote git repo
+│   │   |── hello.rb       # a ruby flintbit inside a flintbox  
+│   │   |── hi.groovy      # a groovy flintbit inside a flintbox  
+│   └── test               # another flintbox
+│       └── one.rb         # a ruby flintbit inside a flintbox  
+├── gridconfig             # used to store current and snapshots of Grid configuration
+├── lib                    # used to store library jars. You can copy new jars here (e.g JMS, JDBC drivers etc)
+├── listeners              # used to store listener jars (add/replace new and updated listeners here)
+├── logs                   # used to store all log files
+│   │── startup.log        # stores startup logs (when flint starts)
+│   │── platform.log       # have platform related logs
+│   │── job.log            # have flintbit job run logs (tail this to debug your flintbits)
+├── sys-mod                # System modules (Do not change this folder)
+└── web-root               # UI console files
+
+```
