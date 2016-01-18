@@ -84,7 +84,7 @@ flint.bat uninstallservice
 
 ---
 ## Install Flint on remote server or cloud virtual machine
-To install flint on remore server you need to perform some configuration
+To install flint on remore server you need to perform some additional configuration
 
 * Update **flint.cluster.hostname** parameter in **config/application.cfg** with hostname of server
 * Update **tcp-ip/member** parameter in **config/cluster.xml** with hostname of server
