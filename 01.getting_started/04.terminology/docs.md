@@ -36,6 +36,8 @@ They are used to:
 * Call/Run other flintbits and pass input to them. e.g. `@call.bit("example:hello.rb")`
 * Set output of the flintbit. e.g `@output.set("message","hello")`
 
+For list of objects and functions that flint provides see [Flintbit functions](../flintbit_functions) section.
+
 ## Flint Job
 
 > Each flintbit run is a job with a unique job-id
