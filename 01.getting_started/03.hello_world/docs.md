@@ -102,6 +102,8 @@ You can check the output of your flintbit run on the output tab
 
 For more information on using trigger on demand console see [Trigger on Demand](../../grid_configuration/trigger_on_demand) section.
 
+> Thats it! Congratulations! you have just ran your first flintbit.
+
 #### Using REST Client
 
 Execution of a Flintbit can be done via RESTful APIs. Flint REST APIs documentation can be found at [REST API](../../api/rest)

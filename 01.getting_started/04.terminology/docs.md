@@ -4,42 +4,31 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum fama iusserat **sit trunca**, isto et quid dolens Aeetias.
-Indice [pater in](http://www.mozilla.org/) constitit *munus* voces bidentum
-officium te utrique animaeque multum dedit. Coimus premens? Flet hospes ad
-nequeunt uti; sacerdotis gestit. Dis comas meum texerat frustra, saniemque
-restituit ullus, vox.
+## Flintbox
 
-Atque et [quoque](http://www.youtube.com/watch?v=MghiBW3r65M): nec **ales
-aspicis** ille honorem! Et novissima facinus cursum, futura acutis. Funereum cur
-guttura servati. Aberat [mersa acta](http://www.wedrinkwater.com/) primi, sed
-superum.
+Flintbox is a git repository location which contains or hold all the flintbits (workflows written in Ruby or Groovy).
 
-## Agros aut
+> flintbox = git repository
 
-Tum limen malo tibi, corporeusque sine *Caphereus dissimiles* tecta demittit
-fletus: duritia prior, amici! Terrae furibunda vini stetit illius temptamina
-virtus sagacior et nunc vidi. Telae morata nulla. Quid femina Iovi bella, *in*
-memorante sublimis.
 
-## Dubita qui messoris pudet spectat inbutam est
+## Flintbit
 
-Quoque quantum manebat huc fuerim dabimus socium in, illi fibris ore error
-murmure primis, natis nunc dixi occupat. Dea rogantem fugit audet, quantoque
-praeteriti illis, quamlibet teneo, ora agmen desinite, deum, desistere. Frustra
-ferunt fiunt, pellem, qua saepe variarum. *Non quam* quae monte, addita
-hominumque hic tenentes [praelate](http://www.metafilter.com/) venturi florentis
-videtur. Est Caucason nostros *iubent serpentibus* posuit Mnemonidas ducere
-cecidit flumina.
+> ruby or groovy scripts stored inside flintbox
 
-1. Sit bis ipse in ossa vocavit status
-2. Et defendere
-3. Quod Pallas ilia Amphrisia caecus procubuisse dixit
-4. Lumina qua negaverit vaga facit gelidae forma
-5. Sic decepto recordor arboris ducentem poena
-6. Dea patre lacrimas quamquam
+Flintbit is a ruby or groovy script, which contain your business logic. It uses 'flitbit functions' to get input, call connectors and other flintbits and finally to set output.
 
-## Sed ut Nape quid coniunx oscula
+All flintbits are accessible via RESTful APIs making them micro-services.
+
+
+
+## Flintbit objects and functions
+
+> objects and functions that are used to interact with flint from your scripts
+
+
+## Flint Node
+
+> Instance of flint running on physical or virtual server
 
 Ratus quoque nostrae invenies adspiciam data Eurytidae et mora ense
 [cognitus](http://landyachtz.com/): meae pariterque, **fraude pro**. In illi
@@ -54,7 +43,61 @@ quo vultus iter miratus conubio heros est extrahit.
 > Anum fortis tremulis nunc infracto frontem nec. Draconum iamque *alto*, his
 > ubique mox matrum demisit suo optet ad!
 
-## Sensit multis
+## Flint Grid
+
+> A collection of one or more flint nodes connected to each other
+
+Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
+[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+
+Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
+marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
+est.
+
+## Connectors
+
+> Flint components which are used to take action on external systems.
+
+Connectors are used to communicate with the external world. For the communication to take place, connectors are configured on Grid nodes and Flintbits are used to call a connector, thus accomplishing the purpose of a connector and fulfilling your needs.
+
+Using Grid configuration, connectors are configured on grid nodes. If no node is provided in the configuration, Flint's decision making capability will cause the connector to be enabled on at least one of the nodes of the grid.
+
+## Listeners
+
+> Flint components that listen to events coming from external systems
+
+Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
+[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+
+Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
+marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
+est.
+
+## Schedules
+
+> Enables flint to schedule running of flintbits
+
+Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
+[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+
+Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
+marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
+est.
+
+## Global Configuration
+
+> Configuration which is available for all the flintbox and flintbits deployed on the grid
+
+Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
+[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+
+Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
+marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
+est.
+
+## Local Configuration
+
+> Configuration which is available only to flintbox and flintbits in which the configuration is defined.
 
 Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
 [ipse](http://haskell.org/), et operum et victus maneas, distincta.

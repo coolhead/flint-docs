@@ -98,6 +98,8 @@ To install flint on remore server you need to perform some additional configurat
   * Unix/Linux: `vi /etc/hosts`
   * Windows: `notepad %SystemRoot%\System32\drivers\etc\hosts`
 
+>>>>> For AWS EC2 please map private IP to hostname in hosts file.
+
 ## Flint Folder Structure
 
 ```
