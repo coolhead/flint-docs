@@ -15,9 +15,11 @@ To get started with Flint, we have defined the standard "hello world" example.
 
 #### What is a Flintbox?
 
-Flintbox is a git repository location which contains or hold all the flintbits (workflows written in Ruby or Groovy).
+> flintbox is collection of similar flintbits in git repository
 
-> flintbox = git repository
+Flintbox is a git repository which contains or hold all the flintbits (workflows written in Ruby or Groovy). They are collection of similar types of flintbits.
+
+
 
 In production or remote flint deployment, flintbox are always cloned from git repository into the 'flintbox' directory. In development setup and when running flint locally, you can directly open and edit them in your favorite text editor.
 
@@ -43,11 +45,12 @@ $ mkdir mybox
 
 #### What is a Flintbit?
 
+> flintbit = ruby or groovy scripts stored inside flintbox
+
 Flintbit is a ruby or groovy script, which contain your business logic. It uses 'flitbit functions' to get input, call connectors and other flintbits and finally to set output.
 
 All flintbits are accessible via RESTful APIs making them micro-services.
 
-> flintbit = ruby or groovy scripts stored inside flintbox
 
 #### Create Flntbit
 

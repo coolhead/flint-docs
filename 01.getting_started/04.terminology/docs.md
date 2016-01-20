@@ -3,12 +3,15 @@ title: Terminology
 taxonomy:
     category: docs
 ---
+![how_it_works](how_it_works.png)
 
 ## Flintbox
 
-Flintbox is a git repository location which contains or hold all the flintbits (workflows written in Ruby or Groovy).
+> flintbox is collection of similar flintbits in git repository
 
-> flintbox = git repository
+Flintbox is a git repository which contains or hold all the flintbits (workflows written in Ruby or Groovy). They are collection of similar functioning flintbits. F
+
+Flintbox can be deployed independently and are version-ed in git repository.
 
 
 ## Flintbit
@@ -17,42 +20,36 @@ Flintbox is a git repository location which contains or hold all the flintbits (
 
 Flintbit is a ruby or groovy script, which contain your business logic. It uses 'flitbit functions' to get input, call connectors and other flintbits and finally to set output.
 
-All flintbits are accessible via RESTful APIs making them micro-services.
-
+Flintbits accept JSON as input give out JSON as output. All flintbits are accessible via RESTful APIs making them micro-services.
 
 
 ## Flintbit objects and functions
 
 > objects and functions that are used to interact with flint from your scripts
 
+Flintbit functions are readily available in all the flintbits.
 
-## Flint Node
+They are used to:
+* Read JSON or XML input. e.g. `@input.get("name")`
+* Log messages to log file and to console. e.g `@log.info("some message")`
+* Call connectors and pass arguments to it. e.g. `@call.connector("connector_name")`
+* Call/Run other flintbits and pass input to them. e.g. `@call.bit("example:hello.rb")`
+* Set output of the flintbit. e.g `@output.set("message","hello")`
+
+## Flint Job
+
+> Each flintbit run is a job with a unique job-id
+
+
+## Flint WorkNode
 
 > Instance of flint running on physical or virtual server
 
-Ratus quoque nostrae invenies adspiciam data Eurytidae et mora ense
-[cognitus](http://landyachtz.com/): meae pariterque, **fraude pro**. In illi
-aetherias quarum. Habendus medioque exponit cornua, clarum nuncupat inquit! Tuum
-denique: undis pete vitamque montes, vertitur, est tibi pectus [volenti
-amorem](http://news.ycombinator.com/), indicat mirum. Gangetica pennas suaque
-quo vultus iter miratus conubio heros est extrahit.
-
-> Moras hospitio, et fugit macies, locorum? A ira requievit inmani coronatis
-> quis mensis: rite quater per; esse timor Pittheus traiecit colebas, nervis
-> longam. Est [corpora enim ponit](http://www.billmays.net/), capillos esses.
-> Anum fortis tremulis nunc infracto frontem nec. Draconum iamque *alto*, his
-> ubique mox matrum demisit suo optet ad!
 
 ## Flint Grid
 
 > A collection of one or more flint nodes connected to each other
 
-Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
-[ipse](http://haskell.org/), et operum et victus maneas, distincta.
-
-Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
-marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
-est.
 
 ## Connectors
 
@@ -60,48 +57,35 @@ est.
 
 Connectors are used to communicate with the external world. For the communication to take place, connectors are configured on Grid nodes and Flintbits are used to call a connector, thus accomplishing the purpose of a connector and fulfilling your needs.
 
-Using Grid configuration, connectors are configured on grid nodes. If no node is provided in the configuration, Flint's decision making capability will cause the connector to be enabled on at least one of the nodes of the grid.
+Connectors are configured on flint work nodes using flint console.
 
 ## Listeners
 
 > Flint components that listen to events coming from external systems
 
-Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
-[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+Listeners listen to events from external system. For example emails arriving at a mail box or message arriving at MQTT topic. Listeners trigger configured flintbit with received event as an input to that flintbit.
 
-Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
-marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
-est.
+Listeners are configured on flint work nodes using flint console.
 
 ## Schedules
 
 > Enables flint to schedule running of flintbits
 
-Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
-[ipse](http://haskell.org/), et operum et victus maneas, distincta.
-
-Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
-marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
-est.
 
 ## Global Configuration
 
 > Configuration which is available for all the flintbox and flintbits deployed on the grid
 
-Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
-[ipse](http://haskell.org/), et operum et victus maneas, distincta.
+Parameters declared in Global Configuration, are visible to all the flintboxes thereby being accessible to all the flintbits. Global Config help you to avoid hard-coded variables in your flintbits.
 
-Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
-marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
-est.
+You can Add/update Global config form Flint Console.
+
+Global Config can be used for:
+* Additional credentials that might be associated with your applications
+* Remote Server configurations
+* Directoy/File locations
+* **Anything which can change over time.**
 
 ## Local Configuration
 
 > Configuration which is available only to flintbox and flintbits in which the configuration is defined.
-
-Ipse hic nutritaque etiam pedibus formae cernes. Nunc bibes sed pro
-[ipse](http://haskell.org/), et operum et victus maneas, distincta.
-
-Eo doluit obliquantem Phoebus amat iam fumantiaque et sidera cadet captatam
-marmoris. Conantem cursuque crudelibus velut, penitusque est sinu sola fuerat
-est.
