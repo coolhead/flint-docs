@@ -17,8 +17,13 @@ No additional configuration is required for file connector
 
 ## Actions
 
-### Read a file: read
+### read
 Read a file form local file system
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | action to perform: read | true |
+| file | Path of file to read | true |
 
 ``` ruby
 response = @call.connector("file_connecor_name")
@@ -29,8 +34,17 @@ response = @call.connector("file_connecor_name")
 response_file = response.get("file")  #File read
 file_content = response.get("body")  #Response Body, data read from the file
 ```
-### Write to a file: write
+
+
+### write
 Write content to file
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | action to perform: write | true |
+| file | Path of file to write | true |
+| data | data to be written to the file | true |
+
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","write")
@@ -39,8 +53,15 @@ response = @call.connector("file_connecor_name")
                 .sync
 
 ```
-### Append to a file: append
+### append
 Append content to file
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | action to perform: append | true |
+| file | Path of file to append | true |
+| data | data to be appended to the file | true |
+
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","append")
@@ -50,8 +71,15 @@ response = @call.connector("file_connecor_name")
 
 ```
 
-### Delete a file: delete
+### delete
 Delete a file
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | action to perform: delete | true |
+| file | Path of file to delete | true |
+
+
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","delete")
