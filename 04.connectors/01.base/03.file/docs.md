@@ -20,11 +20,19 @@ No additional configuration is required for file connector
 ### read
 Read a file form local file system
 
+##### Request parameters
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | action to perform: read | true |
 | file | Path of file to read | true |
 
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, data read from the file | true |
+| file | Path of file to read | true |
+
+##### Example
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","read")
@@ -39,12 +47,14 @@ file_content = response.get("body")  #Response Body, data read from the file
 ### write
 Write content to file
 
+##### Request parameters
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | action to perform: write | true |
 | file | Path of file to write | true |
 | data | data to be written to the file | true |
 
+##### Example
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","write")
@@ -56,12 +66,15 @@ response = @call.connector("file_connecor_name")
 ### append
 Append content to file
 
+##### Request parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | action to perform: append | true |
 | file | Path of file to append | true |
 | data | data to be appended to the file | true |
 
+##### Example
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","append")
@@ -74,12 +87,14 @@ response = @call.connector("file_connecor_name")
 ### delete
 Delete a file
 
+##### Request parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | action to perform: delete | true |
 | file | Path of file to delete | true |
 
-
+##### Example
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","delete")
