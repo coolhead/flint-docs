@@ -32,7 +32,7 @@ file_content = response.get("body")  #Response Body, data read from the file
 ### Write to a file: write
 Write content to file
 ``` ruby
-response = @call.connector(connector_name)
+response = @call.connector("file_connecor_name")
                 .set("action","write")
                 .set("file","/file/to/write")
                 .set("data","some data to write")
@@ -42,7 +42,7 @@ response = @call.connector(connector_name)
 ### Append to a file: append
 Append content to file
 ``` ruby
-response = @call.connector(connector_name)
+response = @call.connector("file_connecor_name")
                 .set("action","append")
                 .set("file","/file/to/append")
                 .set("data","some data to append")
@@ -53,7 +53,7 @@ response = @call.connector(connector_name)
 ### Delete a file: delete
 Delete a file
 ``` ruby
-response = @call.connector(connector_name)
+response = @call.connector("file_connecor_name")
                 .set("action","delete")
                 .set("file","/file/to/delete")
                 .sync
