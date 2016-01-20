@@ -16,6 +16,22 @@ In flint all the automation you do is represented as code. This code could be Ru
 
 Flint pulls or fetch flintbox (aka GIT repositories) with all its configurations from GIT servers (public or private) and deploy it on flint-grid.
 
+### Micro-services Architecture
+> Get full advantage for micro-services pattern
+
+Each flintbox can be
+* Quickly deployed
+* Can be deployed often
+* Is a small collection of related services
+* Versioned separately
+
+Each flintbit is
+* Available as REST Service
+* Monitored: health, distributed logging, statistics
+* Uses async communication
+* Prevents cascading failure and be fault tolerant
+* Uses JSON and messaging for inter communication
+
 ### Generic Technologies
 > Concentrate on your workflows and not on technologies.
 
