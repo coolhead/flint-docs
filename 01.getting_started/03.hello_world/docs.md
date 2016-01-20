@@ -6,9 +6,9 @@ taxonomy:
 
 ## Kick-start with 'Hello World'
 
-To get started with Flint, we have defined a usual "hello world" example.
+To get started with Flint, we have defined the standard "hello world" example.
 
-This guide assumes that you have already installed flint locally on your workstation.
+>>>>> This guide assumes that you have already installed flint locally on your workstation.
 
 
 ## Create your first Flintbox
@@ -65,6 +65,7 @@ Create a ruby or groovy flintbit under 'mybox' directory. You can copy paste the
 log.info("Welcome to flint!")
 output.set("message","Hello World!")
 ```
+>>>>> `@log.info` and `@output.set` are the flintbit functions that are readily available to all flintbits. For list of objects and functions that flint provides see [Flintbit functions](../flintbit_functions) section.
 
 #### Flintbit reference path or flintbit name
 When you want to refer your flintbit in flint, you have to use flint's path convention. This is very simple, Just remember folders and flintbits are separated by **colon (:)** operator.
@@ -96,4 +97,34 @@ Now that the logs are enabled lets run our flintbit
 Upon execution of Flintbit logs as below will be displayed
 ![see_logs](hello_logs.png)
 
-For more information on using trigger on demand console see [Trigger on Demand](../../grid_configuration/trigger_on_demand)
+You can check the output of your flintbit run on the output tab
+![see_output](hello_output.png)
+
+For more information on using trigger on demand console see [Trigger on Demand](../../grid_configuration/trigger_on_demand) section.
+
+#### Using REST Client
+
+Execution of a Flintbit can be done via RESTful APIs. Flint REST APIs documentation can be found at [REST API](../../api/rest)
+
+You can access REST APIs using any REST client or HTTP/REST Client library.
+
+## Configure Git Repository for Flintbox
+
+Once you are done with your development and testing. You can commit your flintbox to git repository. This will unable you to
+* version control our automation workflows
+* Share flintbox with others so that they can reuse it
+* Deploy it to flint production environments.
+
+#### Initialize a repository for mybox
+
+``` bash
+$ cd mybox
+$ git init
+```
+#### Add hello.rb/hello.groovy to our new mybox.git
+``` bash
+$ git add .
+$ git commit -m "hello world flintbits"
+$ git remote add origin https://github.com/username/mybox.git
+$ git push -u origin master
+```
