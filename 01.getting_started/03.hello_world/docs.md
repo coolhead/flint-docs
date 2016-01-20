@@ -47,12 +47,12 @@ $ mkdir mybox
 
 > flintbit = ruby or groovy scripts stored inside flintbox
 
-Flintbit is a ruby or groovy script, which contain your business logic. It uses 'flitbit functions' to get input, call connectors and other flintbits and finally to set output.
+Flintbit is a ruby or groovy script, which contains your business logic. It uses [Flintbit functions](../flintbit_functions) to get input, call connectors and other flintbits and finally to set output.
 
 All flintbits are accessible via RESTful APIs making them micro-services.
 
 
-#### Create Flntbit
+#### Create Flintbit
 
 To create a flintbit, Navigate to mybox directory using your favorite code editor.
 
