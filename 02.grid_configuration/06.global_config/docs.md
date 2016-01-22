@@ -1,61 +1,58 @@
 ---
-title: Configure Global Variables
+title: Global Config
 taxonomy:
     category: docs
 ---
+We can add Global Config from Flint Console.
+We are all aware with the terminology 'global' i.e. universal scope. Flint adopts this principle in Global Config. Parameters declared here, are visible to all the Flintboxes thereby being accessible to all the Flintbits.
 
-Lorem markdownum scire deposito manumque facinus. Opprobria sic Iris vimque
-filia Thaumantea supremis solet occupat peperit, mittit, ea *ille* tamen forma:
-corpora. Quoniam adunci, sed Cragon potitus at voluere vallem Lyaeumque evehor
-quaedam dixit vocis lacrimasque mundi possum.
+##### What can be declared as Global Config?
 
-[Robustior carmine](http://www.youtube.com/watch?v=MghiBW3r65M). Uno pars simul
-exhortanturque fletu; suas inquit paulum moriensque sumpserat totiens et sive.
-Violenta stabat Dictaeaque hinc tophis rustica ora nitar tale divum, in versus
-illam lacerta domito silvas memento est. Cinyrae edidicitque moram pectora et
-quoque terrenae rubor populo peperit condebat in. Verum digestum referat cum,
-dubitat collo sine candida flores pendentia, manes.
++ Remote Server configurations
++ Additional credentials that might be associated with your applications
++ Frequently used REST API URL's
++ External API keys that might be used by your application
++ Directoy/File locations and many more...
 
-## Nostrae confido
+On Flint Console, Global Config screen has two primary areas as **Add Global Config** and **Global Config**.
 
-Nec valle **natus puerum**, ora noverat solibus pinguesque non; Pisaeae in.
-Adhuc se perque forsitan in haberent *gaudet* status portentificisque tristia
-promissaque bove est ora locum. Subit etsi, et vatibus cumque? Et pudorem sim
-fuit haec **nostras Caenis inploravere** quod; faciemque sanguis furentem
-vivere, suaque.
+![global_config_console](global-config-console.png)
 
-1. In iovis trahens est
-2. Nexibus ludunt tinxit nudus adspergine fecit
-3. Si corpus miracula oculos frater
-4. Sed petunt proxima ad monitu erigitur Apollineos
-5. Hunc laceri alvum et est fons fefellimus
+With the help of this document, you will be able to add a Global Config.
 
-## Pater res tandem promissi collige
+## How to Add Global Config?
 
-Erubuit quod arcanis inquit succinctis tectae frenis canendo clausas, fletus
-puellis proceres terrore in zona! Tenet quoque fortuna haud resuscitat
-maledicere hostem. Imago ne fuit levi tertius ferro calamo velle talia fallit
-gratia, Theron **aetas nolis** narrat meri in **fuga**.
+Let us see how we can add Global Config in simple steps as below:
 
-    var cycleMainframe = 4;
-    bankruptcy += linuxMcaSsh(2, jquery_eps, monitor_add) - qwerty;
-    if (root - software + 4) {
-        snippet_mini_win *= ipv(dimm, protector_add, 3 + raid_matrix_smm);
-        python(95, 42);
-    } else {
-        window_soap += text_chip_screenshot;
-    }
+1. Log on to Flint UI Console
+2. Visit the Global Config link on left navigation bar
+3. Click on Add Global Config
+4. In the form displayed, fill up necessary form fields ( as shown below )
+5. Click on Add button
 
-## Lucis onus dolet evehor vulnera gelidos
+![add_global_config](add-global-config.png)
 
-Nec tauri illa cui hic contenta patuit, terras in et et suum [mutet
-pater](http://www.mozilla.org/), alta, et a. Addit nec figuras terris Aeacus,
-data comites cernit, et parte. Cumarum *expresso*.
+##### Accessing Global Config parameters in Flintbit
 
-1. Ira deo unus ferrugine stant vulnere traharis
-2. Vulnus fratribus modo quercus longa ego dederat
-3. Versis Saturnia toros suberant
-4. Decet tollere mea te insanis inponis exarsit
+To extract "my_app_credentials" global config parameters shown above :
 
-Tenebat saltatibus, qua namque statuit dies ferre annum, sit summa in tamen
-tabent populique. Pariter iterum sunt, inscius, verum.
+``` ruby 
+@config.global("my_app_credentials.credentials.username")                          #username
+@config.global("my_app_credentials.credentials.password")                          #password
+@config.global("my_app_credentials.api_key")                                       #api-key
+```
+or
+
+``` ruby 
+@config.global("my_app_credentials").get("credentials").get("username")            #username
+@config.global("my_app_credentials").get("credentials").get("password")            #password
+@config.global("my_app_credentials").get("api_key")                                #api-key      
+```
+
+## Global Config Actions
+
+![global_config_actions](global-config-actions.png)
+
+1. **Edit:** You can change the config(JSON) parameters here.
+2. **Delete:** Completely removes the global config from Flint.
+3. View Information: Config(JSON) parameters of the added global config is shown here.
