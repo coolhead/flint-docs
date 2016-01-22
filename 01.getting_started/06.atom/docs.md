@@ -27,4 +27,4 @@ Features of Flint Atom Package
 ![atom-editor](install-atom-package.png)
 
 
-> That's it! You are ready to use atom. just open any Flintbit and start writing code!
+> That's it! You are ready to use atom. Just open any Flintbit and start writing code!
