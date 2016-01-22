@@ -7,7 +7,7 @@ taxonomy:
 
 With Flint's SSH Connector you can execute commands on remote server machine using SSH2 Protocol.
 
-With this document guide you will be able to work with and use a SSH Connector. While you start configuring the connector, this document will guide you through SSH Connector request and response parameters.
+With this document, we will be able to use and work with the SSH Connector.
 
 ##Design Aspects
 + Based on Standardized SSH2 Protocol
@@ -16,7 +16,7 @@ With this document guide you will be able to work with and use a SSH Connector. 
 + Series of commands to be executed specified in simplified comma separated format
 + Shell Command Execution Types: shell and exec
 + Direct access to the command execution results from the remote server machine
-+ The ability to set Connector execution timeouts
++ Ability to set timeouts for connector execution
 + Synchronous / Asynchronous execution of the Connector
 
 ## Add file connector
