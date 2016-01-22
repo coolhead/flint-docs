@@ -4,7 +4,7 @@ taxonomy:
     category: docs
 ---
 
-To dramatically reduce efforts to develop new flintbits we have come up with package for [Atom](https://atom.io) text editor.
+To revolutionize the way automation workflows are designed and to reduce efforts to develop new Flintbits (workflows) we have come up with package for [Atom](https://atom.io) text editor.
 
 [Flint Atom package](https://atom.io/packages/flint-atom) can be installed on Atom 1.0 or greater.
 
