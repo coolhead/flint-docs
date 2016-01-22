@@ -8,7 +8,7 @@ process:
 We can add and enable a Flintbox from Flint Console.
 On Flint Console, Flintbox screen has three primary areas as **Add Flintbox**, **Active Flintbox** and **Inactive Flintbox**.
 
-![flintbox_console](Flintbox-console.png)
+![flintbox_console](flintbox-console.png)
 
 With the help of this document, you will be able to add a Flintbox on Grid.
 
@@ -22,7 +22,7 @@ Let us see how we can add and enable a Flintbox in simple steps as below:
 4. In the form displayed, fill up necessary form fields ( as shown below )
 5. Click on Add button
 
-![add_flintbox](add-Flintbox.png)
+![add_flintbox](add-flintbox.png)
 
 ##### Configuration parameters
 | Parameter | Description | required |
@@ -35,7 +35,7 @@ Let us see how we can add and enable a Flintbox in simple steps as below:
 
 ## Flintbox Actions
 
-![flintbox_actions](Flintbox-actions.png)
+![flintbox_actions](flintbox-actions.png)
 
 1. **Enable:** Only when a Flintbox is enabled, you can actually trigger the Flintbit.
 2. **Disable:**  Stops the Flintbox execution, no Flintbit can be triggered then.
@@ -43,17 +43,3 @@ Let us see how we can add and enable a Flintbox in simple steps as below:
 4. **Edit:** You can change the configuration parameters here.
 5. **Delete:** Completely removes the Flintbox from Flint.
 6. View Information: Name, Status, Version, Git URL of the added Flintbox is shown here.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
