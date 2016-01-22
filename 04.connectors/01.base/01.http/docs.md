@@ -24,7 +24,7 @@ No additional configuration is required for HTTP connector
 
 ## Actions
 
-### GET
+#### GET
 Retrieve information from the given server using a given URI.
 
 ##### Request parameters
@@ -57,7 +57,7 @@ response_headers=response.get("headers")     #Response Headers
 ```
 
 
-### POST
+#### POST
 Send data to the server.
 
 ##### Request parameters
@@ -88,7 +88,7 @@ response=@call.connector("my-http-connector")
 response_body=response.get("body")           #Response Body
 response_headers=response.get("headers")     #Response Headers
 ```
-### PUT
+#### PUT
 Replaces all current representations of the target resource with the uploaded content.
 
 ##### Request parameters
@@ -122,7 +122,7 @@ response_body=response.get("body")           #Response Body
 response_headers=response.get("headers")     #Response Headers
 ```
 
-### DELETE
+#### DELETE
 Removes all current representations of the target resource given by a URI.
 
 ##### Request parameters
