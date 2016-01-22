@@ -33,7 +33,7 @@ Let us see how we can add and enable a Connector in simple steps as below:
 | HA Options | Flint allows you to enable the Connector with high availability ( HA ) support. <ul><li>Auto-HA: Connector will be enabled on all the configured grid nodes.</li><li>Worknodes: Connector will be enabled only on specific grid nodes whose hostnames are provided here.</li><li>Disabled: Connector will on be enabled randomly on any one of the configured grid nodes.</li></ul> | true |
 
 
->>>> The above steps will only add the connector. To start using the connector, visit the **INACTIVE FLINTBOX** tab. Click on the Enable button against the name of your newly added Connector.
+>>>> The above steps will only add the connector. To start using the connector, visit the **INACTIVE CONNECTORS** tab. Click on the Enable button against the name of your newly added Connector.
 
 ## Connector Actions
 
