@@ -32,7 +32,7 @@ With this document guide you will be able to work with and use a SMTP Connector.
 | username | Username is the full email address of the sender's email account | false: config/request |
 | password | Password associated with the sender's email account | true: config/request  |
 | port | Port number on which the SMTP server is listening. Default port is **25** | false: config/request  |
-| attachment_size | Size of the file to be attached to an email message. A file size of maximum **10 Mb** can be attached | false |
+| attachment_size | Size of the file to be attached to an email message. A file of maximum **10 Mb** size can be attached | false |
 
 ##### Example
 ```json
@@ -46,7 +46,8 @@ With this document guide you will be able to work with and use a SMTP Connector.
 ```
 ## Actions
 
-### Sending an Email
+### send
+Send an email
 
 ##### Request parameters
 | Parameter | Description | required |
@@ -61,7 +62,7 @@ With this document guide you will be able to work with and use a SMTP Connector.
 | port | Port number on which the SMTP server is listening. Default port is **25** | false |
 | cc | Usernames of email accounts who need to be kept informed of the email message content, but no actions required from them. Multiple usernames must be given within an array of strings | false |
 | bcc |	Usernames of email accounts you don't wish the other recipients to see that you sent it to this contact. Multiple usernames must be given within an array of strings | false |
-| attachments |	Files to be attached to an email message. Maximum size of a file that can be attached is 1Mb. Multiple file names must be given within an array of strings |	false |
+| attachments |	Files to be attached to an email message. Maximum size of a file that can be attached is 10 Mb. Multiple file names must be given within an array of strings |	false |
 | content-type |	Content-type of the email body. Example : text/plain, multipart/alternative etc. Default content-type is **text/html** | false |
 
 ##### Response parameters
