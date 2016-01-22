@@ -95,6 +95,7 @@ Delete a file
 | file | Path of file to delete | true |
 
 ##### Example
+
 ``` ruby
 response = @call.connector("file_connecor_name")
                 .set("action","delete")
