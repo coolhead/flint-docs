@@ -3,55 +3,150 @@ title: HTTP
 taxonomy:
     category: docs
 ---
+## HTTP Connector
 
-Lorem markdownum voces. Adire nant ingreditur quam evadere dixit caelestum
-meliora. Induitur videndi Timoli videres et *quae*, niteant.
+With Flint's HTTP Connector you can send HTTP requests and read HTTP responses very quickly.
 
-    if (cyberspace + superscalarBacklink) {
-        language_raw *= 78;
-        caps -= dot_vga;
-    } else {
-        nntpPingPoint(chip(ip_fsb, boxRepeater, art));
-        manetRgbHeader /= backside;
-    }
-    if (dvd(16, ide_blacklist)) {
-        nodeTftpPpga = -5;
-        mips.aiffTCodec *= compiler_target_bus;
-    }
-    var eup = native_page_utility;
-    if (software) {
-        progressive *= superscalar_bot_script;
-        regularScroll = internetRayBlu;
-    }
-    progressive_compression_ipv = freewarePrebindingRoom(newsgroup);
+With this document guide you will be able to work with and use a HTTP Connector.While you start configuring the connector, this document will guide you through HTTP Connector request and response parameters.
 
-In *nubes pallor potuit* non, parenti auctorem urbis. Viderat at quicquam
-piscator nunc prosunt ponit.
+##Design Aspects
++ Based on Standardized HTTP Protocol versions 1.0 and 1.1
++ HTTP Methods - GET, POST, PUT, DELETE, HEAD & PATCH
++ Direct access to the response body and headers sent by the server
++ Reading the response body efficiently by streaming directly from the socket to the server with response input streams.
++ The ability to set Connector execution timeouts
++ Synchronous / Asynchronous execution of the Connector
 
-## Fecere conplexa et utque et habetur iacentia
+## Add HTTP connector
+No additional configuration is required for HTTP connector
 
-Haud rotarum, et hospes et est, remittit tecta. Defecerat mille, perit *tale
-Laomedonque* austri, scissaque incumbens prisci ferunt [ibi cumque
-horror](http://example.com/) gravis.
+![add_http_connector](add-http-conn.png)
 
-1. Accipit fraterno quantum dicit
-2. Sparsit et tanget in coniunx putares oravit
-3. Fuit et flumina
-4. Inprudens coloque
+## Methods
 
-## Sentiet etiam
+### GET
+Retrieve information from the given server using a given URI.
 
-In carmen, et quod, satiata, corpore semper mando; murum este *memores*. Si
-felicia paratu voluit, nova illa tamen hanc et pressa caeli Hippolytus tinxit,
-cunctis.
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the HTTP Connector to be configured. | true |
+| method | Http Request Methods: GET | true |
+| url | URL to be queried | true |
+| headers | HTTP Request headers holding information about the http request to be made | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
-Nitido arcisque nisi dedisse? Est atque ferasque Aeneas! Auro acui laedere, sed
-vertit quoque, adde nec!
 
-Et qua quem, **verba** citus ero favorem, spectare tam, aureae Echionio facti
-virginis nullo. Auras cura tantum, una ibat tecta, mihi erit.
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| body | HTTP Response body sent by the server: text, text/plain, application/json, application/javascript, application/xml, text/xml|
+| headers | HTTP Response headers holding information about the http response received. |
 
-Igitur increpat ululavit capulo: inmenso [moriturae](http://seenly.com/)
-artifices Sidonis loricamque regebat iustius: repetam more labores datae!
-Praeterque truncus face: parte et vestram Aethiopum signum Pelasgi figurae
-nostroque.
+##### Example
+``` ruby
+response=@call.connector("my-http-connector")
+              .set("method","get")
+              .set("url","http://httpbin.org/get")
+              .set("headers","Cache-Control: no-cache")
+              .set("timeout",10000)
+              .sync
+
+response_body=response.get("body")           #Response Body
+response_headers=response.get("headers")     #Response Headers
+```
+
+
+### POST
+Send data to the server.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the HTTP Connector to be configured. | true |
+| method | Http Request Methods: POST | true |
+| url | URL to be queried | true |
+| body | HTTP Request body to be sent to the server. | true|
+| headers | HTTP Request headers holding information about the http request to be made | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
+
+##### Example
+``` ruby
+response=@call.connector("my-http-connector")
+              .set("method", "post")
+              .set("url", "http://httpbin.org/pos")
+              .set("body","Welcome to Flint !!")
+              .set("headers","Content-Type:text/plain")
+              .set("timeout",10000)
+              .sync
+response_body=response.get("body")           #Response Body
+response_headers=response.get("headers")     #Response Headers
+```
+### PUT
+Replaces all current representations of the target resource with the uploaded content.
+
+##### Request parameters
+
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the HTTP Connector to be configured. | true |
+| method | Http Request Methods: PUT | true |
+| url | URL to be queried | true |
+| body | HTTP Request body to be sent to the server. | true|
+| headers | HTTP Request headers holding information about the http request to be made | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
+
+##### Example
+``` ruby
+response=@call.connector("my-http-connector")
+         .set("method","put")
+         .set("url","http://httpbin.org/put")
+         .set("body","Have some suggestions for flint? We are listening !")
+         .set("headers","Content-Type:text/plain")
+         .set("timeout", 10000)
+         .sync
+
+response_body=response.get("body")           #Response Body
+response_headers=response.get("headers")     #Response Headers
+```
+
+### delete
+Removes all current representations of the target resource given by a URI.
+
+##### Request parameters
+
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the HTTP Connector to be configured. | true |
+| method | Http Request Methods: DELETE | true |
+| url | URL to be queried | true |
+| body | HTTP Request body to be sent to the server. | false|
+| headers | HTTP Request headers holding information about the http request to be made | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
+##### Example
+
+``` ruby
+response=@call.connector("my-http-connector")
+              .set("method", "delete")
+              .set("url", "http://httpbin.org/delete")
+              .set("body", "Old age way of automating processes !")
+              .set("headers", "Content-Type:text/plain")
+              .set("timeout", 10000)
+              .sync
+response_body=response.get("body")           #Response Body
+response_headers=response.get("headers")     #Response Headers
+```
+
+## Connector response
+Here is how to interpret connector response.
+``` ruby
+if response.exitcode == 0               # 0 is success.
+  puts "success"
+  # take action in case of success
+else                                    # non zero means fail
+  puts "fail"
+  puts "Reason:" + response.message     # get the reason of failure
+  ## Take action in case of failure
+end
+
+```
