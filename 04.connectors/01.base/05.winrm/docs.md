@@ -3,69 +3,105 @@ title: Windows WinRM
 taxonomy:
     category: docs
 ---
+## WinRM ( Windows Remote Management ) Connector
 
-Lorem markdownum vides aram est sui istis excipis Danai elusaque manu fores.
-Illa hunc primo pinum pertulit conplevit portusque pace *tacuit* sincera. Iam
-tamen licentia exsulta patruelibus quam, deorum capit; vultu. Est *Philomela
-qua* sanguine fremit rigidos teneri cacumina anguis hospitio incidere sceptroque
-telum spectatorem at aequor.
+With Flint's WinRM (Windows Remote Management) Connector you can execute commands on remote Windows server machine using Microsoft implementation of WS-Management Protocol.
 
-    if (cssDawP >= station) {
-        dllCdmaCpc += 919754;
-    } else {
-        superscalar += -3 + phishing;
-    }
-    pup_ram_bloatware(2 * network(linkedin));
-    var vfatWhite = serpXmp + paperPitchPermalink(enterprise_and) - 5;
-    systemBandwidthAtm = 9 + station;
-    rw_menu_enterprise *= on_midi / interpreter.adPpp(
-            correctionIntegratedBalancing, bar, real) - user_remote_zebibyte(
-            desktop(lun_flops_wamp, technology_peripheral_dv, spriteHit));
+With this document guide you will be able to work with and use a WinRM Connector.
 
-Prochytenque ergo ait aequoreo causa ardere, ex vinaque est, accingere, abest
-nunc sanguine. Est forma admissum adspexit pharetraque regat prece fremit clamat
-memorantur evanuit foret ferinas, senserat infringat illa incumbere excipit
-ulnas. Est undis soror animi diem continuo [videres
-fratres](http://www.reddit.com/r/haskell)? [Meo iam
-mihi](http://html9responsiveboilerstrapjs.com/) miserum fateor, in votum
-iuvenis, aures? Qui labor nulla telluris valerem erat hoc, sedula.
+## Design Aspects
++ Based on Standardized Microsoft implementation of WS-Management Protocol
++ Password based authentication mechanism
++ Both HTTP and HTTPS Protocol Support
++ Direct access to the command execution results from the remote server machine
++ The ability to set Connector execution timeouts
++ Synchronous/Asynchronous execution of the Connector
 
-    if (bus_overclocking_server > 891985) {
-        compression = textWep - gatePlatform;
-    } else {
-        fileTweak += file + so_mouse_sram;
-        pda_radcab_eup = tcp_opengl_refresh(network_phishing - realityDel, 5,
-                5);
-        bounce_monitor_dns = 4;
-    }
-    fddi_virtualization_file *= drag_infringement(minicomputerServlet + -1 +
-            gif_white(utf, blog, cloud), dvdMacintosh - radcab_horizontal +
-            cpu_recycle_quicktime(ascii));
-    ad += tableCapsTime - 5 + keyboard_card - -2 + cc;
-    if (raw_bloatware_compression < script_expression) {
-        fiBps(printer_php);
-        ipx = biometricsFullDvi(bootComponentAnsi, 929326, 38);
-    }
+## Add WinRM connector
 
-## Dent et ignavus constant tamque
+![add_winrm_connector](add-winrm-conn.png)
 
-Harenosi praenovimus illa homines, sumit levem et Minyeias genu finita ne quae
-capi vidisse concipit. Fera carmine sinistro in licet? Quoque nam an pereat pro;
-seu male mens favorem, illa! Longo tuas: [una medioque
-caespite](http://www.lipsum.com/) nomen. Et amor artes Est tempore nupta
-generumque olivae stabat.
+##### Configuration parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| hostname | Host name or ip-address of the host server machine to connect | true |
+| username | Connect with specified username, host server machine authentication | true |
+| password | Connect with specified password, host server machine authentication | true |
+| protocol | Connect with specified protocol, host server machine authentication. Default value is http | false |
+| command | Command to be executed on the host server machine | true |
+| port | Port to connect to on the host server machine. Default value is 5985 | false |
+| timeout | Execution time of the Command in milliseconds(default timeout is 60000 milliseconds) | false |
 
-> Fuit vasto sit, *rite bellatricemque misceri*. Amore tauri qua laborum Iovique
-> est terra sic et aut eminus pretiosior conveniant **possit**. Tyranni procos.
-> Ipsa dracones carinam, ultima, pelagi Boreae quodque, teli dictu volucres:
-> quaeratur ostendit debere validisne? Abdita cingere dixit amat pinguis vultus
-> securim, venter in cognoscere prima *da*?
+##### Example
+```json
+{
+  "hostname": "smtp.gmail.com",
+  "username": "example@gmail.com",
+  "password": "example123",
+  "protocol": "https",
+  "command": "whoami",
+  "post": 5986,
+  "timeout": 60000
+}
+```
+## Actions
 
-**Cavis in pro** suspicere multis, moto neve vibrataque nitidum cessit
-dignabitur pater similis exercet Procne, Anius, nec? Risit luserat meumque; ubi
-et chlamydem inque: id mihi.
+### Execute commands on Remote Windows Server
+Send an email
 
-Populi et emicat et pectora concussit precibus qui et Hector flammis. Pergama
-tenebrisque certe arbiter superfusis genetrix fama; cornu conlato foedere
-adspexisse **rivos quoque** nec profugos nunc, meritisne
-[carbasa](http://reddit.com/r/thathappened).
+##### Request parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Specify action as “send” for sending an email message |	true |
+| to | Username is the full email address of the sender's email account| true |
+| from |	Usernames of email accounts for whom the email message is meant | true |
+| subject	| Specify subject of an email message here|	true |
+| body | Email message content mainly a text | true |
+| username | Username is the full email address of the sender's email account. Not required, if already specified in configuration file |	false |
+| password	| Password associated with the sender's email account. Not required, if already specified in configuration file. |	false |
+| port | Port number on which the SMTP server is listening. Default port is **25** | false |
+| cc | Usernames of email accounts who need to be kept informed of the email message content, but no actions required from them. Multiple usernames must be given within an array of strings | false |
+| bcc |	Usernames of email accounts you don't wish the other recipients to see that you sent it to this contact. Multiple usernames must be given within an array of strings | false |
+| attachments |	Files to be attached to an email message. Maximum size of a file that can be attached is 10 Mb. Multiple file names must be given within an array of strings |	false |
+| content-type |	Content-type of the email body. Example : text/plain, multipart/alternative etc. Default content-type is **text/html** | false |
+
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+|output	| Message stating the status of mail delivery| true |
+|exit-status	| Message stating the status of mail delivery| true |
+|error	| Message stating the status of mail delivery| true |
+
+
+##### Example
+``` ruby
+response=@call.connector("my-winrm-connector")
+              .set("hostname","192.168.2.64")
+              .set("username","daniel")
+              .set("password","daniel123")
+              .set("protocol","http")
+              .set("command","whoami")
+              .set("port", 5986)
+              .set("timeout",1000)
+              .sync
+
+#WinRM Connector Response Parameters
+result=response.get("output")                    #Output
+result=response.get("exit-status")               #Exit status
+result=response.get("error")                     #Error output
+
+```
+
+## Connector request error handling
+Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+``` ruby
+if response.exitcode == 0               # 0 is success.
+  puts "success"
+  # take action in case of success
+else                                    # non zero means fail
+  puts "fail"
+  puts "Reason:" + response.message     # get the reason of failure
+  ## Take action in case of failure
+end
+
+```
