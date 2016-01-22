@@ -7,19 +7,18 @@ taxonomy:
 REST API's are gateways to Flint which provide an interface to run flintbits from external systems.
 This is the reference document for the REST API and resources provided by Flint.
 
-
 ## Structure of REST URL
 
 To use REST API, external systems will make an HTTP request and parse the HTTP response.
 
-Flint's REST API's use JSON or XML as a communication medium for standard HTTP Methods - Get, Post, Put and Delete.
+Flint's REST API's use JSON or XML as a communication medium for standard HTTP Methods.
 
 Structure of REST URI's is as follows:
 
 ``` http
 http://hostname:port/v1/bit/run/flintbox_name:flintbit_name
 
-# Example
+// Example
 http://localhost:3501/v1/bit/run/mybox:hello.rb
 
 ```
@@ -32,6 +31,10 @@ http://localhost:3501/v1/bit/run/mybox:hello.rb
 
 <br>
 ## Flint REST API Authentication
+
+### HTTP Basic
+
+Flint supports HTTP Basic authentication using username and password.
 
 ### Set username and password in HTTP header
 
@@ -60,11 +63,11 @@ http://localhost:3501/v1/bit/run/mybox:hello.rb?flint-key=FLINT_KEY
 <br>
 ## Content-Type HTTP Header
 
-Apart from the authentication headers flint also requires **Content-Type** header with valid input document type. The valid values are application/json and application/xml.
+Apart from the authentication headers flint also requires **Content-Type** header with valid input document type. The valid values are **application/json** and **application/xml**.
 
 ``` http
 Content-Type:application/json
-### OR ###
+// OR
 Content-Type:application/xml
 ```
 >>>> If flint do not find **Content-Type header** it will construct JSON using request body and pass it to flintbit.

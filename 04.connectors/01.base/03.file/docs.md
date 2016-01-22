@@ -104,7 +104,7 @@ response = @call.connector("file_connecor_name")
 
 ```
 
-## Connector response
+## Connector request error check
 Here is how to interpret connector response.
 ``` ruby
 if response.exitcode == 0               # 0 is success.
