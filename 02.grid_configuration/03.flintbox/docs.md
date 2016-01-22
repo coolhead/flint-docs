@@ -5,47 +5,32 @@ taxonomy:
 process:
 	twig: true
 ---
+Here, you can configure all your flintboxes ( git repositories with workflows ). 
+The flintbox console has three primary areas for Add Flintbox, Active Flintbox and Inactive Flintbox.
 
-Lorem markdownum murmure fidissime suumque. Nivea agris, duarum longaeque Ide
-rugis Bacchum patria tuus dea, sum Thyneius liquor, undique. **Nimium** nostri
-vidisset fluctibus **mansit** limite rigebant; enim satis exaudi attulit tot
-lanificae [indice](http://www.mozilla.org/) Tridentifer laesum. Movebo et fugit,
-limenque per ferre graves causa neque credi epulasque isque celebravit pisces.
+With this document guide you will be able to configure a flintbox.
 
-- Iasone filum nam rogat
-- Effugere modo esse
-- Comminus ecce nec manibus verba Persephonen taxo
-- Viribus Mater
-- Bello coeperunt viribus ultima fodiebant volentem spectat
-- Pallae tempora
+## Configure Flintbox
 
-## Fuit tela Caesareos tamen per balatum
+To configure a Flintbox from Flint Console, steps are as follows:
 
-De obstruat, cautes captare Iovem dixit gloria barba statque. Purpureum quid
-puerum dolosae excute, debere prodest **ignes**, per Zanclen pedes! *Ipsa ea
-tepebat*, fiunt, Actoridaeque super perterrita pulverulenta. Quem ira gemit
-hastarum sucoque, idem invidet qui possim mactatur insidiosa recentis, **res
-te** totumque [Capysque](http://tumblr.com/)! Modo suos, cum parvo coniuge, iam
-sceleris inquit operatus, abundet **excipit has**.
+1. Log on to Flint UI Console
+2. Visit the Flintbox link on left navigation bar
+3. Click on Add Flintbox
+4. In the form displayed, fill up necessary form fields ( as shown below )
+5. Click on Add button
 
-In locumque *perque* infelix hospite parente adducto aequora Ismarios,
-feritatis. Nomine amantem nexibus te *secum*, genitor est nervo! Putes
-similisque festumque. Dira custodia nec antro inornatos nota aris, ducere nam
-genero, virtus rite.
+>>>>> The above steps will only configure the flintbox. To enable the flintbox, visit the 'INACTIVE FLINTBOX' tab. Click on the Enable button against the name of your newly added Flintbox.
 
-- Citius chlamydis saepe colorem paludosa territaque amoris
-- Hippolytus interdum
-- Ego uterque tibi canis
-- Tamen arbore trepidosque
+![add_flintbox](add-flintbox.png)
 
-## Colit potiora ungues plumeus de glomerari num
+##### Configuration parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| Git Url | URL of the remote git repository. After a flintbox is enabled, it will be cloned from remote git repository.  | true |
+| Username | Git repository username | true for private repository |
+| Password | Git repository password | true for private repository |
 
-Conlapsa tamen innectens spes, in Tydides studio in puerili quod. Ab natis non
-**est aevi** esse riget agmenque nutrit fugacis.
 
-- Coortis vox Pylius namque herbosas tuae excedere
-- Tellus terribilem saetae Echinadas arbore digna
-- Erraverit lectusque teste fecerat
 
-Suoque descenderat illi; quaeritur ingens cum periclo quondam flaventibus onus
-caelum fecit bello naides ceciderunt cladis, enim. Sunt aliquis.
+
