@@ -11,18 +11,6 @@ With Flint's Jira Connector you can perform Create , Add comment, Update Comment
 
 With this document guide you will be able to work with and use a Jira Connector.While you start configuring the connector, this document will guide you through Jira Connector request and response parameters.
 
-## Jira Service Desk Features
-
-With JIRA Service Desk, we’ve gone beyond the powerful JIRA platform and added service desk-specific capabilities such as :
-
-+ Allows you to perform "RESTful" operations.
-+ Jira service desk is easy to use and powerfull manage engine.
-+ Simple to use
-+ Intuitive Interface
-+ Powerfull SLAs
-+ Real time report
-+ Custome team queues
-
 
 ## Design Aspects
 Perform all standard application operations like Create , Add comment, Update Comment ,Delete, Resolve , Add worklog and Notify to issue operations available through the Jira connector. Some of them are listed below:
@@ -50,9 +38,22 @@ Perform all standard application operations like Create , Add comment, Update Co
 | project-id | Id associated with project. | true |
 | user-name | User name associated with your Jira account. | true |
 
+##### Example
+``` json
+{
+  "port":8080,
+  "host-name":"localhost",
+  "user-name":"admin",
+  "password":"admin",
+  "project-id":"10100",
+  "is-ssl":false
+}
+
+```
+
 ## Actions
 
-### add-Comment
+### add-comment
 Adds a new comment to an issue.
 
 ##### Request parameters
@@ -111,16 +112,16 @@ Create an issue.
 ``` ruby
 response = @call.connector("jira_connector_name")
                 .set("action","create-issue")
-                .set("summary","something wrong.")               
- 	              .set("description","System is not working properly.")
- 	              .set("issuetype","Service Request")
- 	              .set("priority","4")
- 	              .set("components",["10106","10105"],
+                .set("summary","something wrong.")
+                .set("description","System is not working properly.")
+                .set("issuetype","Service Request")
+                .set("priority","4")
+                .set("components",["10106","10105"],
  	              .set("labels",["bugfix","blitz_test"])
  	              .set("duedate","2016-03-11")
  	              .set("reporter","Admin")
  	              .set("assignee","smith")
- 	              .set("custom-field",[{"Operating System": "Ubuntu"})
+                .set("custom-field",[{"Operating System": "Ubuntu"})
                 .sync
 
 ticket_content = response.get("body")  #Response Result, ticket information from jira servicedesk.
@@ -148,6 +149,41 @@ response = @call.connector("jira_connector_name")
                 .sync
 
 ticket_content = response.get("body")  #Response Result, ticket information from jira servicedesk.
+```
+##### Sample output
+``` json
+
+{
+   "emailAddress":"test@gmail.com",
+   "expand":"groups,applicationRoles",
+   "avatarUrls":{
+      "48x48":"http://www.gravatar.com/avatar/848e5ac8fc938e2f7becbdac0e10baee?d=mm&s=48",
+      "24x24":"http://www.gravatar.com/avatar/848e5ac8fc938e2f7becbdac0e10baee?d=mm&s=24",
+      "16x16":"http://www.gravatar.com/avatar/848e5ac8fc938e2f7becbdac0e10baee?d=mm&s=16",
+      "32x32":"http://www.gravatar.com/avatar/848e5ac8fc938e2f7becbdac0e10baee?d=mm&s=32"
+   },
+   "displayName":"Admin",
+   "name":"admin",
+   "self":"http://localhost:8080/rest/api/2/user?username=admin",
+   "active":true,
+   "timeZone":"Asia/Kolkata",
+   "groups":{
+      "size":2,
+      "items":[
+
+      ]
+   },
+   "locale":"en_IN",
+   "key":"admin",
+   "applicationRoles":{
+      "size":1,
+      "items":[
+
+      ]
+   }
+}
+
+
 ```
 
 ### resolve-issue
@@ -220,7 +256,7 @@ response = @call.connector("jira_connecor_name")
                 .set("issue-id","IT-76")
                 .set("started","2015-10-07T00:32:50.877+0000") 	
                 .set("timeSpent","2d 3h")
-                .set("adjust-estimate","new")
+                .set("adjust-estimate","manual")
                 .set("reduce-by", "3h")
                 .sync
 
