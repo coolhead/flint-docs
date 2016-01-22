@@ -4,54 +4,24 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum voces. Adire nant ingreditur quam evadere dixit caelestum
-meliora. Induitur videndi Timoli videres et *quae*, niteant.
+REST API's are gateways to Flint which provide an interface to run flintbits from external systems.
+This is the reference document for the REST API and resources provided by Flint.
 
-    if (cyberspace + superscalarBacklink) {
-        language_raw *= 78;
-        caps -= dot_vga;
-    } else {
-        nntpPingPoint(chip(ip_fsb, boxRepeater, art));
-        manetRgbHeader /= backside;
-    }
-    if (dvd(16, ide_blacklist)) {
-        nodeTftpPpga = -5;
-        mips.aiffTCodec *= compiler_target_bus;
-    }
-    var eup = native_page_utility;
-    if (software) {
-        progressive *= superscalar_bot_script;
-        regularScroll = internetRayBlu;
-    }
-    progressive_compression_ipv = freewarePrebindingRoom(newsgroup);
 
-In *nubes pallor potuit* non, parenti auctorem urbis. Viderat at quicquam
-piscator nunc prosunt ponit.
+Structure of REST URL's
 
-## Fecere conplexa et utque et habetur iacentia
+To use REST API, external systems will make an HTTP request and parse the HTTP response.
 
-Haud rotarum, et hospes et est, remittit tecta. Defecerat mille, perit *tale
-Laomedonque* austri, scissaque incumbens prisci ferunt [ibi cumque
-horror](http://example.com/) gravis.
+Flint's REST API's use JSON or XML as a communication medium for standard HTTP Methods - Get, Post, Put and Delete.
 
-1. Accipit fraterno quantum dicit
-2. Sparsit et tanget in coniunx putares oravit
-3. Fuit et flumina
-4. Inprudens coloque
+Structure of REST URI's is as follows:
 
-## Sentiet etiam
-
-In carmen, et quod, satiata, corpore semper mando; murum este *memores*. Si
-felicia paratu voluit, nova illa tamen hanc et pressa caeli Hippolytus tinxit,
-cunctis.
-
-Nitido arcisque nisi dedisse? Est atque ferasque Aeneas! Auro acui laedere, sed
-vertit quoque, adde nec!
-
-Et qua quem, **verba** citus ero favorem, spectare tam, aureae Echionio facti
-virginis nullo. Auras cura tantum, una ibat tecta, mihi erit.
-
-Igitur increpat ululavit capulo: inmenso [moriturae](http://seenly.com/)
-artifices Sidonis loricamque regebat iustius: repetam more labores datae!
-Praeterque truncus face: parte et vestram Aethiopum signum Pelasgi figurae
-nostroque.
+``` http
+http://hostname:port/v1/bit/run/flintbox_name:flintbit_name
+```
+| Parameter | Description | required |
+| ------ | ----------- |
+| hostname | Hostname of the server on which Flint is installed ( default is localhost ) | true |
+| port | REST API Port Number ( default is 3501 ) | true |
+| flintbox-name | Name of the Flintbox ( Git repository ) recently created to store all the Flintbits and configured it ( mybox ) | true |
+| flintbit-name | Name of the Flintbit created and added to the Flintbox ( hello.rb ) | true |
