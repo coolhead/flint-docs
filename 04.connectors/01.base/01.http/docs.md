@@ -22,7 +22,7 @@ No additional configuration is required for HTTP connector
 
 ![add_http_connector](add-http-conn.png)
 
-## Methods
+## Actions
 
 ### GET
 Retrieve information from the given server using a given URI.
@@ -46,7 +46,7 @@ Retrieve information from the given server using a given URI.
 ##### Example
 ``` ruby
 response=@call.connector("my-http-connector")
-              .set("method","get")
+              .set("method","GET")
               .set("url","http://httpbin.org/get")
               .set("headers","Cache-Control: no-cache")
               .set("timeout",10000)
@@ -70,10 +70,16 @@ Send data to the server.
 | headers | HTTP Request headers holding information about the http request to be made | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| body | HTTP Response body sent by the server: text, text/plain, application/json, application/javascript, application/xml, text/xml|
+| headers | HTTP Response headers holding information about the http response received. |
+
 ##### Example
 ``` ruby
 response=@call.connector("my-http-connector")
-              .set("method", "post")
+              .set("method", "POST")
               .set("url", "http://httpbin.org/pos")
               .set("body","Welcome to Flint !!")
               .set("headers","Content-Type:text/plain")
@@ -96,10 +102,16 @@ Replaces all current representations of the target resource with the uploaded co
 | headers | HTTP Request headers holding information about the http request to be made | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| body | HTTP Response body sent by the server: text, text/plain, application/json, application/javascript, application/xml, text/xml|
+| headers | HTTP Response headers holding information about the http response received. |
+
 ##### Example
 ``` ruby
 response=@call.connector("my-http-connector")
-         .set("method","put")
+         .set("method","PUT")
          .set("url","http://httpbin.org/put")
          .set("body","Have some suggestions for flint? We are listening !")
          .set("headers","Content-Type:text/plain")
@@ -110,7 +122,7 @@ response_body=response.get("body")           #Response Body
 response_headers=response.get("headers")     #Response Headers
 ```
 
-### delete
+### DELETE
 Removes all current representations of the target resource given by a URI.
 
 ##### Request parameters
@@ -123,11 +135,18 @@ Removes all current representations of the target resource given by a URI.
 | body | HTTP Request body to be sent to the server. | false|
 | headers | HTTP Request headers holding information about the http request to be made | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| body | HTTP Response body sent by the server: text, text/plain, application/json, application/javascript, application/xml, text/xml|
+| headers | HTTP Response headers holding information about the http response received. |
+
 ##### Example
 
 ``` ruby
 response=@call.connector("my-http-connector")
-              .set("method", "delete")
+              .set("method", "DELETE")
               .set("url", "http://httpbin.org/delete")
               .set("body", "Old age way of automating processes !")
               .set("headers", "Content-Type:text/plain")
