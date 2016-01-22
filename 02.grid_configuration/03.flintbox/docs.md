@@ -10,11 +10,11 @@ On Flint Console, Flintbox screen has three primary areas as 'Add Flintbox', 'Ac
 
 ![flintbox_console](flintbox-console.png)
 
-With this document guide you will be able to add a flintbox.
+With the help of this document, you will be able to add a Flintbox on Grid.
 
 ## How to Add a Flintbox to Grid?
 
-Let us see how we can add and enable a Flintbox in simple step as below:
+Let us see how we can add and enable a Flintbox in simple steps as below:
 
 1. Log on to Flint UI Console
 2. Visit the Flintbox link on left navigation bar
