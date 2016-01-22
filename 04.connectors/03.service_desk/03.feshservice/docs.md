@@ -13,11 +13,11 @@ With this document, we will be able to use and work with the Freshservice connec
 
 Perform all standard application operations like Create Ticket, View Ticket, Update Ticket and Add Note to Ticket operations available through the freshservice connector. Some of them are listed below:
 
-+Allows you to perform "RESTful" operations.
-+Add note to a ticket.
-+Get details of ticket.
-+Update ticket.
-+Create ticket. 
++ Allows you to perform "RESTful" operations.
++ Add note to a ticket.
++ Get details of ticket.
++ Update ticket.
++ Create ticket. 
 
 ## Configuring freshservice connector
 
