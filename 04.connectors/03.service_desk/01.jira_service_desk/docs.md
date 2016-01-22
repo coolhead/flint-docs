@@ -92,7 +92,7 @@ Create an issue.
 | ------ | ----------- |
 | action | action to perform: create-issue | true |
 | summary | Title of issue. | true |
-| description | Description related to issu |  |false
+| description | Description related to issu | false |
 | issuetype |Type of issue. i.e Service Request, incident, Problem or Change | false
 | priority | Priority of issue. i.e. Highest=1, High=2, Medium=3, Low=4, Lowest=5   
 | true
