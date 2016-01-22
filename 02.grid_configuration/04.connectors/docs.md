@@ -39,7 +39,7 @@ Let us see how we can add and enable a Connector in simple steps as below:
 
 ![connector_actions](connector-actions.png)
 
-1. **Enable:** Starts the connector execution. You can then use flintbits to call the connector.
+1. **Enable:** Starts the connector execution. You can then use Flintbits to call the connector.
 2. **Disable:**  Stops the connector execution. Flintbit's call to a connector fails stating 'connector not found' if a connector is disabled.
 3. **Edit:** You can change the configuration parameters here.
 4. **Delete:** Completely removes the connector from Flint.
