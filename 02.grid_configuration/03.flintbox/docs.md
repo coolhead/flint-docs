@@ -1,18 +1,20 @@
 ---
-title: Configure Flintbox
+title: Flintbox
 taxonomy:
     category: docs
 process:
 	twig: true
 ---
-Here, you can configure all your flintboxes ( git repositories with workflows ). 
-The flintbox console has three primary areas for Add Flintbox, Active Flintbox and Inactive Flintbox.
+We can add and enable a Flintbox from Flint Console.
+On Flint Console, Flintbox screen has three primary areas as 'Add Flintbox', 'Active Flintbox' and 'Inactive Flintbox'.
 
-With this document guide you will be able to configure a flintbox.
+![flintbox_console](flintbox-console.png)
 
-## Configure Flintbox
+With the help of this document, you will be able to add a Flintbox on Grid.
 
-To configure a Flintbox from Flint Console, steps are as follows:
+## How to Add a Flintbox to Grid?
+
+Let us see how we can add and enable a Flintbox in simple steps as below:
 
 1. Log on to Flint UI Console
 2. Visit the Flintbox link on left navigation bar
@@ -20,9 +22,9 @@ To configure a Flintbox from Flint Console, steps are as follows:
 4. In the form displayed, fill up necessary form fields ( as shown below )
 5. Click on Add button
 
->>>>> The above steps will only configure the flintbox. To enable the flintbox, visit the 'INACTIVE FLINTBOX' tab. Click on the Enable button against the name of your newly added Flintbox.
-
 ![add_flintbox](add-flintbox.png)
+
+>>>>> The above steps will only add the flintbox. To start using the flintbox, visit the 'INACTIVE FLINTBOX' tab. Click on the Enable button against the name of your newly added Flintbox.
 
 ##### Configuration parameters
 | Parameter | Description | required |
