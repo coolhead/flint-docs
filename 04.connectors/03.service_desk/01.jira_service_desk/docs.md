@@ -68,7 +68,7 @@ Adds a new comment to an issue.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| result | Response Body, Data related to issue | true |
+| body | Response Body, Data related to issue | true |
 
 ##### Example
 ``` ruby
@@ -102,6 +102,11 @@ Create an issue.
 | assignee | Assignee of the isssue | false
 | custom-field | Custom fields | false
 
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, Data related to issue | true |
+
 ##### Example
 ``` ruby
 response = @call.connector("jira_connector_name")
@@ -130,6 +135,10 @@ Returns a user.
 | action | action to perform: get-user | true |
 | username | User name | true |
 
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, Data related to issue | true |
 
 ##### Example
 ``` ruby
@@ -151,6 +160,11 @@ Resolve issue.
 | action | action to perform:resolve-issue | true |
 | comment | Comment on issue | false |
 | issue-id | Issue id to resolve | true |
+
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, Data related to issue | true |
 
 ##### Example
 ``` ruby
@@ -177,6 +191,11 @@ Add worklog to an issue.
 | adjust-estimate | Possible values for adjust estimate are: new,manual,auto and leave  | true |
 | new-estimate | Provide only when adjust-estimate is new | true if adjust_estimate = "new" |
 | reduce-by | Provide only when adjust-estimate is manual | true if adjust_estimate = "manual"
+
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, Data related to issue | true |
 
 ##### Example for adjust-estimate = "new"
 ``` ruby
@@ -251,6 +270,11 @@ Sends a notification to the list or recipients defined in the request.
 | assignee | if you want notify to assignee | false |
 | watcher | if you want to notify watcher | false |
 | voters | if you want to notify voters | false |
+
+##### Response parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| body | Response Body, Data related to issue | true |
 
 ##### Example
 ``` ruby

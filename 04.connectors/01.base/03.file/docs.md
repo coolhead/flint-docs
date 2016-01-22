@@ -10,7 +10,7 @@ With Flint's File Connector you can perform read, write, append and delete opera
 With this document guide you will be able to work with and use a File Connector.While you start configuring the connector, this document will guide you through File Connector request and response parameters.
 
 
-## Configuring file connector
+## Add file connector
 No additional configuration is required for file connector
 
 ![add_file_connector](add-file-conn.png)
@@ -21,12 +21,14 @@ No additional configuration is required for file connector
 Read a file form local file system
 
 ##### Request parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | action to perform: read | true |
 | file | Path of file to read | true |
 
 ##### Response parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 | body | Response Body, data read from the file | true |
