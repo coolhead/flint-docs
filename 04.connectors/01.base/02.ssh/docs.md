@@ -83,7 +83,7 @@ result=response.get("result")                    #Result
 
 
 #### SSH key based authentication without Passphrase
-SSH Key based authentication mechanism without passphrase.
+SSH Key based authentication mechanism without passphrase
 
 ##### Request parameters
 | Parameter | Description | Required |
@@ -117,7 +117,7 @@ result=response.get("result")                    #Result
 
 ```
 #### SSH key based authentication with Passphrase
-SSH Key based authentication mechanism with passphrase.
+SSH Key based authentication mechanism with passphrase
 
 ##### Request parameters
 | Parameter | Description | Required |
