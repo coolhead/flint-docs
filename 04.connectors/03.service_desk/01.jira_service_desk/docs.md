@@ -117,10 +117,10 @@ response = @call.connector("jira_connector_name")
                 .set("issuetype","Service Request")
                 .set("priority","4")
                 .set("components",["10106","10105"],
- 	              .set("labels",["bugfix","blitz_test"])
- 	              .set("duedate","2016-03-11")
- 	              .set("reporter","Admin")
- 	              .set("assignee","smith")
+                .set("labels",["bugfix","blitz_test"])
+                .set("duedate","2016-03-11")
+                .set("reporter","Admin")
+                .set("assignee","smith")
                 .set("custom-field",[{"Operating System": "Ubuntu"})
                 .sync
 
