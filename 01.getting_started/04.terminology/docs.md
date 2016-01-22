@@ -74,7 +74,7 @@ Listeners are configured on flint work nodes using flint console.
 > Enables flint to schedule running of flintbits
 
 
-## Global Configuration
+## Global Config
 
 > Configuration which is available for all the flintbox and flintbits deployed on the grid
 
