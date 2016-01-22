@@ -6,6 +6,6 @@ taxonomy:
 
 
 
-# Intermediate
+# Grid Configuration
 
-Delve deeper into more **complex** topics
+See how easy is to configure flint using console user interface
