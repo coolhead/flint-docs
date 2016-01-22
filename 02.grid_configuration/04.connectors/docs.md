@@ -28,9 +28,9 @@ Let us see how we can add and enable a Connector in simple steps as below:
 | Name | Name of the Connector to add.  | true |
 | Type | A list of all the connectors available with Flint is displayed here. Choose the connector type, from the listing. The type uses the following naming convention: flint-[connector type]-connector. Example: Type for a HTTP connector is: flint-http-connector. | true |
 | Description | Summarization of the Connector | false |
-| Config (JSON) | Parameters specified here are specific to the type of connector used. To add config refer to the documentation, depending upon the type selected. | true |
 | Nr of instances | The number of instances with which the Connector will be enabled. Every instance is single threaded which will scale your application across all available worknodes you might want to deploy on. If omitted connector will be enabled with 10 instances. | false |
-| HA Options | Flint allows you to enable the Connector with high availability ( HA ) support. <ul><li>Auto-HA: Connector will be enabled on all the configured grid nodes.</li><li>Worknodes: Connector will be enabled only on specific grid nodes whose hostnames are provided here.</li><li>Disabled: Connector will on be enabled randomly on any one of the configured grid nodes.</li></ul> | true |
+| HA Options | Flint allows you to enable the Connector with high availability ( HA ) support. <ul><li>Auto-HA: Connector will be enabled on all the configured grid nodes.</li><li>Worknodes: Connector will be enabled only on specific grid nodes whose hostnames are provided here. Example: If flint is configured on 5 grid nodes and you choose to enable connector only on 2, then provide their hostnames here like 192.168.2.33,192.168.2.12 or saturn.outerspace.com, jupiter.outerspace.com.</li><li>Disabled: Connector will on be enabled randomly on any one of the configured grid nodes.</li></ul> | true |
+| Config (JSON) | Parameters specified here are specific to the type of connector used. To add config refer to the documentation, depending upon the type selected. | true |
 
 
 >>>> The above steps will only add the connector. To start using the connector, visit the **INACTIVE CONNECTORS** tab. Click on the Enable button against the name of your newly added Connector.
