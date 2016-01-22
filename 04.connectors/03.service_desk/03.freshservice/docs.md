@@ -101,18 +101,18 @@ Update content to ticket.
 | ------ | ----------- |
 | action | action to perform: create | true |
 | ticket-id | Ticket id | false |
-| subject | Ticket subject |  |false
-| description | Content of ticket | false
-| ticket-type | Type of ticket | true
-| cc-emails | Email address added in the 'cc' field of the incoming ticket email | false
-| priority | Ticket priority | false
-| status | Ticket status | false
-| source | Ticket source | false
-| custom-fields | Custom field of ticket | false
-| requester-id | User id of ticket requester | true
-| responder-id | ID of the User to whom the ticket is assigned | false
-| group-id | Id of Group to which the ticket is assigned | false
-| department-id | Id of the associated department | false
+| subject | Ticket subject | false |
+| description | Content of ticket | false |
+| ticket-type | Type of ticket | true |
+| cc-emails | Email address added in the 'cc' field of the incoming ticket email | false |
+| priority | Ticket priority | false |
+| status | Ticket status | false |
+| source | Ticket source | false |
+| custom-fields | Custom field of ticket | false |
+| requester-id | User id of ticket requester | true |
+| responder-id | ID of the User to whom the ticket is assigned | false |
+| group-id | Id of Group to which the ticket is assigned | false |
+| department-id | Id of the associated department | false |
 
 ##### Example
 ``` ruby
