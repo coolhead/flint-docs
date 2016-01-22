@@ -1,20 +1,48 @@
 ---
-title: FreshService/FreshDesk
+title: freshservice/freshdesk
 taxonomy:
     category: docs
 ---
 
-## FreshService Connector
+## freshservice Connector
 
-With Flint's freshservice Connector you can perform Create , View , Update and  Add Note  operations on a ticket.
+With Flint's Freshservice Connector, we can perform operations like create, view, update and add note to a ticket.
 
-With this document guide you will be able to work with and use a freshservice Connector.While you start configuring the connector, this document will guide you through FreshService Connector request and response parameters.
+With this document, we will be able to use and work with the Freshservice connector.
+## Design Aspects
 
+Perform all standard application operations like Create Ticket, View Ticket, Update Ticket and Add Note to Ticket operations available through the freshservice connector. Some of them are listed below:
+
++Allows you to perform "RESTful" operations.
++Add note to a ticket.
++Get details of ticket.
++Update ticket.
++Create ticket. 
 
 ## Configuring freshservice connector
-No additional configuration is required for FreshService connector
 
 ![add_freshservice_connector](add-freshservice-conn.png)
+
+Configuration parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| domain-name | Name of the domain associated with your freshservice account. | true |
+| email | Email address associated with your freshservice account. | true |
+| password  | Password associated with your freshservice account. | Optional |
+| api-key | API key associated with your freshservice account. | Optional |
+| type | freshservice component on which actions will be performed like ticket, user, department, Currently, actions can only be performed on the component of type ticket. | Optional |
+
+##Example
+``` json
+{
+  "domain-name": "https://test.freshservice.com",
+  "email": "test@gmail.com",
+  "password": "password",
+  "api-key": "JrJGC4vDqQRW7Oh4bGF",
+  "type":"ticket"
+}
+
+```
 
 ## Actions
 
@@ -55,8 +83,8 @@ response = @call.connector("freshservice_connecor_name")
                 .set("status",5)
                 .set("source",4)
                 .set("custom-fields",["task_31127:category 2"])
-                .set("requester-id",12345)
-                .set("responder-id" , 123456)
+                .set("requester-id",216)
+                .set("responder-id" , 321)
                 .set("group-id",145)
                 .set("department-id",795)
                 .sync
@@ -147,6 +175,8 @@ response = @call.connector("freshservice_connecor_name")
                 .set("to-emails",["test@gmail.com"])
                 .set("user-id",12345)
                 .sync
+
+response_result = response.get("result") #Add note execution results
 ```
 
 ## Connector response
