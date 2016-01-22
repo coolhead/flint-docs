@@ -11,7 +11,7 @@ With Flint's freshservice Connector you can perform Create , View , Update and  
 With this document guide you will be able to work with and use a freshservice Connector.While you start configuring the connector, this document will guide you through FreshService Connector request and response parameters.
 
 
-## Configuring file connector
+## Configuring freshservice connector
 No additional configuration is required for FreshService connector
 
 ![add_freshservice_connector](add-freshservice-conn.png)
@@ -61,7 +61,7 @@ response = @call.connector("freshservice_connecor_name")
                 .set("department-id",795)
                 .sync
 
-file_content = response.get("result")  #Response Result, ticket information from freshservice.
+ticket_content = response.get("result")  #Response Result, ticket information from freshservice.
 ```
 
 
@@ -120,7 +120,7 @@ Retrive and view a specific ticket.
 
 ##### Example
 ``` ruby
-response = @call.connector("file_connecor_name")
+response = @call.connector("freshservice_connecor_name")
                 .set("action","view-ticket")
                 .set("ticket-id",1)
                 .sync
@@ -139,7 +139,7 @@ Add notes to a ticket - private or public
 
 ##### Example
 ``` ruby
-response = @call.connector("connector_name")
+response = @call.connector("freshservice_connecor_name")
                 .set("action","add-note")
                 .set("ticket-id",1)
                 .set("body","Still not able to view Flint UI.")         
