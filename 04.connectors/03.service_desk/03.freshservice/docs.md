@@ -17,7 +17,7 @@ Perform all standard application operations like Create Ticket, View Ticket, Upd
 + Add note to a ticket.
 + Get details of ticket.
 + Update ticket.
-+ Create ticket. 
++ Create ticket.
 
 ## Configuring freshservice connector
 
@@ -135,7 +135,7 @@ response = @call.connector("freshservice_connecor_name")
 
 
 ```
-### view ticket
+### view-ticket
 Retrive and view a specific ticket.
 
 ##### Request parameters
@@ -155,7 +155,7 @@ response = @call.connector("freshservice_connecor_name")
 
 ```
 
-### add note
+### add-note
 Add notes to a ticket - private or public
 
 ##### Request parameters
