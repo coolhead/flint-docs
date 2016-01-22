@@ -5,16 +5,16 @@ taxonomy:
 ---
 ## HTTP Connector
 
-With Flint's HTTP Connector you can send HTTP requests and read HTTP responses very quickly.
+With Flint's HTTP Connector, we can send HTTP requests and read HTTP responses efficiently.
 
-With this document guide you will be able to work with and use a HTTP Connector.While you start configuring the connector, this document will guide you through HTTP Connector request and response parameters.
+With this document, we will be able to use and work with the HTTP Connector.
 
 ##Design Aspects
-+ Based on Standardized HTTP Protocol versions 1.0 and 1.1
-+ HTTP Methods - GET, POST, PUT, DELETE, HEAD & PATCH
++ Based on standardized HTTP protocol versions 1.0 and 1.1
++ HTTP methods - GET, POST, PUT, DELETE, HEAD & PATCH
 + Direct access to the response body and headers sent by the server
-+ Reading the response body efficiently by streaming directly from the socket to the server with response input streams.
-+ The ability to set Connector execution timeouts
++ Efficiently read through the response body
++ Ability to set timeouts for connector execution
 + Synchronous / Asynchronous execution of the Connector
 
 ## Add HTTP connector
