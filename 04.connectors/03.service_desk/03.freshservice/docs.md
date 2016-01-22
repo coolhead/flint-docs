@@ -23,7 +23,7 @@ Perform all standard application operations like Create Ticket, View Ticket, Upd
 
 ![add_freshservice_connector](add-freshservice-conn.png)
 
-Configuration parameters
+#####Configuration parameters
 | Parameter | Description | required |
 | ------ | ----------- |
 | domain-name | Name of the domain associated with your freshservice account. | true |
