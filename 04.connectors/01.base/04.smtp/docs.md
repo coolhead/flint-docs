@@ -21,7 +21,7 @@ With this document guide you will be able to work with and use a SMTP Connector.
 + The ability to set Connector execution timeouts
 + Synchronous/Asynchronous execution of the Connector
 
-## Configuring file connector
+## Add SMTP connector
 
 ![add_smtp_connector](add-smtp-conn.png)
 
