@@ -1,49 +1,49 @@
 ---
-title: Configure Connectors
+title: Connectors
 taxonomy:
     category: docs
 ---
+We can add and enable a Connector from Flint Console.
+On Flint Console, Connectors screen has three primary areas as **Add Connector**, **Active Connectors** and **Inactive Connectors**.
 
-Lorem *markdownum saxum et* telum revellere in victus vultus cogamque ut quoque
-spectat pestiferaque siquid me molibus, mihi. Terret hinc quem Phoebus? Modo se
-cunctatus sidera. Erat avidas tamen antiquam; ignes igne Pelates
-[morte](http://www.youtube.com/watch?v=MghiBW3r65M) non caecaque canam Ancaeo
-contingat militis concitus, ad!
+![connector_console](connector-console.png)
 
-## Et omnis blanda fetum ortum levatus altoque
+With the help of this document, you will be able to add a Connector on Grid.
 
-Totos utinamque nutricis. Lycaona cum non sine vocatur tellus campus insignia et
-absumere pennas Cythereiadasque pericula meritumque Martem longius ait moras
-aspiciunt fatorum. Famulumque volvitur vultu terrae ut querellas hosti deponere
-et dixit est; in pondus fonte desertum. Condidit moras, Carpathius viros, tuta
-metum aethera occuluit merito mente tenebrosa et videtur ut Amor et una
-sonantia. Fuit quoque victa et, dum ora rapinae nec ipsa avertere lata, profugum
-*hectora candidus*!
+## How to Add a Connector to Grid?
 
-## Et hanc
+Let us see how we can add and enable a Connector in simple steps as below:
 
-Quo sic duae oculorum indignos pater, vis non veni arma pericli! Ita illos
-nitidique! Ignavo tibi in perdam, est tu precantia fuerat
-[revelli](http://jaspervdj.be/).
+1. Log on to Flint UI Console
+2. Visit the Connectors link on left navigation bar
+3. Click on Add Connector
+4. In the form displayed, fill up necessary form fields ( as shown below )
+5. Click on Add button
 
-Non Tmolus concussit propter, et setae tum, quod arida, spectata agitur, ferax,
-super. Lucemque adempto, et At tulit navem blandas, et quid rex, inducere? Plebe
-plus *cum ignes nondum*, fata sum arcus lustraverat tantis!
+![add_connector](add-connector.png)
 
-## Adulterium tamen instantiaque puniceum et formae patitur
+##### Configuration parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| Name | Name of the Connector to add.  | true |
+| Type | A list of all the connectors available with Flint is displayed here. Choose the connector type, from the listing. The type uses the following naming convention: flint-[connector type]-connector. Example: Type for a HTTP connector is: flint-http-connector. | true |
+| Description | Summarization of the Connector | false |
+| Config (JSON) | Parameters specified here are specific to the type of connector used. To add config refer to the documentation, depending upon the type selected. | true |
+| Nr of instances | The number of instances with which the Connector will be enabled. Every instance is single threaded which will scale your application across all available worknodes you might want to deploy on. If omitted connector will be enabled with 10 instances. | false |
+| HA Options | Flint allows you to enable the Connector with high availability ( HA ) support. <ul><li>Auto-HA: Connector will be enabled on all the configured grid nodes.</li><li>Worknodes: Connector will be enabled only on specific grid nodes whose hostnames are provided here.</li><li>Disabled: Connector will on be enabled randomly on any one of the configured grid nodes.</li></ul> | true |
 
-Sit paene [iactantem suos](http://www.metafilter.com/) turbineo Dorylas heros,
-triumphos aquis pavit. Formatae res Aeolidae nomen. Nolet avum quique summa
-cacumine dei malum solus.
 
-1. Mansit post ambrosiae terras
-2. Est habet formidatis grandior promissa femur nympharum
-3. Maestae flumina
-4. Sit more Trinacris vitasset tergo domoque
-5. Anxia tota tria
-6. Est quo faece nostri in fretum gurgite
+>>>> The above steps will only add the connector. To start using the connector, visit the **INACTIVE FLINTBOX** tab. Click on the Enable button against the name of your newly added Connector.
 
-Themis susurro tura collo: cunas setius *norat*, Calydon. Hyaenam terret credens
-habenas communia causas vocat fugamque roganti Eleis illa ipsa id est madentis
-loca: Ampyx si quis. Videri grates trifida letum talia pectus sequeretur erat
-ignescere eburno e decolor terga.
+## Connector Actions
+
+![connector_actions](connector-actions.png)
+
+1. **Enable:** Starts the connector execution. You can then use flintbits to call the connector.
+2. **Disable:**  Stops the connector execution. Flintbit's call to a connector fails stating 'connector not found' if a connector is disabled.
+3. **Edit:** You can change the configuration parameters here.
+4. **Delete:** Completely removes the connector from Flint.
+5. View Information: Name, Type, Description, High Availability, Status and Worknode of the added connector is shown here.
+
+
+

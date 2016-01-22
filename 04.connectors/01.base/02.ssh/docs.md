@@ -3,69 +3,167 @@ title: SSH
 taxonomy:
     category: docs
 ---
+## SSH Connector
 
-Lorem markdownum vides aram est sui istis excipis Danai elusaque manu fores.
-Illa hunc primo pinum pertulit conplevit portusque pace *tacuit* sincera. Iam
-tamen licentia exsulta patruelibus quam, deorum capit; vultu. Est *Philomela
-qua* sanguine fremit rigidos teneri cacumina anguis hospitio incidere sceptroque
-telum spectatorem at aequor.
+With Flint's SSH Connector you can execute commands on remote server machine using SSH2 Protocol.
 
-    if (cssDawP >= station) {
-        dllCdmaCpc += 919754;
-    } else {
-        superscalar += -3 + phishing;
-    }
-    pup_ram_bloatware(2 * network(linkedin));
-    var vfatWhite = serpXmp + paperPitchPermalink(enterprise_and) - 5;
-    systemBandwidthAtm = 9 + station;
-    rw_menu_enterprise *= on_midi / interpreter.adPpp(
-            correctionIntegratedBalancing, bar, real) - user_remote_zebibyte(
-            desktop(lun_flops_wamp, technology_peripheral_dv, spriteHit));
+With this document guide you will be able to work with and use a SSH Connector. While you start configuring the connector, this document will guide you through SSH Connector request and response parameters.
 
-Prochytenque ergo ait aequoreo causa ardere, ex vinaque est, accingere, abest
-nunc sanguine. Est forma admissum adspexit pharetraque regat prece fremit clamat
-memorantur evanuit foret ferinas, senserat infringat illa incumbere excipit
-ulnas. Est undis soror animi diem continuo [videres
-fratres](http://www.reddit.com/r/haskell)? [Meo iam
-mihi](http://html9responsiveboilerstrapjs.com/) miserum fateor, in votum
-iuvenis, aures? Qui labor nulla telluris valerem erat hoc, sedula.
+##Design Aspects
++ Based on Standardized SSH2 Protocol
++ Password based authentication mechanism
++ SSH Key based authentication mechanism ( with or without passphrase )
++ Series of commands to be executed specified in simplified comma separated format
++ Shell Command Execution Types: shell and exec
++ Direct access to the command execution results from the remote server machine
++ The ability to set Connector execution timeouts
++ Synchronous / Asynchronous execution of the Connector
 
-    if (bus_overclocking_server > 891985) {
-        compression = textWep - gatePlatform;
-    } else {
-        fileTweak += file + so_mouse_sram;
-        pda_radcab_eup = tcp_opengl_refresh(network_phishing - realityDel, 5,
-                5);
-        bounce_monitor_dns = 4;
-    }
-    fddi_virtualization_file *= drag_infringement(minicomputerServlet + -1 +
-            gif_white(utf, blog, cloud), dvdMacintosh - radcab_horizontal +
-            cpu_recycle_quicktime(ascii));
-    ad += tableCapsTime - 5 + keyboard_card - -2 + cc;
-    if (raw_bloatware_compression < script_expression) {
-        fiBps(printer_php);
-        ipx = biometricsFullDvi(bootComponentAnsi, 929326, 38);
-    }
+## Add file connector
 
-## Dent et ignavus constant tamque
+![add_ssh_connector](add-ssh-conn.png)
 
-Harenosi praenovimus illa homines, sumit levem et Minyeias genu finita ne quae
-capi vidisse concipit. Fera carmine sinistro in licet? Quoque nam an pereat pro;
-seu male mens favorem, illa! Longo tuas: [una medioque
-caespite](http://www.lipsum.com/) nomen. Et amor artes Est tempore nupta
-generumque olivae stabat.
+##### Configuration parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| target | Host name or ip-address of the remote machine you wish to connect to | true: config/request |
+| username | Username which will be used to log into remote machine, required for authentication | true: config/request|
+| password | Password associated with the username specified, required for authentication | false: config/request |
+| passphrase | Passphrase that needs to be added to the SSH key | false: config/request |
+| port | Port to connect to on the remote machine. Default value is 22 | false: config/request |
+| key-file | Absolute file path including file name where the SSH key needs to be saved | false: config/request |
 
-> Fuit vasto sit, *rite bellatricemque misceri*. Amore tauri qua laborum Iovique
-> est terra sic et aut eminus pretiosior conveniant **possit**. Tyranni procos.
-> Ipsa dracones carinam, ultima, pelagi Boreae quodque, teli dictu volucres:
-> quaeratur ostendit debere validisne? Abdita cingere dixit amat pinguis vultus
-> securim, venter in cognoscere prima *da*?
+##### Example
+``` json
+{
+  "target": "192.168.2.64",
+  "username": "daniel",
+  "password": "daniel123",
+  "passphrase": "1234",
+  "key-file": "/home/daniel/filename.pem",
+  "port": "5000"
+}
+```
 
-**Cavis in pro** suspicere multis, moto neve vibrataque nitidum cessit
-dignabitur pater similis exercet Procne, Anius, nec? Risit luserat meumque; ubi
-et chlamydem inque: id mihi.
+## Actions
+#### Password based Authentication
+Password based authentication mechanism
 
-Populi et emicat et pectora concussit precibus qui et Hector flammis. Pergama
-tenebrisque certe arbiter superfusis genetrix fama; cornu conlato foedere
-adspexisse **rivos quoque** nec profugos nunc, meritisne
-[carbasa](http://reddit.com/r/thathappened).
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the SSH Connector to be configured | true |
+| target | Host name or ip-address of the remote machine you wish to connect to | true |
+| username | Username which will be used to log into remote machine, required for authentication | true |
+| password | Password associated with the username specified, required for authentication | true |
+| command | Command to be executed on the host server machine | true |
+| type | Shell execution is of two types - shell and exec.<ul><li>**exec** each command will be executed in a separate session as if the command is executed in new command shell</li><li>**shell** each command will be executed in the same session as if the command is executed in the same command shell</li></ul> Default execution type is **exec**. | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the ssh request. Default timeout is 60,000 ms | false |
+
+
+##### Response parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| result | Results as per the command executed | true |
+
+
+##### Example
+``` ruby
+response=@call.connector("my-ssh-connector")
+              .set("target","192.168.2.64")
+              .set("username","daniel")
+              .set("password","daniel123")
+              .set("command","pwd")
+              .set("timeout",1000)
+              .sync
+
+#SSH Connector Response Parameters
+result=response.get("result")                    #Result
+```
+
+
+#### SSH key based authentication without Passphrase
+SSH Key based authentication mechanism without passphrase
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the SSH Connector to be configured | true |
+| target | Host name or ip-address of the remote machine you wish to connect to | true |
+| username | Username which will be used to log into remote machine, required for authentication | true |
+| key-file | Absolute file path including file name where the SSH key needs to be saved and resides on local | true |
+| command | Command to be executed on the host server machine | true |
+| type | Shell execution is of two types - shell and exec.<ul><li>**exec** each command will be executed in a separate session as if the command is executed in new command shell</li><li>**shell** each command will be executed in the same session as if the command is executed in the same command shell</li></ul> Default execution type is **exec**. | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the ssh request. Default timeout is 60,000 ms | false |
+
+
+##### Response parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| result | Results as per the command executed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-ssh-connector")
+              .set("target","192.168.2.64")
+              .set("username","daniel")
+              .set("key-file":"/home/daniel/filename.pem")
+              .set("command","pwd")
+              .set("timeout",1000)
+              .sync
+
+#SSH Connector Response Parameters
+result=response.get("result")                    #Result
+
+```
+#### SSH key based authentication with Passphrase
+SSH Key based authentication mechanism with passphrase
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the SSH Connector to be configured | true |
+| target | Host name or ip-address of the remote machine you wish to connect to | true |
+| username | Username which will be used to log into remote machine, required for authentication | true |
+| passphrase | Passphrase to be added to the key-file | true |
+| key-file | Absolute file path including file name where the SSH key needs to be saved and resides on local| true |
+| command | Command to be executed on the host server machine | true |
+| type | Shell execution is of two types - shell and exec.<ul><li>**exec** each command will be executed in a separate session as if the command is executed in new command shell</li><li>**shell** each command will be executed in the same session as if the command is executed in the same command shell</li></ul> Default execution type is **exec**. | false |
+| timeout | Timeout in milliseconds, taken by the connector to serve the ssh request. Default timeout is 60,000 ms | false |
+
+
+##### Response parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| result | Results as per the command executed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-ssh-connector")
+              .set("target","192.168.2.64")
+              .set("username","daniel")
+              .set("passphrase", "daniel123")
+              .set("key-file":"/home/daniel/filename.pem")
+              .set("command","pwd")
+              .set("timeout",1000)
+              .sync
+
+#SSH Connector Response Parameters
+result=response.get("result")                    #Result
+
+```
+
+
+## Connector request error check
+Here is how to interpret connector response.
+``` ruby
+if response.exitcode == 0               # 0 is success.
+  puts "success"
+  # take action in case of success
+else                                    # non zero means fail
+  puts "fail"
+  puts "Reason:" + response.message     # get the reason of failure
+  ## Take action in case of failure
+end
+
+```

@@ -5,16 +5,16 @@ taxonomy:
 ---
 ## HTTP Connector
 
-With Flint's HTTP Connector you can send HTTP requests and read HTTP responses very quickly.
+With Flint's HTTP Connector, we can send HTTP requests and read HTTP responses efficiently.
 
-With this document guide you will be able to work with and use a HTTP Connector.While you start configuring the connector, this document will guide you through HTTP Connector request and response parameters.
+With this document, we will be able to use and work with the HTTP Connector.
 
 ##Design Aspects
-+ Based on Standardized HTTP Protocol versions 1.0 and 1.1
-+ HTTP Methods - GET, POST, PUT, DELETE, HEAD & PATCH
++ Based on standardized HTTP protocol versions 1.0 and 1.1
++ HTTP methods - GET, POST, PUT, DELETE, HEAD & PATCH
 + Direct access to the response body and headers sent by the server
-+ Reading the response body efficiently by streaming directly from the socket to the server with response input streams.
-+ The ability to set Connector execution timeouts
++ Efficiently read through the response body
++ Ability to set timeouts for connector execution
 + Synchronous / Asynchronous execution of the Connector
 
 ## Add HTTP connector
@@ -33,7 +33,7 @@ Retrieve information from the given server using a given URI.
 | connector_name | Name of the HTTP Connector to be configured. | true |
 | method | Http Request Methods: GET | true |
 | url | URL to be queried | true |
-| headers | HTTP Request headers holding information about the http request to be made | false |
+| headers | HTTP Request headers holding information about the http request to be made specified in key-value pairs in string format. Multiple headers must be separated by comma ( , ) | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
 
@@ -67,7 +67,7 @@ Send data to the server.
 | method | Http Request Methods: POST | true |
 | url | URL to be queried | true |
 | body | HTTP Request body to be sent to the server. | true|
-| headers | HTTP Request headers holding information about the http request to be made | false |
+| headers | HTTP Request headers holding information about the http request to be made specified in key-value pairs in string format. Multiple headers must be separated by comma ( , ) | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
 ##### Response parameters
@@ -82,7 +82,7 @@ response=@call.connector("my-http-connector")
               .set("method", "POST")
               .set("url", "http://httpbin.org/pos")
               .set("body","Welcome to Flint !!")
-              .set("headers","Content-Type:text/plain")
+              .set("headers","Content-Type:text/plain, Authorization: b7d03a6947b217efb6f3ec3bd3504582")
               .set("timeout",10000)
               .sync
 response_body=response.get("body")           #Response Body
@@ -99,7 +99,7 @@ Replaces all current representations of the target resource with the uploaded co
 | method | Http Request Methods: PUT | true |
 | url | URL to be queried | true |
 | body | HTTP Request body to be sent to the server. | true|
-| headers | HTTP Request headers holding information about the http request to be made | false |
+| headers | HTTP Request headers holding information about the http request to be made specified in key-value pairs in string format. Multiple headers must be separated by comma ( , ) | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
 ##### Response parameters
@@ -114,7 +114,7 @@ response=@call.connector("my-http-connector")
          .set("method","PUT")
          .set("url","http://httpbin.org/put")
          .set("body","Have some suggestions for flint? We are listening !")
-         .set("headers","Content-Type:text/plain")
+         .set("headers","Content-Type:text/plain, Authorization: b7d03a6947b217efb6f3ec3bd3504582")
          .set("timeout", 10000)
          .sync
 
@@ -133,7 +133,7 @@ Removes all current representations of the target resource given by a URI.
 | method | Http Request Methods: DELETE | true |
 | url | URL to be queried | true |
 | body | HTTP Request body to be sent to the server. | false|
-| headers | HTTP Request headers holding information about the http request to be made | false |
+| headers | HTTP Request headers holding information about the http request to be made specified in key-value pairs in string format. Multiple headers must be separated by comma ( , ) | false |
 | timeout | Timeout in milliseconds, taken by the connector to serve the http request. Default timeout is 60,000 ms | false |
 
 ##### Response parameters
@@ -149,14 +149,14 @@ response=@call.connector("my-http-connector")
               .set("method", "DELETE")
               .set("url", "http://httpbin.org/delete")
               .set("body", "Old age way of automating processes !")
-              .set("headers", "Content-Type:text/plain")
+              .set("headers", "Content-Type:text/plain, Authorization: b7d03a6947b217efb6f3ec3bd3504582")
               .set("timeout", 10000)
               .sync
 response_body=response.get("body")           #Response Body
 response_headers=response.get("headers")     #Response Headers
 ```
 
-## Connector response
+## Connector request error check
 Here is how to interpret connector response.
 ``` ruby
 if response.exitcode == 0               # 0 is success.
