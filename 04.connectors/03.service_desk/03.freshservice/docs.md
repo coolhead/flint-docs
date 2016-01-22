@@ -1,10 +1,10 @@
 ---
-title: freshservice/freshdesk
+title: Freshservice/Freshdesk
 taxonomy:
     category: docs
 ---
 
-## freshservice Connector
+## FreshService Connector
 
 With Flint's Freshservice Connector, we can perform operations like create, view, update and add note to a ticket.
 
