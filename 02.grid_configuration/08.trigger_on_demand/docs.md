@@ -6,46 +6,90 @@ process:
 	twig: true
 ---
 
-Lorem markdownum murmure fidissime suumque. Nivea agris, duarum longaeque Ide
-rugis Bacchum patria tuus dea, sum Thyneius liquor, undique. **Nimium** nostri
-vidisset fluctibus **mansit** limite rigebant; enim satis exaudi attulit tot
-lanificae [indice](http://www.mozilla.org/) Tridentifer laesum. Movebo et fugit,
-limenque per ferre graves causa neque credi epulasque isque celebravit pisces.
+## Trigger on Demand ( TOD )
 
-- Iasone filum nam rogat
-- Effugere modo esse
-- Comminus ecce nec manibus verba Persephonen taxo
-- Viribus Mater
-- Bello coeperunt viribus ultima fodiebant volentem spectat
-- Pallae tempora
+You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus running a flintbit from TOD will not only trigger the workflow but also help us learn the response for the same with appropriate logs.
 
-## Fuit tela Caesareos tamen per balatum
+Trigger On Demand is all about - Running a Flintbit, watching output of flintbit in its well formatted and raw form and monitoring logs.
 
-De obstruat, cautes captare Iovem dixit gloria barba statque. Purpureum quid
-puerum dolosae excute, debere prodest **ignes**, per Zanclen pedes! *Ipsa ea
-tepebat*, fiunt, Actoridaeque super perterrita pulverulenta. Quem ira gemit
-hastarum sucoque, idem invidet qui possim mactatur insidiosa recentis, **res
-te** totumque [Capysque](http://tumblr.com/)! Modo suos, cum parvo coniuge, iam
-sceleris inquit operatus, abundet **excipit has**.
 
-In locumque *perque* infelix hospite parente adducto aequora Ismarios,
-feritatis. Nomine amantem nexibus te *secum*, genitor est nervo! Putes
-similisque festumque. Dira custodia nec antro inornatos nota aris, ducere nam
-genero, virtus rite.
+### To Run a Flintbit
 
-- Citius chlamydis saepe colorem paludosa territaque amoris
-- Hippolytus interdum
-- Ego uterque tibi canis
-- Tamen arbore trepidosque
 
-## Colit potiora ungues plumeus de glomerari num
+#### Run Mode
 
-Conlapsa tamen innectens spes, in Tydides studio in puerili quod. Ab natis non
-**est aevi** esse riget agmenque nutrit fugacis.
+Not only connectors/listeners but also flintbits can be executed in synchronously and asynchronously.
 
-- Coortis vox Pylius namque herbosas tuae excedere
-- Tellus terribilem saetae Echinadas arbore digna
-- Erraverit lectusque teste fecerat
+* Synchronous : Runs a flintbit in synchronous way. Default timeout of 60,000 ms will be used.
+* Asynchronous : Runs a flintbit in asynchronous way straight away returning the meta object back, will not way for the job to complete.
 
-Suoque descenderat illi; quaeritur ingens cum periclo quondam flaventibus onus
-caelum fecit bello naides ceciderunt cladis, enim. Sunt aliquis.
+##### Name
+
+Name of the flintbit along with name of the flintbox name in whcih it resides. All the flintboxes by default reside in the flintbox directory. Naming convention followed :
+
+```
+flintbox-name:flintbit-name
+```
+
+where, a **colon ( : )** represents the path change.
+
+##### Example
+
+Generally ( a non-nested directory structure ),
+
+``` http
+example:hello.rb  
+```
+where, a colon ( : ) represents the path change.
+
+In case of a nested directory structure,
+
+``` http
+http:my-requests:http_get.rb
+```
+
+A nested directory structure representing the following,each separated by a colon ( : ) :
+
+```
+-flintbox
+  -http
+    -my-requests
+      -http_get.rb  
+```
+##### Input Type
+
+Used to specify the type of input documents for flintbit. Valid input document types :
+
+* JSON ( application/json )
+* XML ( application/xml )
+
+##### Timeout
+
+Used to specify the timeout for a flintbit's execution in a synchronous mode. Default timeout is 60,000ms.
+
+##### Input( XML/JSON )
+
+Used to specify a JSON Object in case of JSON type input document or a XML document in case of XML type input document. The data given is nothing but the input to your flintbit.
+
+![tod-run-flintbit](tod-run-flintbit.png)
+
+<br>
+### Output
+
+Here, you can view a well structured response of your flintbit. All the parameters of the response stand out with their corresponding values eliminating the need to go through the minified version of the response. Response parameters separated out perfectly you can study values which are a matterof importance to you.
+
+![tod-output](tod-output.png)
+
+<br>
+### Raw
+
+The raw view is just a big text area with the flintbit response body. A minified version of the JSON Object or XML document will be displayed depending on the type of input supplied.
+
+![tod-raw](tod-raw.png)
+
+<br>
+### Logs
+
+Logs will help you walk through your workflow. With various logging levels and all possible errors captured Flint's logging will surely help you learn the workflow and debug application error if any. Its a good practice to start logs before running any flintbit.
+
+![tod-logs](tod-logs.png)
