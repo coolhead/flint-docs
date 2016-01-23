@@ -7,5 +7,3 @@ taxonomy:
 
 
 # Base protocol Connectors
-
-Get into the **nitty gritty** with these advanced topics

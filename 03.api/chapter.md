@@ -8,4 +8,4 @@ taxonomy:
 
 # API
 
-Get into the **nitty gritty** with these advanced topics
+Know about Flint's Application Programming Interfaces

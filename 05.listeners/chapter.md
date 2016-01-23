@@ -8,4 +8,4 @@ taxonomy:
 
 # Listeners
 
-Get into the **nitty gritty** with these advanced topics
+Know about different types of listeners available

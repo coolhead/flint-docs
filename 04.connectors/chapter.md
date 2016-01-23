@@ -8,4 +8,4 @@ taxonomy:
 
 # Connectors
 
-Get into the **nitty gritty** with these advanced topics
+Know about different types of connectors available
