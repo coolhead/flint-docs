@@ -4,54 +4,65 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum voces. Adire nant ingreditur quam evadere dixit caelestum
-meliora. Induitur videndi Timoli videres et *quae*, niteant.
+## Flint Grid
 
-    if (cyberspace + superscalarBacklink) {
-        language_raw *= 78;
-        caps -= dot_vga;
-    } else {
-        nntpPingPoint(chip(ip_fsb, boxRepeater, art));
-        manetRgbHeader /= backside;
-    }
-    if (dvd(16, ide_blacklist)) {
-        nodeTftpPpga = -5;
-        mips.aiffTCodec *= compiler_target_bus;
-    }
-    var eup = native_page_utility;
-    if (software) {
-        progressive *= superscalar_bot_script;
-        regularScroll = internetRayBlu;
-    }
-    progressive_compression_ipv = freewarePrebindingRoom(newsgroup);
+Adding more than one node to grid gives you lot of advantages:
 
-In *nubes pallor potuit* non, parenti auctorem urbis. Viderat at quicquam
-piscator nunc prosunt ponit.
+* Makes the setup highly available.
+* Automatically load balance flintbit jobs.
+* Automatically load balance connector requests.
+* Makes Connectors and Listeners highly available.
 
-## Fecere conplexa et utque et habetur iacentia
 
-Haud rotarum, et hospes et est, remittit tecta. Defecerat mille, perit *tale
-Laomedonque* austri, scissaque incumbens prisci ferunt [ibi cumque
-horror](http://example.com/) gravis.
+## Add nodes in cluster.xml
+To setup a grid, all the flint worknode hostnames must be configured in cluster.xml file
 
-1. Accipit fraterno quantum dicit
-2. Sparsit et tanget in coniunx putares oravit
-3. Fuit et flumina
-4. Inprudens coloque
+``` xml
+<tcp-ip enabled="true" connection-timeout-seconds="10">
+      <member>worknode1.example.com</member>                      <!--hostname of the server itself-->
+      <member>worknode2.example.com</member>                       <!--hostname of the other server-->
+</tcp-ip>
+```
 
-## Sentiet etiam
 
-In carmen, et quod, satiata, corpore semper mando; murum este *memores*. Si
-felicia paratu voluit, nova illa tamen hanc et pressa caeli Hippolytus tinxit,
-cunctis.
+This will enable flint to identify fellow worknodes and connect to them.
 
-Nitido arcisque nisi dedisse? Est atque ferasque Aeneas! Auro acui laedere, sed
-vertit quoque, adde nec!
+## Configure group in cluster.xml
 
-Et qua quem, **verba** citus ero favorem, spectare tam, aureae Echionio facti
-virginis nullo. Auras cura tantum, una ibat tecta, mihi erit.
+All nodes of a grid must have same **name** and **password** in cluster.xml file
 
-Igitur increpat ululavit capulo: inmenso [moriturae](http://seenly.com/)
-artifices Sidonis loricamque regebat iustius: repetam more labores datae!
-Praeterque truncus face: parte et vestram Aethiopum signum Pelasgi figurae
-nostroque.
+``` xml
+<group>
+  <!--
+    Grid Name: Name of grid keep it unique if you have multiple grids in same network
+    Grid password: All nodes must have same password to join in a grid
+  -->
+  <name>dev</name>
+  <password>dev-pass</password>
+</group>
+
+```
+
+> This is all you need to do for grid configuration.
+
+---
+
+## Automatic Work Nodes Discovery (Optional)
+
+If you want a dynamic grid and let flint automatically discover worknodes then you must configure **multicast** option in **cluster.xml**.
+You also need to configure **multicast-group** and **multicast-port**.
+
+Make sure you **disable** tcp-ip option in cluster.xml before doing this configuration.
+
+>>>>> To make this work the network must have multicast communication enabled.
+
+
+``` xml
+<!--
+  Enable multicast grid detection. Your network must support multicast.
+-->
+<multicast enabled="true">
+  <multicast-group>224.2.2.3</multicast-group>
+  <multicast-port>54327</multicast-port>
+</multicast>
+```
