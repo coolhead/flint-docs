@@ -46,8 +46,8 @@ With this document guide you will be able to work with and use a WinRM Connector
 ```
 ## Actions
 
-### Execute commands on Remote Windows Server
-Send an email
+### [command]
+Execute commands on Remote Windows Server
 
 ##### Request parameters
 | Parameter | Description | required |
