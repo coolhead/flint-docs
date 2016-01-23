@@ -5,47 +5,77 @@ taxonomy:
 process:
 	twig: true
 ---
+## User Management
 
-Lorem markdownum murmure fidissime suumque. Nivea agris, duarum longaeque Ide
-rugis Bacchum patria tuus dea, sum Thyneius liquor, undique. **Nimium** nostri
-vidisset fluctibus **mansit** limite rigebant; enim satis exaudi attulit tot
-lanificae [indice](http://www.mozilla.org/) Tridentifer laesum. Movebo et fugit,
-limenque per ferre graves causa neque credi epulasque isque celebravit pisces.
+To view, manage and add users in your organization visit the Administration link on the left navigation bar of Flint Console.
 
-- Iasone filum nam rogat
-- Effugere modo esse
-- Comminus ecce nec manibus verba Persephonen taxo
-- Viribus Mater
-- Bello coeperunt viribus ultima fodiebant volentem spectat
-- Pallae tempora
+The Administration link is only visible to the administrator of the organization. Default administrator has account with credentials username admin and password admin123.
 
-## Fuit tela Caesareos tamen per balatum
+User management comprises of Users and Groups management consoles.
 
-De obstruat, cautes captare Iovem dixit gloria barba statque. Purpureum quid
-puerum dolosae excute, debere prodest **ignes**, per Zanclen pedes! *Ipsa ea
-tepebat*, fiunt, Actoridaeque super perterrita pulverulenta. Quem ira gemit
-hastarum sucoque, idem invidet qui possim mactatur insidiosa recentis, **res
-te** totumque [Capysque](http://tumblr.com/)! Modo suos, cum parvo coniuge, iam
-sceleris inquit operatus, abundet **excipit has**.
 
-In locumque *perque* infelix hospite parente adducto aequora Ismarios,
-feritatis. Nomine amantem nexibus te *secum*, genitor est nervo! Putes
-similisque festumque. Dira custodia nec antro inornatos nota aris, ducere nam
-genero, virtus rite.
 
-- Citius chlamydis saepe colorem paludosa territaque amoris
-- Hippolytus interdum
-- Ego uterque tibi canis
-- Tamen arbore trepidosque
+### Users
 
-## Colit potiora ungues plumeus de glomerari num
+Here you can view the list of all added users with their personal information, manage the user information and mainly view the flint-api key assigned to the user along with the group which they belong to.
 
-Conlapsa tamen innectens spes, in Tydides studio in puerili quod. Ab natis non
-**est aevi** esse riget agmenque nutrit fugacis.
+![user](user.png)
 
-- Coortis vox Pylius namque herbosas tuae excedere
-- Tellus terribilem saetae Echinadas arbore digna
-- Erraverit lectusque teste fecerat
+### Adding a User
 
-Suoque descenderat illi; quaeritur ingens cum periclo quondam flaventibus onus
-caelum fecit bello naides ceciderunt cladis, enim. Sunt aliquis.
+Adding a user is pretty simple. Just three steps and all done.
+
+* Click on the **Add User** button on the Users console
+* Fill the form with the basic details of the user as shown below
+* Click on the **Save** button
+
+![add-user](add-user.png)
+
+### Manage a User
+
+Here, you can edit the basic details of the user and re-entering the password will cause the password to change. The form displayed is similar to the form used to enter the basic details while adding a user.
+
+### User's Flint-Key
+
+Here, the **flint-key** and the group name pertaining to the user will be displayed.
+
+![user-info](user-info.png)
+
+### Groups
+
+You can have two groups of users within the same organization - admin and users.This console allows you to add, remove and delete users from their respective group.
+
+An organization can have more than one administrator accessing the Flint Console meaning more than one user can be added to the admin group.
+
+By default a user will be added to the users group.
+
+![user-groups](user-groups.png)
+
+
+>>>>> The users and the admin group can never be deleted or removed completely.
+
+### Authorization
+
+#### To an Administrator
+
+* Create and restore the grid configurations
+* Add/Enable/Disable/Edit/Delete Flintboxes
+* Add/Enable/Disable/Edit/Delete Connectors
+* Add/Enable/Disable/Edit/Delete Listeners
+* Enable/Disable/Edit Scheduler
+* Add/Edit/Delete Global Config
+* Run Flintbits
+* Access to User Management Console
+* Can add, remove and delete users
+
+
+#### To an User
+
+* Can only run Flintbits
+* View the dashboard, but cannot perform any operations
+* View the Flintboxes console, but cannot perform any operations
+* View the Connectors console, but cannot perform any operations
+* View the Listeners console, but cannot perform any operations
+* View the Scheduler console, but cannot perform any operations
+* View the Global Config console, but cannot perform any operations
+* User Management Console not visible
