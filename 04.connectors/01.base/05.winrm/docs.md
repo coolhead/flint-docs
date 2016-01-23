@@ -24,13 +24,13 @@ With this document guide you will be able to work with and use a WinRM Connector
 ##### Configuration parameters
 | Parameter | Description | Required |
 | ------ | ----------- |
-| hostname | Host name or ip-address of the host server machine to connect | true |
-| username | Connect with specified username, host server machine authentication | true |
-| password | Connect with specified password, host server machine authentication | true |
-| protocol | Connect with specified protocol, host server machine authentication. Default value is http | false |
-| command | Command to be executed on the host server machine | true |
-| port | Port to connect to on the host server machine. Default value is 5985 | false |
-| timeout | Execution time of the Command in milliseconds(default timeout is 60000 milliseconds) | false |
+| hostname | Host name or ip-address of the host server machine to connect | true: config/request |
+| username | Connect with specified username, host server machine authentication | true: config/request |
+| password | Connect with specified password, host server machine authentication | true: config/request |
+| protocol | Connect with specified protocol, host server machine authentication. Default protocol is **http** | false: config/request |
+| command | Command to be executed on the host server machine | true: config/request |
+| port | Port to connect to on the host server machine. Default port is **5985** | false: config/request |
+| timeout | Execution time of the Command in milliseconds. Default timeout is **60000 milliseconds** | false: config/request |
 
 ##### Example
 ```json
@@ -52,25 +52,21 @@ Send an email
 ##### Request parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| action | Specify action as “send” for sending an email message |	true |
-| to | Username is the full email address of the sender's email account| true |
-| from |	Usernames of email accounts for whom the email message is meant | true |
-| subject	| Specify subject of an email message here|	true |
-| body | Email message content mainly a text | true |
-| username | Username is the full email address of the sender's email account. Not required, if already specified in configuration file |	false |
-| password	| Password associated with the sender's email account. Not required, if already specified in configuration file. |	false |
-| port | Port number on which the SMTP server is listening. Default port is **25** | false |
-| cc | Usernames of email accounts who need to be kept informed of the email message content, but no actions required from them. Multiple usernames must be given within an array of strings | false |
-| bcc |	Usernames of email accounts you don't wish the other recipients to see that you sent it to this contact. Multiple usernames must be given within an array of strings | false |
-| attachments |	Files to be attached to an email message. Maximum size of a file that can be attached is 10 Mb. Multiple file names must be given within an array of strings |	false |
-| content-type |	Content-type of the email body. Example : text/plain, multipart/alternative etc. Default content-type is **text/html** | false |
+| connector-name | Name of the WinRM Connector to be configured  | true|
+| hostname | Host name or ip-address of the host server machine to connect  | true |
+| username | Connect with specified username, host server machine authentication  | true |
+| password | Connect with specified password, host server machine authentication  | true |
+| protocol | Connect with specified protocol, host server machine authentication. Default protocol is **http**  | false |
+| command | Command to be executed on the host server machine  | true |
+| port | Port to connect to on the host server machine. Default port is **5985**  | false |
+| timeout | Execution time of the Command in milliseconds. Default timeout is **60000 milliseconds**  | false |
 
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-|output	| Message stating the status of mail delivery| true |
-|exit-status	| Message stating the status of mail delivery| true |
-|error	| Message stating the status of mail delivery| true |
+|output	| Output results as per the command executed | true |
+|exit-status	| Exit status of the command executed | true |
+|error	| Error results as per the command executed | true |
 
 
 ##### Example
