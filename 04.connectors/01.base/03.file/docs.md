@@ -6,8 +6,7 @@ taxonomy:
 
 With Flint's File Connector you can perform read, write, append and delete operations on a file.
 
-With this document guide you will be able to work with and use a File Connector.While you start configuring the connector, this document will guide you through File Connector request and response parameters.
-
+This section will guide you on how to use and work with the File Connector.
 
 ## Connector Configuration
 No additional configuration is required for file connector
