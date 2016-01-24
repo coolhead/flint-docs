@@ -105,7 +105,7 @@ response = @call.connector("file_connecor_name")
 ```
 
 ## Connector request error handling
-Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
 
 ``` ruby
 if response.exitcode == 0               # 0 is success.
