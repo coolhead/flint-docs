@@ -28,7 +28,7 @@ WinRM (Windows Remote Management) Connector can be used to execute commands on r
 | protocol | Connect with specified protocol, host server machine authentication. Default protocol is **http** | false: config/request |
 | command | Command to be executed on the host server machine | true: config/request |
 | port | Port to connect to the host server machine. Default port is **5985** | false: config/request |
-| timeout | Execution time of the Command in milliseconds. Default timeout is **60000 milliseconds** | false: config/request |
+| timeout | Execution time for the command in milliseconds. Default timeout is **60000 milliseconds** | false: config/request |
 
 ##### Example
 
@@ -65,8 +65,8 @@ Execute commands on Remote Windows Server
 
 | Parameter | Description | required |
 | ------ | ----------- |
-|output	| Output results as per the command executed | true |
-|exit-status	| Exit status of the command executed | true |
+|output | Output results as per the command executed | true |
+|exit-status | Exit status of the command executed | true |
 |error	| Error results as per the command executed | true |
 
 
