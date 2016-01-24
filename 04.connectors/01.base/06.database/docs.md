@@ -3,69 +3,235 @@ title: Database - JDBC
 taxonomy:
     category: docs
 ---
+## JDBC Connector
 
-Lorem markdownum vides aram est sui istis excipis Danai elusaque manu fores.
-Illa hunc primo pinum pertulit conplevit portusque pace *tacuit* sincera. Iam
-tamen licentia exsulta patruelibus quam, deorum capit; vultu. Est *Philomela
-qua* sanguine fremit rigidos teneri cacumina anguis hospitio incidere sceptroque
-telum spectatorem at aequor.
+With Flint's DB Connector you can execute queries against the mostly used databases in any IT infrastructure.
 
-    if (cssDawP >= station) {
-        dllCdmaCpc += 919754;
-    } else {
-        superscalar += -3 + phishing;
-    }
-    pup_ram_bloatware(2 * network(linkedin));
-    var vfatWhite = serpXmp + paperPitchPermalink(enterprise_and) - 5;
-    systemBandwidthAtm = 9 + station;
-    rw_menu_enterprise *= on_midi / interpreter.adPpp(
-            correctionIntegratedBalancing, bar, real) - user_remote_zebibyte(
-            desktop(lun_flops_wamp, technology_peripheral_dv, spriteHit));
+With this document guide you will be able to work with and use a DB Connector.
 
-Prochytenque ergo ait aequoreo causa ardere, ex vinaque est, accingere, abest
-nunc sanguine. Est forma admissum adspexit pharetraque regat prece fremit clamat
-memorantur evanuit foret ferinas, senserat infringat illa incumbere excipit
-ulnas. Est undis soror animi diem continuo [videres
-fratres](http://www.reddit.com/r/haskell)? [Meo iam
-mihi](http://html9responsiveboilerstrapjs.com/) miserum fateor, in votum
-iuvenis, aures? Qui labor nulla telluris valerem erat hoc, sedula.
+##Design Aspects
++ Query all popular databases : MySQL, MS SQL, Oracle and PostgreSQL
++ Simple DB queries : select, insert, update, delete and procedure
++ Databases with/without passwords accessible
++ Direct access to the query execution results from the remote server machine
++ Ability to set Connector execution timeout
++ Synchronous / Asynchronous execution of the Connector
 
-    if (bus_overclocking_server > 891985) {
-        compression = textWep - gatePlatform;
-    } else {
-        fileTweak += file + so_mouse_sram;
-        pda_radcab_eup = tcp_opengl_refresh(network_phishing - realityDel, 5,
-                5);
-        bounce_monitor_dns = 4;
-    }
-    fddi_virtualization_file *= drag_infringement(minicomputerServlet + -1 +
-            gif_white(utf, blog, cloud), dvdMacintosh - radcab_horizontal +
-            cpu_recycle_quicktime(ascii));
-    ad += tableCapsTime - 5 + keyboard_card - -2 + cc;
-    if (raw_bloatware_compression < script_expression) {
-        fiBps(printer_php);
-        ipx = biometricsFullDvi(bootComponentAnsi, 929326, 38);
-    }
+## Add JDBC connector
 
-## Dent et ignavus constant tamque
 
-Harenosi praenovimus illa homines, sumit levem et Minyeias genu finita ne quae
-capi vidisse concipit. Fera carmine sinistro in licet? Quoque nam an pereat pro;
-seu male mens favorem, illa! Longo tuas: [una medioque
-caespite](http://www.lipsum.com/) nomen. Et amor artes Est tempore nupta
-generumque olivae stabat.
+![add_db_connector](add-db-conn.png)
 
-> Fuit vasto sit, *rite bellatricemque misceri*. Amore tauri qua laborum Iovique
-> est terra sic et aut eminus pretiosior conveniant **possit**. Tyranni procos.
-> Ipsa dracones carinam, ultima, pelagi Boreae quodque, teli dictu volucres:
-> quaeratur ostendit debere validisne? Abdita cingere dixit amat pinguis vultus
-> securim, venter in cognoscere prima *da*?
+##### Configuration parameters
+| Parameter | Description | Required |
+| -------- | ------------ |
+| database | The data source. Name of the database on which actions have to be performed | true: config/requrest |
+| type | Type of Database. Valid types : mysql, postgresql, ms sql and oracle | true: config/request |
+| target | Host name or IP address of the server on which the database resides | true: config/request |
+| port | Port number on which the target server is listening | true: config/request |
+| driver | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver | true: config/request |
+| username | Username associated with the database. Not required, if already specified in connector configuration | true: config/request |
+| password | Password associated with the database. Not required, if already specified in connector configuration | true: config/request |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
 
-**Cavis in pro** suspicere multis, moto neve vibrataque nitidum cessit
-dignabitur pater similis exercet Procne, Anius, nec? Risit luserat meumque; ubi
-et chlamydem inque: id mihi.
+## Example
+``` json
+{
+  "database": "employee",
+  "type" : "mysql",
+  "target": "localhost",
+  "port": 3306,
+  "driver": "com.mysql.jdbc.Driver",
+  "username": "root",
+  "password": "root",
+  "jdbc-url": "jdbc:mysqllocalhost:3306/employee"
+}
+```
 
-Populi et emicat et pectora concussit precibus qui et Hector flammis. Pergama
-tenebrisque certe arbiter superfusis genetrix fama; cornu conlato foedere
-adspexisse **rivos quoque** nec profugos nunc, meritisne
-[carbasa](http://reddit.com/r/thathappened).
+## Actions
+
+### select
+Retrieving data from the database.
+
+##### Request parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
+| database | Basically, is the data source. Name of the database on which actions have to be performed. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| target |Host name or IP address of the server on which the database resides |true |
+| driver |Specify the query that you want to perfor on the database | true |
+| type |Type of Database. Valid types : mysql, postgresql, ms sql and oracle. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| port |Port number on which the target server is listening. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| username | Username associated with the database. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration  | true |
+| password |Password associated with the database. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| result | Results as per the query performed on the database. Will reflect the number of rows in database affected in case of insert,delete and update actions. In case of select action, the data retrieved will be displayed in an array format. The result for a procedure action is based on the type of query performed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-db-connector")
+              .set("action","select" )
+              .set("database","employees")
+              .set("type","mysql")
+              .set("target","db.example.com")
+              .set("port",3306)
+              .set("driver", "com.mysql.jdbc.Driver")
+              .set("query", "select * from employee")
+              .sync
+
+#DB Connector Response Parameters
+result=response.get("result") #Query execution results
+```
+
+
+### Insert
+Inserting data into the database
+
+##### Request parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| driver |Specify the query that you want to perfor on the database | true |
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| result | Results as per the query performed on the database. Will reflect the number of rows in database affected in case of insert,delete and update actions. In case of select action, the data retrieved will be displayed in an array format. The result for a procedure action is based on the type of query performed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-db-connector")
+              .set("action","insert" )
+              .set("jdbc-url" : "jdbc:mysql://db.example.com:3306/my-employess")
+              .set("driver", "com.mysql.jdbc.Driver")
+              .set("query", "insert into employee (age,lastname,city) values(27,'kennedy','pune')")
+              .sync
+
+#DB Connector Response Parameters
+result=response.get("result") #Query execution results
+ 
+```
+### update
+Updating data from the database
+
+##### Request parameters
+
+##### Request parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| driver |Specify the query that you want to perfor on the database | true |
+
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| result | Results as per the query performed on the database. Will reflect the number of rows in database affected in case of insert,delete and update actions. In case of select action, the data retrieved will be displayed in an array format. The result for a procedure action is based on the type of query performed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-db-connector")
+              .set("action","update" )
+              .set("jdbc-url" : "jdbc:mysql://db.example.com:3306/my-employess")
+              .set("driver", "com.mysql.jdbc.Driver")
+              .set("query", "update employee set lastname='subhramanyam',city='delhi' where age = 27")
+              .sync
+
+#DB Connector Response Parameters
+result=response.get("result") #Query execution results
+
+```
+
+### delete
+deleting data from the database
+
+##### Request parameters
+
+##### Request parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| driver |Specify the query that you want to perfor on the database | true |
+
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| result | Results as per the query performed on the database. Will reflect the number of rows in database affected in case of insert,delete and update actions. In case of select action, the data retrieved will be displayed in an array format. The result for a procedure action is based on the type of query performed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-db-connector")
+              .set("action","delete" )
+              .set("jdbc-url" : "jdbc:mysql://db.example.com:3306/my-employess")
+              .set("driver", "com.mysql.jdbc.Driver")
+              .set("query", "delete from employee where age=27")
+              .sync
+
+#DB Connector Response Parameters
+result=response.get("result") #Query execution results
+
+```
+### delete
+call procedure/function
+
+##### Request parameters
+
+##### Request parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| driver |Specify the query that you want to perfor on the database | true |
+
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+| result | Results as per the query performed on the database. Will reflect the number of rows in database affected in case of insert,delete and update actions. In case of select action, the data retrieved will be displayed in an array format. The result for a procedure action is based on the type of query performed | true |
+
+##### Example
+``` ruby
+response=@call.connector("my-db-connector")
+              .set("action","procedure" )
+              .set("jdbc-url" : "jdbc:mysql://db.example.com:3306/my-employess")
+              .set("driver", "com.mysql.jdbc.Driver")
+              .set("query", "call simple()")
+              .sync
+
+#DB Connector Response Parameters
+result=response.get("result") #Query execution results
+
+```
+
+## Connector request error handling
+Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+
+``` ruby
+if response.exitcode == 0               # 0 is success.
+  puts "success"
+  # take action in case of success
+else                                    # non zero means fail
+  puts "fail"
+  puts "Reason:" + response.message     # get the reason of failure
+  ## Take action in case of failure
+end
+
+```
