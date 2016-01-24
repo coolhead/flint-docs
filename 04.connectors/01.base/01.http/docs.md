@@ -1,15 +1,14 @@
 ---
-title: HTTP
+title: HTTP Connector
 taxonomy:
     category: docs
 ---
-## HTTP Connector
 
 With Flint's HTTP Connector, we can send HTTP requests and read HTTP responses efficiently.
 
 With this document, we will be able to use and work with the HTTP Connector.
 
-##Design Aspects
+##Features
 + Based on standardized HTTP protocol versions 1.0 and 1.1
 + HTTP methods - GET, POST, PUT, DELETE, HEAD & PATCH
 + Direct access to the response body and headers sent by the server
@@ -18,6 +17,9 @@ With this document, we will be able to use and work with the HTTP Connector.
 + Synchronous / Asynchronous execution of the Connector
 
 ## Add HTTP connector
+
+#### Connector Configuration
+
 No additional configuration is required for HTTP connector
 
 ![add_http_connector](add-http-conn.png)
