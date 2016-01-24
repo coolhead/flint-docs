@@ -187,7 +187,7 @@ response=@call.connector("my-db-connector")
 result=response.get("result") #Query execution results
 
 ```
-### delete
+### procedure
 call procedure/function
 
 ##### Request parameters
