@@ -4,9 +4,7 @@ taxonomy:
     category: docs
 ---
 
-With Flint's SSH Connector you can execute commands on remote server machine using SSH2 Protocol.
-
-With this document, we will be able to use and work with the SSH Connector.
+The SSH connector is used to execute commands on a remote host by means of the SSH protocol.
 
 ## Features
 + Based on Standardized SSH2 Protocol
@@ -154,7 +152,9 @@ result=response.get("result")                    #Result
 
 
 ## Connector request error handling
-Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+
+This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
+
 ``` ruby
 if response.exitcode == 0               # 0 is success.
   puts "success"
