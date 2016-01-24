@@ -1,11 +1,10 @@
 ---
-title: SMTP
+title: SMTP Connector
 taxonomy:
     category: docs
 ---
-## SMTP Connector
 
-With Flint's SMTP Connector you can send an email message to any email account.
+The SMTP connector is used to send email messages through a configured SMTP server.
 
 With this document guide you will be able to work with and use a SMTP Connector.
 
