@@ -118,13 +118,13 @@ Once you are done with your development and testing. You can commit your Flintbo
 * Share Flintbox with others and provide resusability
 * Deploy it to Flint production environments
 
-#### Initialize a repository for mybox
+#### Initialize a repository for 'mybox'
 
 ``` bash
 $ cd mybox
 $ git init
 ```
-#### Add hello.rb/hello.groovy to the new mybox.git
+#### Add hello.rb/hello.groovy to the new 'mybox.git'
 ``` bash
 $ git add .
 $ git commit -m "hello world flintbits"
