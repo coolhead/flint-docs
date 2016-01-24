@@ -59,7 +59,7 @@ For example, an “aws-ec2” Flintbox can have Flintbit like ‘create_server.r
 
 Another Flintbit such as “app-deploy.rb” can use this “aws-ec2:create_server.rb” Flintbit to reuse functionality of creating a new AWS instance for deployment.
 
-Isn’t that awesome?! You can compose new Flintbits with the use of existing Flintbits and keep on developing new automation on top of existing automation!
+Isn’t that awesome! You can compose new Flintbits with the use of existing Flintbits and keep on developing new automation on top of existing automation!
 
 The best part is, you can share these Flintbox with your colleagues, friends or with the community on github/bitbucket. We are soon bringing in an open central registry where you can register your Flintbox and share them across.
 
