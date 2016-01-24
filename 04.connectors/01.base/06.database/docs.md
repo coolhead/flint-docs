@@ -32,7 +32,7 @@ With this document guide you will be able to work with and use a DB Connector.
 | driver | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver | true: config/request |
 | username | Username associated with the database. Not required, if already specified in connector configuration | true: config/request |
 | password | Password associated with the database. Not required, if already specified in connector configuration | true: config/request |
-| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| jdbc-url | Used to point to the database to which you wish to connect. Url convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true: config/request |
 
 ## Example
 ``` json
@@ -124,8 +124,6 @@ result=response.get("result") #Query execution results
 Updating data from the database
 
 ##### Request parameters
-
-##### Request parameters
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
@@ -156,8 +154,6 @@ result=response.get("result") #Query execution results
 
 ### delete
 deleting data from the database
-
-##### Request parameters
 
 ##### Request parameters
 | Parameter | Description | required |
