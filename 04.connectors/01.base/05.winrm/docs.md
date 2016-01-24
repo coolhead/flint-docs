@@ -19,6 +19,7 @@ WinRM (Windows Remote Management) Connector can be used to execute commands on r
 ![add_winrm_connector](add-winrm-conn.png)
 
 ##### Configuration parameters
+
 | Parameter | Description | Required |
 | ------ | ----------- |
 | hostname | Host name or ip-address of the host server machine to connect | true: config/request |
@@ -30,6 +31,7 @@ WinRM (Windows Remote Management) Connector can be used to execute commands on r
 | timeout | Execution time of the Command in milliseconds. Default timeout is **60000 milliseconds** | false: config/request |
 
 ##### Example
+
 ```json
 {
   "hostname": "smtp.gmail.com",
@@ -47,6 +49,7 @@ WinRM (Windows Remote Management) Connector can be used to execute commands on r
 Execute commands on Remote Windows Server
 
 ##### Request parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 | connector-name | Name of the WinRM Connector to be configured  | true|
@@ -59,6 +62,7 @@ Execute commands on Remote Windows Server
 | timeout | Execution time of the Command in milliseconds. Default timeout is **60000 milliseconds**  | false |
 
 ##### Response parameters
+
 | Parameter | Description | required |
 | ------ | ----------- |
 |output	| Output results as per the command executed | true |
@@ -67,6 +71,7 @@ Execute commands on Remote Windows Server
 
 
 ##### Example
+
 ``` ruby
 response=@call.connector("my-winrm-connector")
               .set("hostname","192.168.2.64")
