@@ -16,15 +16,13 @@ With this document, we will be able to use and work with the HTTP Connector.
 + Ability to set timeouts for connector execution
 + Synchronous / Asynchronous execution of the Connector
 
-## Add HTTP connector
-
-#### Connector Configuration
+## Connector Configuration
 
 No additional configuration is required for HTTP connector
 
 ![add_http_connector](add-http-conn.png)
 
-## Actions
+## Connector Actions
 
 #### GET
 Retrieve information from the given server using a given URI.
