@@ -20,4 +20,7 @@ Example Use Cases:
 * Automate build systems to deploy infrastructure and code using configuration management tools (puppet/chef).
 And many more ...
 
-Reusable modular microservices that can expedite development of new automation.
+#### Flint Position in IT Environment
+
+![Flint_Positioning](flint_positioning.png)
+
