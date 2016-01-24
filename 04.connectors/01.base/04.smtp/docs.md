@@ -8,7 +8,7 @@ The SMTP connector is used to send email messages through a configured SMTP serv
 
 With this document guide you will be able to work with and use a SMTP Connector.
 
-## Design Aspects
+## Features
 + Based on Standardized SMTP Protocol
 + Secure/Non-encrypted SMTP Server
 + Email message to multiple recipients
@@ -20,7 +20,7 @@ With this document guide you will be able to work with and use a SMTP Connector.
 + The ability to set Connector execution timeouts
 + Synchronous/Asynchronous execution of the Connector
 
-## Add SMTP connector
+## Connector Configuration
 
 ![add_smtp_connector](add-smtp-conn.png)
 
@@ -93,7 +93,7 @@ result=response.get("result")                    #Result
 
 
 ## Connector request error handling
-Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
 ``` ruby
 if response.exitcode == 0               # 0 is success.
   puts "success"
