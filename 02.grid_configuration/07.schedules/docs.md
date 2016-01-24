@@ -1,61 +1,72 @@
 ---
-title: Configure Schedules
+title: Scheduler
 taxonomy:
     category: docs
 ---
+We can enable a Scheduler from Flint Console.
+Flint uses cron expressions to schedule Flintbit execution.
+On Flint Console, Scheduler screen has two primary areas as **Active Schedulers** and **Inactive Schedulers**.
 
-Lorem markdownum scire deposito manumque facinus. Opprobria sic Iris vimque
-filia Thaumantea supremis solet occupat peperit, mittit, ea *ille* tamen forma:
-corpora. Quoniam adunci, sed Cragon potitus at voluere vallem Lyaeumque evehor
-quaedam dixit vocis lacrimasque mundi possum.
+![scheduler_console](scheduler-console.png)
 
-[Robustior carmine](http://www.youtube.com/watch?v=MghiBW3r65M). Uno pars simul
-exhortanturque fletu; suas inquit paulum moriensque sumpserat totiens et sive.
-Violenta stabat Dictaeaque hinc tophis rustica ora nitar tale divum, in versus
-illam lacerta domito silvas memento est. Cinyrae edidicitque moram pectora et
-quoque terrenae rubor populo peperit condebat in. Verum digestum referat cum,
-dubitat collo sine candida flores pendentia, manes.
+A Flintbox comes with Scheduler's i.e you can have one or more scheduler added to a Flintbox.
+With the help of this document, you will be able to add a Scheduler on Grid.
 
-## Nostrae confido
+## How to Add a Scheduler to Grid?
 
-Nec valle **natus puerum**, ora noverat solibus pinguesque non; Pisaeae in.
-Adhuc se perque forsitan in haberent *gaudet* status portentificisque tristia
-promissaque bove est ora locum. Subit etsi, et vatibus cumque? Et pudorem sim
-fuit haec **nostras Caenis inploravere** quod; faciemque sanguis furentem
-vivere, suaque.
+Let us see how we can add a Scheduler manually in simple steps as below:
+  
++ Navigate to the Flintbox directory ( mybox ) to which scheduler has to be added.
+   + Navigate to flint-x.x.x.x ( flint installation directory )
+   + Navigate to flintbox ( flintbox directory )
+   + Navigate to mybox ( created and configured flintbox directory ) 
 
-1. In iovis trahens est
-2. Nexibus ludunt tinxit nudus adspergine fecit
-3. Si corpus miracula oculos frater
-4. Sed petunt proxima ad monitu erigitur Apollineos
-5. Hunc laceri alvum et est fons fefellimus
+``` bash
+$ cd flint-x.x.x.x/
+$ cd flintbox/
+$ cd mybox/
+```
 
-## Pater res tandem promissi collige
++ Create the schedules.conf and paste the scheduler configuration as shown in the below example.
 
-Erubuit quod arcanis inquit succinctis tectae frenis canendo clausas, fletus
-puellis proceres terrore in zona! Tenet quoque fortuna haud resuscitat
-maledicere hostem. Imago ne fuit levi tertius ferro calamo velle talia fallit
-gratia, Theron **aetas nolis** narrat meri in **fuga**.
+```
+"my-schedule" {
+  description = "runs a flintbit every minute"
+  trigger = "hello.rb
+  cron = "0 * * * * ? *"
+  enable = false
+  input {
+    my_message = "Welcome to Flint !"
+  }
+}
+```
+>>>>>>  Need help building cron expressions? They can be readily made available with [Cron Maket](http://www.cronmaker.com/).
 
-    var cycleMainframe = 4;
-    bankruptcy += linuxMcaSsh(2, jquery_eps, monitor_add) - qwerty;
-    if (root - software + 4) {
-        snippet_mini_win *= ipv(dimm, protector_add, 3 + raid_matrix_smm);
-        python(95, 42);
-    } else {
-        window_soap += text_chip_screenshot;
-    }
++ Add schedules.conf to mybox
 
-## Lucis onus dolet evehor vulnera gelidos
+``` bash
+$ git add schedules.conf
+$ git commit -m "schedule to trigger flintbit every first second" 
+$ git push
+```
+##### Configuration parameters
+| Parameter | Description | required |
+| ------ | ----------- |
+| scheduler-name | Name of the Scheduler to add.  | true |
+| description | Summarization of the Scheduler. | false |
+| trigger | Flintbit reference path or Flintbit name ( flint's convention ) to be triggered when a schedule starts running. | true |
+| cron | Cron expression to schedule Flintbit execution. Example: For a scheduler to trigger Flintbit  "At every 1st second", cron expression will be "1 * * * * ? *". | true |
+| enable | If true, a scheduler will be enabled automatically when the flintbox to which it belongs is enabled. Default is false | false |
+| input | Contains all the parameters that have to be supplied to the Flintbit as input. Default is a empty JSON Object. | false |
 
-Nec tauri illa cui hic contenta patuit, terras in et et suum [mutet
-pater](http://www.mozilla.org/), alta, et a. Addit nec figuras terris Aeacus,
-data comites cernit, et parte. Cumarum *expresso*.
 
-1. Ira deo unus ferrugine stant vulnere traharis
-2. Vulnus fratribus modo quercus longa ego dederat
-3. Versis Saturnia toros suberant
-4. Decet tollere mea te insanis inponis exarsit
+>>>> The above steps will only add the scheduler. To enable the scheduler, visit the **INACTIVE SCHEDULERS** tab. Click on the Enable button against the name of your newly added Scheduler.
 
-Tenebat saltatibus, qua namque statuit dies ferre annum, sit summa in tamen
-tabent populique. Pariter iterum sunt, inscius, verum.
+## Scheduler Actions
+
+![scheduler_actions](scheduler-actions.png)
+
+1. **Enable:** Fires the scheduler which in turn triggers the Flintbit as per the cron expression.
+2. **Disable:**  Stops the scheduler execution. 
+3. **Edit:** You can change the configuration parameters here.
+4. View Information: Name, Description, Trigger, Input, Cron and Enable of the added scheduler is shown here.
