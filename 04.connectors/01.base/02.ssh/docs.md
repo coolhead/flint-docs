@@ -1,15 +1,14 @@
 ---
-title: SSH
+title: SSH Connector
 taxonomy:
     category: docs
 ---
-## SSH Connector
 
 With Flint's SSH Connector you can execute commands on remote server machine using SSH2 Protocol.
 
 With this document, we will be able to use and work with the SSH Connector.
 
-##Design Aspects
+## Features
 + Based on Standardized SSH2 Protocol
 + Password based authentication mechanism
 + SSH Key based authentication mechanism ( with or without passphrase )
@@ -19,7 +18,7 @@ With this document, we will be able to use and work with the SSH Connector.
 + Ability to set timeouts for connector execution
 + Synchronous / Asynchronous execution of the Connector
 
-## Add file connector
+## Connector Configuration
 
 ![add_ssh_connector](add-ssh-conn.png)
 
