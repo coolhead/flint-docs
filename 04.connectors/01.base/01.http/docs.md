@@ -22,7 +22,7 @@ No additional configuration is required for HTTP connector
 
 ![add_http_connector](add-http-conn.png)
 
-## Connector Actions
+## Actions
 
 #### GET
 Retrieve information from the given server using a given URI.
