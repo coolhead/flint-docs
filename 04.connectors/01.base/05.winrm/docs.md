@@ -1,23 +1,20 @@
 ---
-title: Windows WinRM
+title: WinRM Connector
 taxonomy:
     category: docs
 ---
-## WinRM ( Windows Remote Management ) Connector
 
-With Flint's WinRM (Windows Remote Management) Connector you can execute commands on remote Windows server machine using Microsoft implementation of WS-Management Protocol.
+WinRM (Windows Remote Management) Connector can be used to execute commands on remote Windows server machine using Microsoft implementation of WS-Management Protocol.
 
-With this document guide you will be able to work with and use a WinRM Connector.
-
-## Design Aspects
-+ Based on Standardized Microsoft implementation of WS-Management Protocol
+## Features
++ Based on standardized Microsoft implementation of WS-Management protocol
 + Password based authentication mechanism
-+ Both HTTP and HTTPS Protocol Support
-+ Direct access to the command execution results from the remote server machine
-+ The ability to set Connector execution timeouts
-+ Synchronous/Asynchronous execution of the Connector
++ Both HTTP and HTTPS protocol support
++ Direct access to the command execution results from the remote server
++ The ability to set connector execution timeouts
++ Synchronous/Asynchronous execution of the connector
 
-## Add WinRM connector
+## Connector Configuration
 
 ![add_winrm_connector](add-winrm-conn.png)
 
@@ -89,7 +86,9 @@ result=response.get("error")                     #Error output
 ```
 
 ## Connector request error handling
-Here is how you can handle the connector requests success or failures within your Flintbit. This would help you to take appropriate action if something failed.
+
+This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
+
 ``` ruby
 if response.exitcode == 0               # 0 is success.
   puts "success"
