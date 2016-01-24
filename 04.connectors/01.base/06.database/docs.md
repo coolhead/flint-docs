@@ -9,7 +9,7 @@ With Flint's DB Connector you can execute queries against the mostly used databa
 
 With this document guide you will be able to work with and use a DB Connector.
 
-##Design Aspects
+## Features
 + Query all popular databases : MySQL, MS SQL, Oracle and PostgreSQL
 + Simple DB queries : select, insert, update, delete and procedure
 + Databases with/without passwords accessible
@@ -17,7 +17,7 @@ With this document guide you will be able to work with and use a DB Connector.
 + Ability to set Connector execution timeout
 + Synchronous / Asynchronous execution of the Connector
 
-## Add JDBC connector
+## Connector Configuration
 
 
 ![add_db_connector](add-db-conn.png)
