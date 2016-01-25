@@ -22,7 +22,7 @@ With this document guide you will be able to work with and use a DB Connector.
 
 ![add-db-conn](add-db-conn.png)
 
-##### Configuration parameters
+##### Configuration parameters - config(JSON)
 | Parameter | Description | Required |
 | -------- | ------------ |
 | database | The data source. Name of the database on which actions have to be performed | true: config/requrest |

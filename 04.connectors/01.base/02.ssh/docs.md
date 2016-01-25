@@ -20,7 +20,7 @@ The SSH connector is used to execute commands on a remote host by means of the S
 
 ![add_ssh_connector](add-ssh-conn.png)
 
-##### Configuration parameters
+##### Configuration parameters- config(JSON)
 | Parameter | Description | Required |
 | ------ | ----------- |
 | target | Host name or ip-address of the remote machine you wish to connect to | true: config/request |

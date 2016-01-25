@@ -18,7 +18,7 @@ WinRM (Windows Remote Management) Connector can be used to execute commands on r
 
 ![add_winrm_connector](add-winrm-conn.png)
 
-##### Configuration parameters
+##### Configuration parameters- config(JSON)
 
 | Parameter | Description | Required |
 | ------ | ----------- |

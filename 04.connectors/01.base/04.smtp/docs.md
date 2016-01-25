@@ -24,7 +24,7 @@ With this document guide you will be able to work with and use a SMTP Connector.
 
 ![add_smtp_connector](add-smtp-conn.png)
 
-##### Configuration parameters
+##### Configuration parameters- config(JSON)
 | Parameter | Description | Required |
 | ------ | ----------- |
 | target | Host name or IP address of the SMTP server | true |
