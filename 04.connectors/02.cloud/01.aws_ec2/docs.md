@@ -9,13 +9,6 @@ With Flint's AWS-EC2 Connector you can launch and manage server instances in Ama
 With this document, we will be able to use and work with the AWS-EC2 Connector.
 
 ##Design Aspects
-+ Based on standardized HTTP protocol versions 1.0 and 1.1
-+ HTTP methods - GET, POST, PUT, DELETE, HEAD & PATCH
-+ Direct access to the response body and headers sent by the server
-+ Efficiently read through the response body
-+ Ability to set timeouts for connector execution
-+ Synchronous / Asynchronous execution of the Connector
-
 Perform all standard application operations like Instance, Security Group and Resource Tagging operations available through the Amazon EC2 web services. Some of them are listed below:
 
 * Create instance, security groups and resource tags
@@ -51,7 +44,7 @@ Also,
 
 ## Actions
 
-#### Create Instance operation
+#### create-instance
 Create Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -99,15 +92,15 @@ response_message = response.message                     #Execution status messag
 #Amazon EC2 Connector Response Parameters
 instance_info = response.get("instance-info")           #Amazon EC2 created instance info set
  
-  instance_info.each do |instance|
-      @log.info("Amazon EC2 Instance ID : #{instance.get("instance-id")} | 
-                            Instance Type : #{instance.get("instance-type")} |
-                            Instance public IP : #{instance.get("public-ip")} |
-                            Instance private IP : #{instance.get("private-ip")} ") 
-  end
+instance_info.each do |instance|
+	@log.info("Amazon EC2 Instance ID : #{instance.get("instance-id")} | 
+							Instance Type : #{instance.get("instance-type")} |
+							Instance public IP : #{instance.get("public-ip")} |
+							Instance private IP : #{instance.get("private-ip")} ") 
+end
 ```
 
-#### Start Instance operation
+#### start-instances
 Start Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -143,16 +136,14 @@ response_message = response.message                  #Execution status messages
 #Amazon EC2 Connector Response Parameters
 instances_set=response.get("started-instances-set")  #Set of Amazon EC2 started instances
  
-  instances_set.each do |instance_id|
-       @log.info("Amazon EC2 Instance current state : #{instance_id.get("current-state")} |
-                             previous state : #{instance_id.get("previous-state")} |
-                             Instance id : #{instance_id.get("instance-id")}")
-  end
-  
-
+instances_set.each do |instance_id|
+	@log.info("Amazon EC2 Instance current state : #{instance_id.get("current-state")} |
+							previous state : #{instance_id.get("previous-state")} |
+							Instance id : #{instance_id.get("instance-id")}")
+end
 ```
 
-#### Stop Instance operation
+#### stop-instances
 Stop Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -189,14 +180,14 @@ response_message = response.message                 #Execution status messages
 instances_set=response.get("stop-instance-list")    #Set of Amazon EC2 stopped instances
  
 instances_set.each do |instance_id|
-   @log.info("Amazon EC2 Instance current state : #{instance_id.get("current-state")} |
-                         previous state : #{instance_id.get("previous-state")} |
-                         Instance ID : #{instance_id.get("instance-id")}")
- end
+	@log.info("Amazon EC2 Instance current state : #{instance_id.get("current-state")} |
+						previous state : #{instance_id.get("previous-state")} |
+						Instance ID : #{instance_id.get("instance-id")}")
+end
  
 ```
 
-#### Terminate Instance operation
+#### terminate-instances
 Terminate Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -233,13 +224,13 @@ response_message = response.message                      #Execution status messa
 instances_set = response.get("terminated-instance-set")  #Set of Amazon EC2 terminated instances
  
 instances_set.each do |instance_id|
-  @log.info("Amazon EC2 Instance current state :  #{instance_id.get("current-state")} |
-                        previous state : #{instance_id.get("previous-state")}
-                        Instance ID :    #{instance_id.get("instance-id")}")
+	@log.info("Amazon EC2 Instance current state :  #{instance_id.get("current-state")} |
+									previous state : #{instance_id.get("previous-state")}
+									Instance ID :    #{instance_id.get("instance-id")}")
 end
 ```
 
-#### Reboot Instance operation
+#### reboot-instances
 Reboot Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -276,13 +267,12 @@ response_message = response.message                     #Execution status messag
 #Amazon EC2 Connector Response Parameters
 instances_set=response.get("reboot-instance-id")        #Set of Amazon EC2 rebooted instances
  
-    instances_set.each do |instance_id|
-   @log.info("Amazon EC2 rebooted instance : #{instance_id.to_s}")
- end
- 
+instances_set.each do |instance_id|
+	@log.info("Amazon EC2 rebooted instance : #{instance_id.to_s}")
+end 
 ```
 
-#### Describe Instance operation
+#### describe-instances
 Describe Instance on AWS-EC2 from given details.
 
 ##### Request parameters
@@ -347,6 +337,436 @@ instances_set.each do |instance|
 end
 
 ```
+
+#### list
+List Instance on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: list | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| instance-list | Amazon EC2 instance info set |
+
+##### Example
+``` ruby
+ response = @call.connector(connector_name)
+                    .set("action",action)
+                    .set("region",region)
+                    .set("security-key",security_key)
+                    .set("access-key",access_key)
+                    .timeout(request_timeout)
+                    .sync
+                    
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode               #Exit status code
+response_message = response.message                 #Execution status messages
+ 
+#Amazon EC2 Connector Response Parameters
+instances_list=response.get("instance-list")        #List of Amazon EC2 instances
+ 
+instances_list.each do |instance_id|
+	@log.info("Amazon EC2 instance : #{instance_id.to_s}")
+end
+
+```
+
+#### create-security-group
+Create security group on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: create-security-group | true |
+| group-name | Specifies the name of the security group Valid values: alphanumeric characters, spaces, dashes, underscores | true |
+| group-description | Specifies the description for the security group Valid values: alphanumeric characters, spaces, dashes, underscores | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| group-id | Amazon EC2 security group id |
+
+##### Example
+``` ruby
+ response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("region",aws_region)
+                    .set("group-name",aws_group_name)
+                    .set("group-description",aws_group_description)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+ 
+#Amazon EC2 Connector Response Parameters
+group_id = response.get("group-id")          #Group id of Amazon EC2 Security group
+```
+
+#### describe-security-group
+Describe security group on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: describe-security-group | true |
+| group-name | Specifies the name of the security group Valid values: alphanumeric characters, spaces, dashes, underscores | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| security-group-info | Amazon EC2 security group info |
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("region",aws_region)
+                    .set("group-name",aws_group_name)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode                    #Exit status code
+response_message = response.message                      #Execution status messages
+ 
+#Amazon EC2 Connector Response Parameters
+security_group_info=response.get("security-group-info")  #Set of Amazon EC2 security groups details
+ 
+security_group_info.each do |group_info|
+	@log.info("Amazon EC2 Security group owner ID : #{group_info.get("owner-id")} |
+									group name : #{group_info.get("group-name")} |
+									group description : #{group_info.get("group-description")} |
+									group vpc ID : #{group_info.get("vpc-id")} |
+									group ID : #{group_info.get("group-id")} |
+									group IP Permissions Egress : #{group_info.get("ip-permissions-egress")} |
+									group Tags : #{group_info.get("tags")} |
+									group IP Permissions : #{group_info.get("ip-permissions")} |")
+end
+
+```
+
+#### delete-security-group
+Delete security group on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: delete-security-group | true |
+| group-name | Specifies the name of the security group Valid values: alphanumeric characters, spaces, dashes, underscores | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+
+##### Example
+``` ruby
+
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("region",aws_region)
+                    .set("group-name",aws_group_name)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode                    #Exit status code
+response_message = response.message                      #Execution status messages
+```
+
+#### allocate-address
+Allocate address on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: allocate-address | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| public-ip | Allocated Public IP of Amazon EC2 |
+
+##### Example
+``` ruby
+response = @call.connector(connector_name)
+                    .set("action",action)
+                    .set("region",region)
+                    .set("security-key",security_key)
+                    .set("access-key",access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+ 
+#Amazon EC2 Connector Response Parameters
+public_ip = response.get("public-ip")        #Allocated Public IP of Amazon EC2
+
+```
+
+#### release-address
+Release address on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: release-address | true |
+| public-ip | Specifies the IP address that you want to release | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("public-ip",aws_public_ip)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+
+```
+#### associate-address
+Associate address on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: associate-address | true |
+| public-ip | Specifies the IP address that you want to release | true |
+| instance-id | Specifies the instance to associate with the IP address | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("instance-id",aws_instance_id)
+                    .set("public-ip",aws_public_ip)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+```
+
+#### disassociate-address
+Disassociate address on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: disassociate-address | true |
+| public-ip | Specifies the IP address that you want to Disassociate | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+
+##### Example
+``` ruby
+
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("public-ip",aws_public_ip)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+```
+
+#### describe-addresses
+Describe address on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: describe-addresses | true |
+| public-ip | Specifies the IP address that you want to Describe | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| public-ips-set | set of public IP of amazon EC2 account |
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("public-ip",aws_public_ip)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode            #Exit status code
+response_message = response.message              #Execution status messages
+ 
+public_ips_set = response.get("public-ips-set")  #set of public IP of amazon EC2 account
+```
+
+#### create-tags
+Create tags AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: create-tags | true |
+| resource-id | Specifies the id of resource to which you want to add tags | true |
+| tag-key | Specifies the tag key which you want to assign | true |
+| tag-value | Specifies the tag value which you want to assign | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("resource-id",aws_resource_id)
+                    .set("tag-key",aws_tag_key)
+                    .set("tag-value",aws_tag_value)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode            #Exit status code
+response_message = response.message              #Execution status messages
+```
+
+#### delete-tags
+Delete tags on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: delete-tags | true |
+| resource-id | Specifies the id of resource from which you want to remove tags | true |
+| tag-key | Specifies the tag key which you want to remove | true |
+| tag-value | Specifies the tag value which you want to remove | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("resource-id",aws_resource_id)
+                    .set("tag-key",aws_tag_key)
+                    .set("tag-value",aws_tag_value)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode            #Exit status code
+response_message = response.message              #Execution status messages
+
+```
+
+
+
+#### describe-tags
+Describe tags on AWS-EC2 from given details.
+
+##### Request parameters
+| Parameter | Description | Required |
+| ------ | ----------- |
+| connector_name | Name of the AWS-EC2 Connector to be configured. | true |
+| action | Contains the name of the operation: describe-tags | true |
+| resource-id | Specifies the id of resource from which you want to describe tags | true |
+| resource-type | Specifies the resource type from which you want to describe tags | true |
+| tag-value | Specifies the tag value which you want to remove | true |
+| region | Specifies the region for performing operations on Amazon EC2 (Default value: us-east-1) | true |
+| access-key | Specifies the credentials for signing the connector request | false |
+| security-key | Specifies the credentials for signing the connector request | false |
+
+##### Example
+``` ruby
+response = @call.connector(aws_connector_name)
+                    .set("action",aws_action)
+                    .set("resource-id",aws_resource_id)
+                    .set("resource-type",aws_resource_type)
+                    .set("region",aws_region)
+                    .set("security-key",aws_security_key)
+                    .set("access-key",aws_access_key)
+                    .timeout(request_timeout)
+                    .sync
+
+#Amazon EC2 Connector Response Meta Parameters
+response_exitcode = response.exitcode        #Exit status code
+response_message = response.message          #Execution status messages
+
+```
+
 
 ## Connector request error handling
 This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
