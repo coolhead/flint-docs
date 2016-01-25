@@ -32,8 +32,6 @@ With this document guide you will be able to work with and use a DB Connector.
 | driver | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver | true: config/request |
 | username | Username associated with the database. Not required, if already specified in connector configuration | true: config/request |
 | password | Password associated with the database. Not required, if already specified in connector configuration | true: config/request |
-| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true: config/request |
-
 ## Example
 ``` json
 {
@@ -97,7 +95,7 @@ Inserting data into the database
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
-| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | false |
 | query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | driver |Specify the query that you want to performed on the database | true |
 
@@ -127,7 +125,7 @@ Updating data from the database
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
-| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | false |
 | query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | driver |Specify the query that you want to performed on the database | true |
 
@@ -159,7 +157,7 @@ deleting data from the database
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
-| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | false |
 | query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | driver |Specify the query that you want to performed on the database | true |
 
@@ -190,7 +188,7 @@ call procedure/function
 | Parameter | Description | required |
 | ------ | ----------- |
 | action | Operations to be performed on the data stored in database. Valid actions : select, insert, update, delete and procedure | true |
-| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | true |
+| jdbc-url | Used to point to the database to which you wish to connect. URL convention followed :type:target:port/database. Example : jdbc:mysqllocalhost:3306/employee. After specifying the value for this parameter you can skip providing values for target, port, database and type | false |
 | query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | driver |Specify the query that you want to performed on the database | true |
 
