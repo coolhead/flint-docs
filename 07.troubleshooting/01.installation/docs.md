@@ -31,7 +31,7 @@ If the above command executions results are not pointing to the jdk installation
 Depending on the type of shell used, to set the variable refer Set JAVA_HOME on a UNIX System.
 You can also refer to the solution given below.
 
-Solution
+#### Solution
 
 Set JAVA_HOME environmental variable pointing to java installation.
 
