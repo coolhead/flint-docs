@@ -35,8 +35,8 @@ Perform all standard application operations like Instance, Security Group and Re
 ##### Example
 ``` json
 {
-  "access-key": "BQBIJKQHGTSQK3KL5SGQ",
-  "security-key": "i2+pesMRCOayBq+qwe6Qo+wrn9eHKG9BIBSH0mev"
+  "access-key": "BQBIJKQHGGHHGF3KL5SGQ",
+  "security-key": "i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev"
 }
 ```
 
