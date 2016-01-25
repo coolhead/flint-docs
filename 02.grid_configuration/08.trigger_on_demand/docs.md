@@ -7,7 +7,7 @@ process:
 ---
 
 
-You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus, running a flintbit from TOD will not only trigger the workflow but also help us learn the response for the same with appropriate logs.
+You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus, running a Flintbit from TOD will not only trigger the workflow but also help us observe the response for the same with appropriate logs.
 
 Trigger On Demand is all about - Running a Flintbit, watching output of flintbit in its well structured raw form and monitoring logs.
 
@@ -17,14 +17,14 @@ Trigger On Demand is all about - Running a Flintbit, watching output of flintbit
 
 #### Run Mode
 
-Not only connectors/listeners but also flintbits can be executed in synchronously and asynchronously.
+Similar to connectors/listeners, Flintbits also, can be executed in a synchronous and asynchronous manner.
 
-* Synchronous : Runs a flintbit in synchronous way. Default timeout of 60,000 ms will be used.
-* Asynchronous : Runs a flintbit in asynchronous way straight away returning the meta object back, will not way for the job to complete.
+* Synchronous : Execute Flintbits in a synchronous way. Default timeout is of 60,000 ms.
+* Asynchronous : Execute Flintbits in an asynchronous way straight away returning the meta object, without waiting for the job to complete.
 
 ##### Name
 
-Name of the flintbit along with name of the flintbox name in whcih it resides. All the flintboxes by default reside in the flintbox directory. Naming convention followed :
+Name of the Flintbit along with name of the Flintbox name in whcih it resides. All the Flintboxes by default reside in the Flintbox directory. Naming convention is as followed :
 
 ```
 flintbox-name:flintbit-name
