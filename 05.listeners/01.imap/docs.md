@@ -4,54 +4,106 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum voces. Adire nant ingreditur quam evadere dixit caelestum
-meliora. Induitur videndi Timoli videres et *quae*, niteant.
+## Introduction
+With Flint's IMAP Listener you can monitor incoming messages, alerts, notifications etc. and thus trigger flint to take relevant action that could be integration with other applications or systems based on the IMAP protocol. You can configure your email account with Flint's IMAP Listener to suite your special demands without the need to extend or replace any inbuilt code. After configuring, with your scripting skills Flint will automate the workflow.
 
-    if (cyberspace + superscalarBacklink) {
-        language_raw *= 78;
-        caps -= dot_vga;
-    } else {
-        nntpPingPoint(chip(ip_fsb, boxRepeater, art));
-        manetRgbHeader /= backside;
-    }
-    if (dvd(16, ide_blacklist)) {
-        nodeTftpPpga = -5;
-        mips.aiffTCodec *= compiler_target_bus;
-    }
-    var eup = native_page_utility;
-    if (software) {
-        progressive *= superscalar_bot_script;
-        regularScroll = internetRayBlu;
-    }
-    progressive_compression_ipv = freewarePrebindingRoom(newsgroup);
+All email messages popped in can be used to trigger any workflow further or can be just logged in.Without any compromise Performance, Stability and Flexibility all are packaged into Flint's IMAP Listener.
 
-In *nubes pallor potuit* non, parenti auctorem urbis. Viderat at quicquam
-piscator nunc prosunt ponit.
 
-## Fecere conplexa et utque et habetur iacentia
+## Features
+* Based on Standardized IMAP Protocol
+* Secure/Non-encrypted IMAP Server
+* Access to usernames/email-addresses multiple recipients of the email message
+* Ability to monitor incoming email messages into folders other than inbox
+* Access to names of the attachments along with the email message
+* Ability to download the attachments along with the email message
+* Access to the sender username/email-address of the email message
+* Email subject and email body of the incoming email message are also accessible
+* Recipients whose usernames/email addresses mentioned in Carbon Copy ( cc ) and Blind Carbon Copy ( bcc ) are also accessible
 
-Haud rotarum, et hospes et est, remittit tecta. Defecerat mille, perit *tale
-Laomedonque* austri, scissaque incumbens prisci ferunt [ibi cumque
-horror](http://example.com/) gravis.
 
-1. Accipit fraterno quantum dicit
-2. Sparsit et tanget in coniunx putares oravit
-3. Fuit et flumina
-4. Inprudens coloque
+### Configuring a IMAP Listener
 
-## Sentiet etiam
+The following screenshot shows IMAP Listener Configuration parameters.
 
-In carmen, et quod, satiata, corpore semper mando; murum este *memores*. Si
-felicia paratu voluit, nova illa tamen hanc et pressa caeli Hippolytus tinxit,
-cunctis.
+![IMAP](imap_listener.png)
 
-Nitido arcisque nisi dedisse? Est atque ferasque Aeneas! Auro acui laedere, sed
-vertit quoque, adde nec!
+#### Configuration parameters - Config (JSON)
 
-Et qua quem, **verba** citus ero favorem, spectare tam, aureae Echionio facti
-virginis nullo. Auras cura tantum, una ibat tecta, mihi erit.
+| Parameters | Required | Description |
+| ------| ------ | ----------- |
+| target   |true| Host name or IP address of the IMAP server |
+| user | true	| Username is the full email address of the email account to be monitored |
+| password    | true | Password associated with the email account to be monitored |
+| secure    | false | Specify value to be true for a secure IMAP SSL/TLS server. Otherwise, false for an non-encrypted server. Default value is false if not specified |
+| port   | false | Port number on which the IMAP server is listening. If nothing is specified and secure parameter is false a default value of 143 will be used and if secure parameter is true 993 will be used. |
+| folder | false	| Folder which has to be monitored for incoming mails. If not specified inbox folder will be monitored by default |
+| download  | false | If specified true, the attachments along with the incoming email message will be downloaded to the : /flint-installation-directory/downloads |
 
-Igitur increpat ululavit capulo: inmenso [moriturae](http://seenly.com/)
-artifices Sidonis loricamque regebat iustius: repetam more labores datae!
-Praeterque truncus face: parte et vestram Aethiopum signum Pelasgi figurae
-nostroque.
+#### Example Configuration
+``` json
+{
+  "target":"imap.gmail.com",
+  "user" : "me@gmail.com",
+  "password": "password",
+  "secure": false,
+  "port": 143,
+  "folder": "flint",
+  "download":true
+}
+```
+
+### Configuring a IMAP Listener
+Configuring IMAP listener to listen to IMAP server need some parameters
+
+#### Configuration parameters
+
+| Parameters | Required | Description |
+| ------| ------ | ----------- |
+| target   |true| Host name or IP address of the IMAP server |
+| user | true	| Username is the full email address of the email account to be monitored |
+| password    | true | Password associated with the email account to be monitored |
+| secure    | false | Specify value to be true for a secure IMAP SSL/TLS server. Otherwise, false for an non-encrypted server. Default value is false if not specified |
+| port   | false | Port number on which the IMAP server is listening. If nothing is specified and secure parameter is false a default value of 143 will be used and if secure parameter is true 993 will be used. |
+| folder | false	| Folder which has to be monitored for incoming mails. If not specified inbox folder will be monitored by default |
+| download  | false | If specified true, the attachments along with the incoming email message will be downloaded to the : /flint-installation-directory/downloads |
+
+#### Example Configuration
+
+``` json
+{
+  "target":"imap.gmail.com",
+  "user" : "me@gmail.com",
+  "password": "password",
+  "secure": false,
+  "port": 143,
+  "folder": "flint",
+  "download":true
+}
+```
+
+### Access IMAP Message in trigger flintbit
+
+``` ruby
+## Ruby example
+from = @input.get("from")
+to = @input.get("to")
+trigger = @input.get("trigger")
+cc = @input.get("cc")
+subject = @input.get("subject")
+date = @input.get("date")
+body = @input.get("body")
+content_type = @input.get("content-type")
+```
+
+```
+// Groovy example
+String from = input.get("from")
+String to = input.get("to")
+String trigger = input.get("trigger")
+String cc = input.get("cc")
+String subject = input.get("subject")
+String date = input.get("date")
+String body = input.get("body")
+String content_type = input.get("content-type")
+```
