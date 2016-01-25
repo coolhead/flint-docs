@@ -4,68 +4,109 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum vides aram est sui istis excipis Danai elusaque manu fores.
-Illa hunc primo pinum pertulit conplevit portusque pace *tacuit* sincera. Iam
-tamen licentia exsulta patruelibus quam, deorum capit; vultu. Est *Philomela
-qua* sanguine fremit rigidos teneri cacumina anguis hospitio incidere sceptroque
-telum spectatorem at aequor.
+MQTT is a machine-to-machine (M2M)/"Internet of Things" connectivity protocol. It was designed as an extremely lightweight publish/subscribe messaging transport. It is useful for connections with remote locations where a small code footprint is required and/or network bandwidth is at a premium.
 
-    if (cssDawP >= station) {
-        dllCdmaCpc += 919754;
-    } else {
-        superscalar += -3 + phishing;
-    }
-    pup_ram_bloatware(2 * network(linkedin));
-    var vfatWhite = serpXmp + paperPitchPermalink(enterprise_and) - 5;
-    systemBandwidthAtm = 9 + station;
-    rw_menu_enterprise *= on_midi / interpreter.adPpp(
-            correctionIntegratedBalancing, bar, real) - user_remote_zebibyte(
-            desktop(lun_flops_wamp, technology_peripheral_dv, spriteHit));
+With Flint's MQTT Connector you can send message on local/remote MQTT server machine using MQTT Protocol. You can configure your connector with Flint's MQTT Connector to suite your special demands without the need to extend or replace any inbuilt code. After configuring, with your scripting skills Flint will automate the workflow.Thus without any compromise Performance, Stability and Flexibility all are packaged into Flint's MQTT Connector.
 
-Prochytenque ergo ait aequoreo causa ardere, ex vinaque est, accingere, abest
-nunc sanguine. Est forma admissum adspexit pharetraque regat prece fremit clamat
-memorantur evanuit foret ferinas, senserat infringat illa incumbere excipit
-ulnas. Est undis soror animi diem continuo [videres
-fratres](http://www.reddit.com/r/haskell)? [Meo iam
-mihi](http://html9responsiveboilerstrapjs.com/) miserum fateor, in votum
-iuvenis, aures? Qui labor nulla telluris valerem erat hoc, sedula.
+With this document guide you will be able to work with and use a MQTT Connector.While you start configuring the connector, this document will guide you through MQTT Connector request and response parameters.
 
-    if (bus_overclocking_server > 891985) {
-        compression = textWep - gatePlatform;
-    } else {
-        fileTweak += file + so_mouse_sram;
-        pda_radcab_eup = tcp_opengl_refresh(network_phishing - realityDel, 5,
-                5);
-        bounce_monitor_dns = 4;
-    }
-    fddi_virtualization_file *= drag_infringement(minicomputerServlet + -1 +
-            gif_white(utf, blog, cloud), dvdMacintosh - radcab_horizontal +
-            cpu_recycle_quicktime(ascii));
-    ad += tableCapsTime - 5 + keyboard_card - -2 + cc;
-    if (raw_bloatware_compression < script_expression) {
-        fiBps(printer_php);
-        ipx = biometricsFullDvi(bootComponentAnsi, 929326, 38);
-    }
+## Features
++ Based on Standardized MQTT Protocol
++ Ability to Configure with AWS IoT Thing.
++ Certificate Based authentication mechanism for AWS IoT Thing.
++ Extremely simple and lightweight messaging protocol
++ Password based authentication mechanism
++ MQTT Protocol used at “Internet of Things” world of connected devices.
++ The ability to set Connector execution timeouts
++ Synchronous / Asynchronous execution of the Connector
 
-## Dent et ignavus constant tamque
 
-Harenosi praenovimus illa homines, sumit levem et Minyeias genu finita ne quae
-capi vidisse concipit. Fera carmine sinistro in licet? Quoque nam an pereat pro;
-seu male mens favorem, illa! Longo tuas: [una medioque
-caespite](http://www.lipsum.com/) nomen. Et amor artes Est tempore nupta
-generumque olivae stabat.
+## Connector Configuration
 
-> Fuit vasto sit, *rite bellatricemque misceri*. Amore tauri qua laborum Iovique
-> est terra sic et aut eminus pretiosior conveniant **possit**. Tyranni procos.
-> Ipsa dracones carinam, ultima, pelagi Boreae quodque, teli dictu volucres:
-> quaeratur ostendit debere validisne? Abdita cingere dixit amat pinguis vultus
-> securim, venter in cognoscere prima *da*?
+![add_mqtt_connector](add-mqtt-conn.png)
 
-**Cavis in pro** suspicere multis, moto neve vibrataque nitidum cessit
-dignabitur pater similis exercet Procne, Anius, nec? Risit luserat meumque; ubi
-et chlamydem inque: id mihi.
+##### Configuration parameters- config(JSON)
+| Parameter | Description | Required |
+| ------ | ----------- |
+| broker | Broker specifies the address of a server that the client may connect. | true: config/request |
+| username | Username to use for the connection to server | false: config/request|
+| password | Password to use for the connection to server | false: config/request |
+| client-id | A client identifier client-id, It must be unique across all clients connecting to the same server. | true: config/request |
+| topic | Delivers a message to the server on topic | true: config/request |
+| qos | Sets the quality of service for this message, default is 2. | false: config/request |
 
-Populi et emicat et pectora concussit precibus qui et Hector flammis. Pergama
-tenebrisque certe arbiter superfusis genetrix fama; cornu conlato foedere
-adspexisse **rivos quoque** nec profugos nunc, meritisne
-[carbasa](http://reddit.com/r/thathappened).
+##### Example
+``` json
+{
+  "broker": "tcp://localhost:1883",
+  "username": "user",
+  "password": "pwd",
+  "client-id": "flint_mqtt",
+  "qos": 2,
+  "topic": "flint_topic"
+}
+```
+
+## Actions
+### [Send Message]
+Send message on MQTT topic
+
+##### Request parameters
+
+| Parameter | Description | Required |
+| ------ | ----------- |
+| broker | Broker specifies the address of a server that the client may connect. | true: config/request |
+| username | Username to use for the connection to server | false: config/request|
+| password | Password to use for the connection to server | false: config/request |
+| client-id | A client identifier client-id, It must be unique across all clients connecting to the same server. | true: config/request |
+| topic | Delivers a message to the server on topic | true: config/request |
+| qos | Sets the quality of service for this message, default is 2. | false: config/request |
+| content | Message which we want to send on specified topic | true: config/request |
+| root-ca-crt | Absolute file Path of root-CA.crt Certificate | false: config/Required when want to connect to AWS IoT Thing |
+| certificate | Absolute file Path of x.509 Certificate | false: Required when want to connect to AWS IoT Thing |
+| private-key | Absolute file Path of Private Key | false: Required when want to connect to AWS IoT Thing |
+| use-certificate | Set it true when you want to authenticate using certificate files, otherwise set it false, Default value is false. | false:config/request |
+
+##### Response parameters
+
+| Parameter | Description | required |
+| ------ | ----------- |
+|meta |Meta-Data as per execution of the MQTT Connector. Exit-code and message are the two meta parameters | true |
+|exit-code | Exit status code as per execution of the MQTT Connector| true |
+|message	| Status message as per execution of the MQTT Connector | true |
+
+
+##### Example
+
+``` ruby
+response=@call.connector("my-mqtt-connector")
+                         .set("action","send")
+                         .set("broker","tcp://localhost:1883")
+                         .set("username","user")
+                         .set("password","pwd")
+                         .set("client-id","flint_client") 
+                         .set("topic","flint_mqtt")
+                         .set("qos",2)
+                         .sync
+
+#MQTT Connector Response Meta Parameters
+response_exitcode=response.exitcode            #Exit status code
+response_message=response.message              #Execution status messages
+
+```
+
+## Connector request error handling
+
+This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
+
+``` ruby
+if response.exitcode == 0               # 0 is success.
+  puts "success"
+  # take action in case of success
+else                                    # non zero means fail
+  puts "fail"
+  puts "Reason:" + response.message     # get the reason of failure
+  ## Take action in case of failure
+end
+
+```
