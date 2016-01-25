@@ -20,7 +20,7 @@ With this document guide you will be able to work with and use a DB Connector.
 ## Connector Configuration
 
 
-![add_db_connector](add-db-conn.png)
+![add-db-conn](add-db-conn.png)
 
 ##### Configuration parameters
 | Parameter | Description | Required |
