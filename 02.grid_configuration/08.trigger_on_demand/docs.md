@@ -8,9 +8,9 @@ process:
 
 ## Trigger on Demand ( TOD )
 
-You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus running a flintbit from TOD will not only trigger the workflow but also help us learn the response for the same with appropriate logs.
+You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus, running a flintbit from TOD will not only trigger the workflow but also help us learn the response for the same with appropriate logs.
 
-Trigger On Demand is all about - Running a Flintbit, watching output of flintbit in its well formatted and raw form and monitoring logs.
+Trigger On Demand is all about - Running a Flintbit, watching output of flintbit in its well structured raw form and monitoring logs.
 
 
 ### To Run a Flintbit
