@@ -8,7 +8,7 @@ With Flint's AWS-EC2 Connector you can launch and manage server instances in Ama
 
 With this document, we will be able to use and work with the AWS-EC2 Connector.
 
-##Design Aspects
+## Design Aspects
 Perform all standard application operations like Instance, Security Group and Resource Tagging operations available through the Amazon EC2 web services. Some of them are listed below:
 
 * Create instance, security groups and resource tags
@@ -16,9 +16,7 @@ Perform all standard application operations like Instance, Security Group and Re
 * Delete instance, security groups and resource tags
 * Stop instance
 * Terminate instance
-* Modify instance attributes
-Also,
-
+* Modify instance attributes Also,
 * The ability to set Connector execution timeouts
 * Synchronous / Asynchronous execution of the Connector
 
