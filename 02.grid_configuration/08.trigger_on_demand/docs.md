@@ -7,9 +7,9 @@ process:
 ---
 
 
-You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to flintbits which help interact with connectors or listeners. Thus, running a Flintbit from TOD will not only trigger the workflow but also help us observe the response for the same with appropriate logs.
+You can trigger Flintbits using Flint's TOD. Depending on your application workflow, necessary inputs can be provided to Flintbits which help interact with connectors or listeners. Thus, running a Flintbit from TOD will not only trigger the workflow but also help us observe the response for the same with appropriate logs.
 
-Trigger On Demand is all about - Running a Flintbit, watching output of flintbit in its well structured raw form and monitoring logs.
+Trigger On Demand is all about - Running a Flintbit, displaying output of a Flintbit in its well structured raw form and monitoring logs.
 
 
 ### To Run a Flintbit
@@ -24,7 +24,7 @@ Similar to connectors/listeners, Flintbits also, can be executed in a synchronou
 
 ##### Name
 
-Name of the Flintbit along with name of the Flintbox name in whcih it resides. All the Flintboxes by default reside in the Flintbox directory. Naming convention is as followed :
+This field is the Flintbit name along with the Flintbox name in whcih it resides. All the Flintboxes by default reside in the Flintbox directory. Naming convention is as followed :
 
 ```
 flintbox-name:flintbit-name
@@ -57,38 +57,38 @@ A nested directory structure representing the following,each separated by a colo
 ```
 ##### Input Type
 
-Used to specify the type of input documents for flintbit. Valid input document types :
+Used to specify the type of input documents for a Flintbit. Valid input document types are :
 
 * JSON ( application/json )
 * XML ( application/xml )
 
 ##### Timeout
 
-Used to specify the timeout for a flintbit's execution in a synchronous mode. Default timeout is 60,000ms.
+Used to specify the timeout for a Flintbit's execution in a synchronous mode. Default timeout is 60,000 ms.
 
 ##### Input( XML/JSON )
 
-Used to specify a JSON Object in case of JSON type input document or a XML document in case of XML type input document. The data given is nothing but the input to your flintbit.
+Used to specify a JSON Object in case of JSON type input document or a XML document in case of XML type input document. The data in these documents are actual inputs to your Flintbits.
 
 ![tod-run-flintbit](tod-run-flintbit.png)
 
 <br>
 ### Output
 
-Here, you can view a well structured response of your flintbit. All the parameters of the response stand out with their corresponding values eliminating the need to go through the minified version of the response. Response parameters separated out perfectly you can study values which are a matterof importance to you.
+Here, you can view a well structured response of your Flintbit. All the parameters of the response stand out with their corresponding values. Parameters are separated out perfectly so you can study values which are significant to your debugging.
 
 ![tod-output](tod-output.png)
 
 <br>
 ### Raw
 
-The raw view is just a big text area with the flintbit response body. A minified version of the JSON Object or XML document will be displayed depending on the type of input supplied.
+The raw view is just a big text area with the Flintbit response body. A minified version of the JSON Object or XML document will be displayed depending on the type of input supplied.
 
 ![tod-raw](tod-raw.png)
 
 <br>
 ### Logs
 
-Logs will help you walk-through your workflow. With various logging levels and all possible errors captured Flint's logging will surely help you learn the workflow and debug application error if any. It is a good practice to start logs before running any flintbit.
+Logs will help you walk-through your Flintbit processing in detail. With various logging levels and all possible errors captured, Flint's logging will make it easy to debug, identify and resolve errors/failures. It is a good practice to start logs before running any Flintbit.
 
 ![tod-logs](tod-logs.png)
