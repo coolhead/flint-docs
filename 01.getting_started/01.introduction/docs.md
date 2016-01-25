@@ -22,5 +22,5 @@ And many more ...
 
 #### Flint Position in IT Environment
 
-![Flint_Positioning](flint_positioning.png)
+![flint_Positioning](flint_positioning.png)
 
