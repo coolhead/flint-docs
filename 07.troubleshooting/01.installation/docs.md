@@ -4,54 +4,48 @@ taxonomy:
     category: docs
 ---
 
-Lorem markdownum voces. Adire nant ingreditur quam evadere dixit caelestum
-meliora. Induitur videndi Timoli videres et *quae*, niteant.
+## Troubleshooting Installation Issues
 
-    if (cyberspace + superscalarBacklink) {
-        language_raw *= 78;
-        caps -= dot_vga;
-    } else {
-        nntpPingPoint(chip(ip_fsb, boxRepeater, art));
-        manetRgbHeader /= backside;
-    }
-    if (dvd(16, ide_blacklist)) {
-        nodeTftpPpga = -5;
-        mips.aiffTCodec *= compiler_target_bus;
-    }
-    var eup = native_page_utility;
-    if (software) {
-        progressive *= superscalar_bot_script;
-        regularScroll = internetRayBlu;
-    }
-    progressive_compression_ipv = freewarePrebindingRoom(newsgroup);
+###Runtime Problems
+#### Error message
 
-In *nubes pallor potuit* non, parenti auctorem urbis. Viderat at quicquam
-piscator nunc prosunt ponit.
+```
+ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.
+```
+ 
+#### Error Cause
 
-## Fecere conplexa et utque et habetur iacentia
+The following error is displayed on command line while starting Flint, if JDK bin directory is not on your PATH.Ensure that JAVA_HOME environment variable is set pointing to your jdk installation directory.
 
-Haud rotarum, et hospes et est, remittit tecta. Defecerat mille, perit *tale
-Laomedonque* austri, scissaque incumbens prisci ferunt [ibi cumque
-horror](http://example.com/) gravis.
+To ensure you can run :
 
-1. Accipit fraterno quantum dicit
-2. Sparsit et tanget in coniunx putares oravit
-3. Fuit et flumina
-4. Inprudens coloque
+```
+echo $JAVA_HOME
+```
 
-## Sentiet etiam
+ 
+If the above command executions results are not pointing to the jdk installation directory continue reading.
 
-In carmen, et quod, satiata, corpore semper mando; murum este *memores*. Si
-felicia paratu voluit, nova illa tamen hanc et pressa caeli Hippolytus tinxit,
-cunctis.
+Depending on the type of shell used, to set the variable refer Set JAVA_HOME on a UNIX System.
+You can also refer to the solution given below.
 
-Nitido arcisque nisi dedisse? Est atque ferasque Aeneas! Auro acui laedere, sed
-vertit quoque, adde nec!
+Solution
 
-Et qua quem, **verba** citus ero favorem, spectare tam, aureae Echionio facti
-virginis nullo. Auras cura tantum, una ibat tecta, mihi erit.
+Set JAVA_HOME environmental variable pointing to java installation.
 
-Igitur increpat ululavit capulo: inmenso [moriturae](http://seenly.com/)
-artifices Sidonis loricamque regebat iustius: repetam more labores datae!
-Praeterque truncus face: parte et vestram Aethiopum signum Pelasgi figurae
-nostroque.
+````
+export JAVA_HOME=jdk-install-dir
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+Ensure that JAVA_HOME is set. Just run
+
+```
+echo $JAVA_HOME
+```
+
+The above command executions results will now point to the jdk installation directory.
+
+You can continue starting Flint.
