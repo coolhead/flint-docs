@@ -62,14 +62,14 @@ This is used to specify the type of input documents for a Flintbit. Valid input 
 
 ##### Timeout
 
-Used to specify the timeout for a Flintbit's execution in a synchronous mode. Default timeout is 60,000 ms.
+This is used to specify the timeout for a Flintbit's execution in a synchronous mode. Default timeout is 60,000 ms.
 
 ##### Input( XML/JSON )
 
 This is used to specify:
 
 - a JSON Object in case of JSON type input document
-- a XML document in case of XML type input document. 
+- a XML document in case of XML type input document
 
 The data in these documents are actual inputs to your Flintbits.
 
@@ -78,20 +78,20 @@ The data in these documents are actual inputs to your Flintbits.
 <br>
 ### Output
 
-Here, you can view a well structured response of your Flintbit. All the parameters of the response stand out with their corresponding values. Parameters are separated out perfectly so you can study values which are significant to your debugging.
+Here, you can view a well structured response of your Flintbit execution. All the parameters of the response stand out with their corresponding values. Parameters are separated out perfectly so you can study values which are significant to your debugging.
 
 ![tod-output](tod-output.png)
 
 <br>
 ### Raw
 
-The raw view is just a big text area with the Flintbit response body. A minified version of the JSON Object or XML document will be displayed depending on the type of input supplied.
+The raw view is just a big text area with the Flintbit response body. A minified version of the JSON Object or XML document will be displayed depending on the type of input provided.
 
 ![tod-raw](tod-raw.png)
 
 <br>
 ### Logs
 
-Logs will help you walk-through your Flintbit processing in detail. With various logging levels and all possible errors captured, Flint's logging will make it easy to debug, identify and resolve errors/failures. It is a good practice to start logs before running any Flintbit.
+Logs will help you walk-through your Flintbit processing in detail. With various logging levels and all possible errors captured, Flint's logging makes it easy to debug, identify and resolve errors/failures. It is a good practice to start logs before running any Flintbit.
 
 ![tod-logs](tod-logs.png)
