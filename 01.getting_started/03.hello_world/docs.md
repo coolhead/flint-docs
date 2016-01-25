@@ -37,7 +37,6 @@ $ cd flintbox
 $ mkdir mybox
 ```
 
->>>>> Newly created Flintbox will also appear on Flint Console after the Git repository for 'mybox' is configured. For this, refer sections Git repository for Flintbox and Configure Flintbox with Flint in this document.
 
 ## Create your first Flintbit
 
