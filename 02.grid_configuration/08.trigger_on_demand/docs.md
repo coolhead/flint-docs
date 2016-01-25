@@ -90,6 +90,6 @@ The raw view is just a big text area with the flintbit response body. A minified
 <br>
 ### Logs
 
-Logs will help you walk through your workflow. With various logging levels and all possible errors captured Flint's logging will surely help you learn the workflow and debug application error if any. Its a good practice to start logs before running any flintbit.
+Logs will help you walk-through your workflow. With various logging levels and all possible errors captured Flint's logging will surely help you learn the workflow and debug application error if any. It is a good practice to start logs before running any flintbit.
 
 ![tod-logs](tod-logs.png)
