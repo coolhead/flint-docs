@@ -24,7 +24,7 @@ Displays the number of flintboxes which are configured with Flint. Flint provide
 
 ### Connectors
 
-Displays the number of Connectors which are configured with Flint. Flint provides you with almost 7 connectors - SMTP, HTTP, SSH, File, Database, Amazon-EC2 and Windows which will not only help you integrate with a wide variety of external systems but also with applications on Cloud.
+Displays the number of Connectors which are configured with Flint.
 
 
 ### Listeners
