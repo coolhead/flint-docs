@@ -7,7 +7,9 @@ process:
 ---
 
 
-Flint's TOD (Trigger on Demand) is a user interface that provides the capability to trigger and debug Flintbit executions. Depending on the workflow, necessary inputs can be provided to Flintbits which help interact with connectors or listeners. Thus, running a Flintbit from TOD will not only trigger the workflow but also help us observe the response for the same with appropriate logs.
+Flint's TOD (Trigger on Demand) is an user interface that provides the capability to trigger and debug Flintbit executions. Depending on the workflow, necessary inputs are provided to Flintbits which then interact with connectors/listeners. 
+
+Thus, running a Flintbit from TOD will not only trigger the workflow but also help us observe the response for the same with appropriate logs.
 
 Trigger On Demand is all about - Running a Flintbit, displaying output of a Flintbit in its well structured raw form and monitoring logs.
 
@@ -24,7 +26,7 @@ Similar to connectors/listeners, Flintbits also, can be executed in a synchronou
 
 ##### Name
 
-This field is the Flintbit name along with the Flintbox name in whcih it resides. All the Flintboxes by default reside in the Flintbox directory. Naming convention is as followed :
+This field is the Flintbit name along with the Flintbox name in which it resides. By default, all the Flintbits reside in the Flintbox directory. Naming convention is as followed :
 
 ```
 flintbox-name:flintbit-name
@@ -32,22 +34,18 @@ flintbox-name:flintbit-name
 
 where, a **colon ( : )** represents the path change.
 
-##### Example
-
-Generally ( a non-nested directory structure ),
+For example, a non-nested directory structure looks like:
 
 ``` http
 example:hello.rb  
 ```
-where, a colon ( : ) represents the path change.
-
-In case of a nested directory structure,
+Whereas, a nested directory structure looks like:
 
 ``` http
 http:my-requests:http_get.rb
 ```
 
-A nested directory structure representing the following,each separated by a colon ( : ) :
+A nested directory structure representing the following, each separated by a colon ( : ) :
 
 ```
 -flintbox
@@ -57,7 +55,7 @@ A nested directory structure representing the following,each separated by a colo
 ```
 ##### Input Type
 
-Used to specify the type of input documents for a Flintbit. Valid input document types are :
+This is used to specify the type of input documents for a Flintbit. Valid input document types are :
 
 * JSON ( application/json )
 * XML ( application/xml )
@@ -68,7 +66,12 @@ Used to specify the timeout for a Flintbit's execution in a synchronous mode. De
 
 ##### Input( XML/JSON )
 
-Used to specify a JSON Object in case of JSON type input document or a XML document in case of XML type input document. The data in these documents are actual inputs to your Flintbits.
+This is used to specify:
+
+- a JSON Object in case of JSON type input document
+- a XML document in case of XML type input document. 
+
+The data in these documents are actual inputs to your Flintbits.
 
 ![tod-run-flintbit](tod-run-flintbit.png)
 
