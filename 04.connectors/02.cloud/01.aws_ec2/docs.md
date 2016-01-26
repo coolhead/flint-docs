@@ -753,14 +753,14 @@ Describe tags on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("resource-id",aws_resource_id)
-                    .set("resource-type",aws_resource_type)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","describe-tags")
+                    .set("resource-id","i-1a2b3cd")
+                    .set("resource-type","instance")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
