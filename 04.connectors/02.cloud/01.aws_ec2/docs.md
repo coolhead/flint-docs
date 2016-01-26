@@ -68,19 +68,19 @@ Create Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(connector_name)
-                    .set("action",aws_action)
-                    .set("image-id",aws_image_id)
-                    .set("instance-type",aws_instance_type)
-                    .set("min-instance",aws_min_instance)
-                    .set("max-instance",aws_max_instance)
-                    .set("region",aws_region)
-                    .set("availability-zone",aws_availability_zone)
-                    .set("key-name",aws_key_name)
-                    .set("subnet-id",aws_subnet_id)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","create-instance")
+                    .set("image-id","ami-dc1c2b8e")
+                    .set("instance-type","t2.micro")
+                    .set("min-instance",1)
+                    .set("max-instance",1)
+                    .set("region","us-east-1")
+                    .set("availability-zone","us-east-1a")
+                    .set("key-name","flint-test")
+                    .set("subnet-id","subnet-4d3c2b1a")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -118,13 +118,13 @@ Start Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance_id",aws_instance_id)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","start-instances")
+                    .set("instance_id","i-1a2b3cd")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -161,15 +161,14 @@ Stop Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance_id",aws_instance_id)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","stop-instances")
+                    .set("instance_id","i-1a2b3cd")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
-
 #Amazon EC2 Connector Response Meta Parameters
 response_exitcode = response.exitcode               #Exit status code
 response_message = response.message                 #Execution status messages
@@ -205,13 +204,13 @@ Terminate Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance_id",aws_instance_id)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","terminate-instances")
+                    .set("instance_id","i-1a2b3cd")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -248,13 +247,13 @@ Reboot Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance_id",aws_instance_id)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","reboot-instances")
+                    .set("instance_id","i-1a2b3cd")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
                     
 
@@ -290,13 +289,13 @@ Describe Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance_id",aws_instance_id)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","describe-instances")
+                    .set("instance_id","i-1a2b3cd")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
                     
 
@@ -355,12 +354,12 @@ List Instance on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
- response = @call.connector(connector_name)
-                    .set("action",action)
-                    .set("region",region)
-                    .set("security-key",security_key)
-                    .set("access-key",access_key)
-                    .timeout(request_timeout)
+ response = @call.connector("amazon-ec2")
+                    .set("action","list")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
                     
 #Amazon EC2 Connector Response Meta Parameters
@@ -397,14 +396,14 @@ Create security group on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
- response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("region",aws_region)
-                    .set("group-name",aws_group_name)
-                    .set("group-description",aws_group_description)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+ response = @call.connector("amazon-ec2")
+                    .set("action","create-security-group")
+                    .set("region","us-east-1")
+                    .set("group-name","flint-group")
+                    .set("group-description","flint security group")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -435,13 +434,13 @@ Describe security group on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("region",aws_region)
-                    .set("group-name",aws_group_name)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","describe-security-group")
+                    .set("region","us-east-1")
+                    .set("group-name","flint-group")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -481,13 +480,13 @@ Delete security group on AWS-EC2 from given details.
 ##### Example
 ``` ruby
 
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("region",aws_region)
-                    .set("group-name",aws_group_name)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","delete-security-group")
+                    .set("region","us-east-1")
+                    .set("group-name","flint-group")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -514,12 +513,12 @@ Allocate address on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(connector_name)
-                    .set("action",action)
-                    .set("region",region)
-                    .set("security-key",security_key)
-                    .set("access-key",access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","allocate-address")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 
@@ -548,13 +547,13 @@ Release address on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("public-ip",aws_public_ip)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","release-address")
+                    .set("public-ip","52.73.64.13")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -579,14 +578,14 @@ Associate address on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("instance-id",aws_instance_id)
-                    .set("public-ip",aws_public_ip)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","associate-address")
+                    .set("instance-id","i-1a2b3cd")
+                    .set("public-ip","52.73.64.13")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -611,13 +610,13 @@ Disassociate address on AWS-EC2 from given details.
 ##### Example
 ``` ruby
 
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("public-ip",aws_public_ip)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","disassociate-address")
+                    .set("public-ip","52.73.64.13")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -645,13 +644,13 @@ Describe address on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("public-ip",aws_public_ip)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","describe-addresses")
+                    .set("public-ip","52.73.64.13")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -679,15 +678,15 @@ Create tags AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("resource-id",aws_resource_id)
-                    .set("tag-key",aws_tag_key)
-                    .set("tag-value",aws_tag_value)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","create-tags")
+                    .set("resource-id","i-1a2b3cd")
+                    .set("tag-key","name")
+                    .set("tag-value","flint-vm")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 
@@ -713,15 +712,15 @@ Delete tags on AWS-EC2 from given details.
 
 ##### Example
 ``` ruby
-response = @call.connector(aws_connector_name)
-                    .set("action",aws_action)
-                    .set("resource-id",aws_resource_id)
-                    .set("tag-key",aws_tag_key)
-                    .set("tag-value",aws_tag_value)
-                    .set("region",aws_region)
-                    .set("security-key",aws_security_key)
-                    .set("access-key",aws_access_key)
-                    .timeout(request_timeout)
+response = @call.connector("amazon-ec2")
+                    .set("action","delete-tags")
+                    .set("resource-id","i-1a2b3cd")
+                    .set("tag-key","name")
+                    .set("tag-value","flint-vm")
+                    .set("region","us-east-1")
+                    .set("security-key","i2+pesMfdgfdgasdfqwegfdddfg6Qo+fgfdgeHKfdgdfgH0mev")
+                    .set("access-key","BQBIJKQHGGHHGF3KL5SGQ")
+                    .timeout(120000)
                     .sync
 
 #Amazon EC2 Connector Response Meta Parameters
@@ -747,6 +746,11 @@ Describe tags on AWS-EC2 from given details.
 | access-key | Specifies the credentials for signing the connector request | false |
 | security-key | Specifies the credentials for signing the connector request | false |
 
+##### Response parameters
+| Parameter | Description  |
+| ------ | ----------- |
+| tag-set | set of resource tags of amazon EC2 account |
+
 ##### Example
 ``` ruby
 response = @call.connector(aws_connector_name)
@@ -763,8 +767,8 @@ response = @call.connector(aws_connector_name)
 response_exitcode = response.exitcode        #Exit status code
 response_message = response.message          #Execution status messages
 
+tags_set = response.get("tag-set")	#set of resource tags of amazon EC2 account
 ```
-
 
 ## Connector request error handling
 This is how success or failures can be handled for the connector requests within your Flintbit. This would help to take appropriate action if something failed.
