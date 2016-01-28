@@ -63,12 +63,12 @@ response  | Response Body, with domain name and id | true
 ```ruby
 response = @call.connector("softlayer_connector_name")
                 .set("action","create")
-                    .set("host-name","myhostname")
-                    .set("domain-name","http://example.com/")
-                  .set("cpu",1)
-                  .set("max-memory",1024)
+                .set("host-name","myhostname")
+                .set("domain-name","http://example.com/")
+                .set("cpu",1)
+                .set("max-memory",1024)
                 .set("datacenter","ams01")
-                  .set("opearting-system","UBUNTU_LATEST")
+                .set("opearting-system","UBUNTU_LATEST")
                 .set("apikey","a23dgn5nmk247gbn85sdebg")
                 .set("username","rt784375")
                 .sync
@@ -98,11 +98,11 @@ response  | Response Body, with operation status. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","start")
-                  .set("id",14580)
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","start")
+                .set("id",14580)
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("response")  #Response Result, with operation status.
 ```
@@ -130,11 +130,11 @@ response  | Response Body, with operation status. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","stop")
-                  .set("id",14580)
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","stop")
+                .set("id",14580)
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("response")  #Response Result, with operation status.
 ```
@@ -162,11 +162,11 @@ response  | Response Body, with operation status. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","reboot")
-                  .set("id",14580)
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","reboot")
+                .set("id",14580)
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("response")  #Response Result, with operation status.
 ```
@@ -194,11 +194,11 @@ response  | Response Body, with operation status. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","reboot")
-                  .set("id",14580)
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","reboot")
+                .set("id",14580)
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("response")  #Response Result, with operation status.
 ```
@@ -225,10 +225,10 @@ response  | Response Body, with available instances. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","list")
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","list")
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("response")  #Response Result, with available instances.
 ```
@@ -256,11 +256,11 @@ vm-details | Response Body, with instance detail. | true
 ```ruby
 
 response = @call.connector("softlayer_connector_name")
-                  .set("action","details")
-                  .set("id",14580)
-                  .set("apikey","a23dgn5nmk247gbn85sdebg")
-                  .set("username","rt784375")
-                  .sync
+                .set("action","details")
+                .set("id",14580)
+                .set("apikey","a23dgn5nmk247gbn85sdebg")
+                .set("username","rt784375")
+                .sync
 
 ticket_content = response.get("vm-details")  #Response Result, with available instances.
 ```
