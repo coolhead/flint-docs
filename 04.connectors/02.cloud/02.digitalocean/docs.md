@@ -80,7 +80,7 @@ ticket_content = response.get("response")  #Response Result, Array of droplets a
 ```
 
 ### create
-Create an issue.
+Create a droplet on DigitalOcean.
 
 ##### Request parameters
 | Parameter | Description | required |

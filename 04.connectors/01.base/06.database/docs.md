@@ -10,7 +10,7 @@ With Flint's DB Connector you can execute queries against the mostly used databa
 With this document guide you will be able to work with and use a DB Connector.
 
 ## Features
-+ Query all popular databases : MySQL, MS SQL, Oracle and PostgreSQL
++ Query all popular databases : MySQL, Microsoft SQL, Oracle and PostgreSQL
 + Simple DB queries : select, insert, update, delete and procedure
 + Databases with/without passwords accessible
 + Direct access to the query execution results from the remote server machine
@@ -26,7 +26,7 @@ With this document guide you will be able to work with and use a DB Connector.
 | Parameter | Description | Required |
 | -------- | ------------ |
 | database | The data source. Name of the database on which actions have to be performed | true: config/requrest |
-| type | Type of Database. Valid types : mysql, postgresql, ms sql and oracle | true: config/request |
+| type | Type of Database. Valid types : mysql, postgresql, Microsoft SQL and oracle | true: config/request |
 | target | Host name or IP address of the server on which the database resides | true: config/request |
 | port | Port number on which the target server is listening | true: config/request |
 | driver | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver | true: config/request |
@@ -59,7 +59,7 @@ Retrieving data from the database.
 | database | Basically, is the data source. Name of the database on which actions have to be performed. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | target |Host name or IP address of the server on which the database resides |true |
 | driver |Specify the query that you want to performed on the database | true |
-| type |Type of Database. Valid types : mysql, postgresql, ms sql and oracle. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
+| type |Type of Database. Valid types : mysql, postgresql, Microsoft SQL and oracle. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | port |Port number on which the target server is listening. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | query | Name of the driver depending on the type of database specified. For example : for a database type of mysql the driver name is com.mysql.jdbc.Driver. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration | true |
 | username | Username associated with the database. Not required, if already specified in connector configuration. If specified will overwrite the one given in connector configuration  | true |
