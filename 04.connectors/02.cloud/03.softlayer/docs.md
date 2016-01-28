@@ -4,7 +4,7 @@ taxonomy:
   category: docs
 ---
 
-# IBM Softlayer Connector
+##Softlayer Connector
 SoftLayer gives you the highest performing cloud infrastructure available. One platform that takes data centers around the world that are full of the widest range of cloud computing options, and then integrates and automates everything.
 
 With this document guide you will be able to work with and use a SoftLayer Connector. While you start configuring the connector, this document will guide you through SoftLayer Connector request and response parameters.
