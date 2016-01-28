@@ -162,7 +162,7 @@ Stop droplet.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, Data related to action status performed on droplet i.e. stop | true |
 
 ##### Example
 ``` ruby
@@ -189,7 +189,7 @@ Reboot droplet.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, Data related to action status performed on droplet i.e. reboot | true |
 
 ##### Example
 ``` ruby
@@ -216,7 +216,7 @@ Reset droplet.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, Data related to action status performed on droplet i.e. reset | true |
 
 ##### Example
 ``` ruby
@@ -243,7 +243,7 @@ Show an individual droplet.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, Data related to droplet | true |
 
 ##### Example
 ``` ruby
@@ -270,7 +270,7 @@ Delete a droplet.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, with action detail | true |
 
 ##### Example
 ``` ruby
@@ -298,7 +298,7 @@ retrieve a Droplet action.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, Data related to action | true |
 
 ##### Example
 ``` ruby
@@ -325,7 +325,7 @@ List all of the regions that are available.
 ##### Response parameters
 | Parameter | Description | required |
 | ------ | ----------- |
-| response | Response Body, Data related to issue | true |
+| response | Response Body, with list of available regions | true |
 
 ##### Example
 ``` ruby
