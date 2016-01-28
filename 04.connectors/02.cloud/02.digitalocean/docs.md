@@ -111,7 +111,7 @@ response = @call.connector("digitalocean_connector_name")
                 .set("name","example.com")
                 .set("region","nyc3")
                 .set("size","512mb")
-                .set("image","ubuntu-14-04-x64",
+                .set("image","ubuntu-14-04-x64")
                 .set("ssh_keys",null)
                 .set("backups",false)
                 .set("ipv6",false)
