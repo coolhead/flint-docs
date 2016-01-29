@@ -35,6 +35,7 @@ With this document guide you will be able to work with and use a MQTT Connector.
 | topic | Delivers a message to the server on topic | true: config/request |
 | qos | Sets the quality of service for this message, default is 2. | false: config/request |
 
+
 ##### Example
 ``` json
 {
@@ -47,8 +48,39 @@ With this document guide you will be able to work with and use a MQTT Connector.
 }
 ```
 
+## Connector Configuration for aws IoT
+
+![mqtt_aws_iot](mqtt-iot-connector.png)
+
+##### Configuration parameters for AWS IoT- config(JSON)
+| Parameter | Description | Required |
+| ------ | ----------- |
+| broker | Broker specifies the address of a server that the client may connect. | true: config/request |
+| client-id | A client identifier client-id, It must be unique across all clients connecting to the same server. | true: config/request |
+| topic | Delivers a message to the server on topic | true: config/request |
+| qos | Sets the quality of service for this message, default is 2. | true: config/request |
+| root-ca-crt | Absolute file Path of root-CA.crt Certificate | false: config/Required when want to connect to AWS IoT Thing |
+| certificate | Absolute file Path of x.509 Certificate | false: Required when want to connect to AWS IoT Thing |
+| private-key | Absolute file Path of Private Key | false: Required when want to connect to AWS IoT Thing |
+| use-certificate | Set it true when you want to authenticate using certificate files, otherwise set it false, Default value is false. | true:config/request |
+
+##### Example for AWS IoT
+``` json
+{
+  "broker": "ssl://Z2EBLEZ5JJFGKF.iot.us-east-1.amazonaws.com:8883",
+  "client-id":"thing-name",
+  "topic":"$aws/things/thing-name/shadow/update",
+  "qos": 2,
+  "root-ca-crt":"/home/user/mqtt_certificate/root-CA.crt",
+  "certificate":"/home/user/mqtt_certificate/5363478962-certificate.pem.crt",
+  "private-key":"/home/user/mqtt_certificate/5363478962-private.pem.key",
+  "use-certificate":true
+}
+```
+
+
 ## Actions
-### [Send Message]
+### send
 Send message on MQTT topic
 
 ##### Request parameters
@@ -88,6 +120,27 @@ response=@call.connector("my-mqtt-connector")
                          .set("topic","flint_mqtt")
                          .set("qos",2)
                          .sync
+
+#MQTT Connector Response Meta Parameters
+response_exitcode=response.exitcode            #Exit status code
+response_message=response.message              #Execution status messages
+
+```
+
+##### Example for AWS IoT
+
+``` ruby
+response=@call.connector("my-mqtt-connector")
+				.set("action","send")
+				.set("broker","ssl://Z2EBLEZ5JJFGKF.iot.us-east-1.amazonaws.com:8883")
+				.set("root-ca-crt","/home/user/mqtt_certificate/root-CA.crt")
+				.set("certificate","/home/user/mqtt_certificate/5363478962-certificate.pem.crt")
+				.set("private-key","/home/user/mqtt_certificate/5363478962-private.pem.key")
+				.set("client-id","thing-name") 
+				.set("topic","$aws/things/thing-name/shadow/update")
+				.set("qos",1)
+				.set("content","{\"state\":{\"reported\":{\"color\":{\"r\":255,\"g\":255}}}}")
+				.sync
 
 #MQTT Connector Response Meta Parameters
 response_exitcode=response.exitcode            #Exit status code
